@@ -1,0 +1,5 @@
+Among prime numbers that do not exceed N, find one whose binary representation has the maximum number of units.
+
+/*
+Серед простих чисел, що не перевищують N, знайти таке, у двійковому представленні якого максимальна кількість одиниць.
+*/

@@ -1,0 +1,29 @@
+2 files are specified:
+dictionary.txt - each line is a word and a numerical word value
+apple 20
+book 30
+picture 22
+text.txt - each line is a set of words
+apple book
+picture
+book picture
+wages
+Display the amount of words for each line of the second file.
+If it does not have the word in the first file, its value is 0.
+For example, for the file above print: 50 22 52 0
+
+/*
+Задано 2 файли:
+dictionary.txt – кожний рядок слово і числове значення слова
+	apple 20
+	book 30
+	picture 22
+text.txt – кожний рядок набір слів
+	apple book
+	picture
+	book picture
+	plate
+Вивести на екран суму значення слів для кожного рядка другого файлу.
+Якщо слова не має у першому файлі, то його значення 0.
+Наприклад для файлу вище вивести: 50 22 52 0
+*/

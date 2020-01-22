@@ -1,0 +1,9 @@
+Implement work with large integers. The program asks the user to enter 2 big numbers
+(you can enter a negative number, the program interprets the entered string of numbers
+and stores it in some representation (for example, in an array).
+
+/*
+Виконайте роботу з великими цілими числами. Програма просить користувача ввести 2 великі числа
+(Ви можете ввести від'ємне число, програма інтерпретує введений рядок чисел
+і зберігає його в деякому поданні (наприклад, у масиві).
+*/
