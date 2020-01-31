@@ -32,4 +32,10 @@ void addToFile(string path, Train train) {
     file.close();
 }
 
+void addVectorToFile(string path, vector<Train> trains) {
+    for (int i = 0; i < trains.size(); i++) {
+        addToFile(path, trains[i]);
+    }
+}
+
 #endif

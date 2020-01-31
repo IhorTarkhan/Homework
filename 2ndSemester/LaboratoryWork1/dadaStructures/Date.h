@@ -12,17 +12,18 @@ struct Date {
     int month;
     int yar;
 
-    Date(int minute, int hour, int day, int month, int yar) {
-        if (minute < 0 || minute >= 60)
-            throw invalid_argument("incorrect minutes");
-
-        if (minute < 0 || hour >= 24)
+    Date(int hour, int minute, int day, int month, int yar) {
+        if (hour < 0 || hour >= 24)
             throw invalid_argument("incorrect hours");
 
-        if (minute < 0 || day >= 32)
+        if (minute < 0 || minute >= 60) {
+            throw invalid_argument("incorrect minutes");
+        }
+
+        if (day < 0 || day >= 32)
             throw invalid_argument("incorrect days");
 
-        if (minute < 0 || month >= 12)
+        if (month < 0 || month > 12)
             throw invalid_argument("incorrect months");
 
         if (yar < 1804)
