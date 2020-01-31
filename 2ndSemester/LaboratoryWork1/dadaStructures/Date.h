@@ -26,7 +26,7 @@ struct Date {
             throw invalid_argument("incorrect months");
 
         if (yar < 1804)
-            throw invalid_argument("trains don't exist yet");
+            throw invalid_argument("trains don't exist yet, they started do in 1804");
 
         this->minute = minute;
         this->hour = hour;
