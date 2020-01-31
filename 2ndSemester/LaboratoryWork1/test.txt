@@ -1,0 +1,1 @@
+id:0 number:0001 optionalName:myName destination:3 arrive:0:0 0/0/1900 departure:1:1 1/1/1991 rate:1 

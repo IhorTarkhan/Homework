@@ -1,0 +1,11 @@
+#ifndef HOMEWORK_DESTINATIONENUM_H
+#define HOMEWORK_DESTINATIONENUM_H
+
+enum Destination {
+    INTERNATIONAL,
+    FAST,
+    SIMPLE,
+    NEARCITY
+};
+
+#endif
