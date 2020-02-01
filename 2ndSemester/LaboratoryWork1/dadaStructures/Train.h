@@ -35,7 +35,7 @@ public:
     string getInText() {
         string textToSave = NUMBER + this->number + "\n" +
                             OPTIONAL_NAME + this->optionalName + "\n" +
-                            DESTINATION + to_string(this->destination) + "\n" +
+                            DESTINATION + DestinationMap[this->destination] + "\n" +
                             ARRIVE + this->arrive.getInText() + "\n" +
                             DEPARTURE + this->departure.getInText() + "\n" +
                             RATE + to_string(this->rate) + "\n";

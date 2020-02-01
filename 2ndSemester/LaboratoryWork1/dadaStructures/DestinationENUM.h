@@ -6,3 +6,5 @@ enum Destination {
     SIMPLE,
     NEARCITY
 };
+
+const std::string DestinationMap[] = {"INTERNATIONAL", "FAST", "SIMPLE", "NEARCITY"};
