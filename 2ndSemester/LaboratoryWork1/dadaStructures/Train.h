@@ -2,7 +2,7 @@
 
 #include "Date.h"
 #include "DestinationENUM.h"
-#include "../saveTo/textFile/SaveConstants.h"
+#include "../saveTo/textFile/Constants.h"
 
 class Train {
 public:
@@ -32,12 +32,12 @@ public:
         this->rate = rate;
     }
 
-    string getTextToSave() {
+    string getInText() {
         string textToSave = NUMBER + this->number + "\n" +
                             OPTIONAL_NAME + this->optionalName + "\n" +
                             DESTINATION + to_string(this->destination) + "\n" +
-                            ARRIVE + this->arrive.getTextToSave() + "\n" +
-                            DEPARTURE + this->departure.getTextToSave() + "\n" +
+                            ARRIVE + this->arrive.getInText() + "\n" +
+                            DEPARTURE + this->departure.getInText() + "\n" +
                             RATE + to_string(this->rate) + "\n";
         return textToSave;
     }

@@ -35,7 +35,7 @@ struct Date {
         this->yar = yar;
     }
 
-    string getTextToSave() {
+    string getInText() {
         return to_string(hour) + ":" + to_string(minute) + " "
                + to_string(day) + "/" + to_string(month) + "/" + to_string(yar);
     }

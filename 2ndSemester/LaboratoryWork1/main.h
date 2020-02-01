@@ -13,5 +13,7 @@ int main_Lab_2_1() {
     saveTrainToMemory(train1);
     saveTrainToMemory(train2);
 
+    saveTrainToText(train1);
+
     saveMemoryToText();
 }
