@@ -1,5 +1,7 @@
 #pragma once
 
+#include "vector"
+
 enum Destination {
     INTERNATIONAL,
     FAST,
@@ -7,4 +9,4 @@ enum Destination {
     NEARCITY
 };
 
-const std::string DestinationMap[] = {"INTERNATIONAL", "FAST", "SIMPLE", "NEARCITY"};
+const vector<string> DestinationMap = {"INTERNATIONAL", "FAST", "SIMPLE", "NEARCITY"};
