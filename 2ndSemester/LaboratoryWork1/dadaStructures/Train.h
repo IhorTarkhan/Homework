@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Date.h"
 #include "DestinationENUM.h"
+#include "SaveToFileCONSTANTS.h"
 
 class Train {
 public:
@@ -31,6 +32,16 @@ public:
         this->arrive = arrive;
         this->departure = departure;
         this->rate = rate;
+    }
+
+    string getTextToSave() {
+        string textToSave = NUMBER + this->number + "\n" +
+                            OPTIONAL_NAME + this->optionalName + "\n" +
+                            DESTINATION + to_string(this->destination) + "\n" +
+                            ARRIVE + this->arrive.toString() + "\n" +
+                            DEPARTURE + this->departure.toString() + "\n" +
+                            RATE + to_string(this->rate) + "\n";
+        return textToSave;
     }
 };
 

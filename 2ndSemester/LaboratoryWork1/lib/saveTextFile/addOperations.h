@@ -1,9 +1,9 @@
-#ifndef HOMEWORK_DATABASE_H
-#define HOMEWORK_DATABASE_H
+#ifndef HOMEWORK_ADDOPERATIONS_H
+#define HOMEWORK_ADDOPERATIONS_H
 
 #include <fstream>
-#include "../dadaStructures/Train.h"
-#include "../dadaStructures/SaveToFileCONSTANTS.h"
+#include "../../dadaStructures/Train.h"
+#include "../../dadaStructures/SaveToFileCONSTANTS.h"
 
 int getMaxID(string path) {
     int maxID = 0;
@@ -21,21 +21,19 @@ int getMaxID(string path) {
 void addToFile(string path, Train train) {
     int maxID = getMaxID(path);
     ofstream file(path, ios_base::app);
-    file << ID << ++maxID << endl;
-    file << NUMBER << train.number << endl;
-    file << OPTIONAL_NAME << train.optionalName << endl;
-    file << DESTINATION << train.destination << endl;
-    file << ARRIVE << train.arrive.toString() << endl;
-    file << DEPARTURE << train.departure.toString() << endl;
-    file << RATE << train.rate << endl;
-    file << endl;
+    string textToSave = ID + to_string(++maxID) + "\n" + train.getTextToSave() + "\n";
+    file << textToSave;
     file.close();
 }
 
 void addVectorToFile(string path, vector<Train> trains) {
+    int maxID = getMaxID(path);
+    ofstream file(path, ios_base::app);
     for (int i = 0; i < trains.size(); i++) {
-        addToFile(path, trains[i]);
+        string textToSave = ID + to_string(++maxID) + "\n" + trains[i].getTextToSave() + "\n";
+        file << textToSave;
     }
+    file.close();
 }
 
 #endif

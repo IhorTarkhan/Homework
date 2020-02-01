@@ -1,8 +1,7 @@
 #include <iostream>
 #include "dadaStructures/Train.h"
 #include "dadaStructures/SaveToFileCONSTANTS.h"
-#include "lib/DataBase.h"
-#include <fstream>
+#include "lib/saveTextFile/addOperations.h"
 
 int main_Lab_2_1() {
     vector<Train> trains;
