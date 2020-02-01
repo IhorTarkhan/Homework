@@ -1,5 +1,4 @@
-#ifndef HOMEWORK_DESTINATIONENUM_H
-#define HOMEWORK_DESTINATIONENUM_H
+#pragma once
 
 enum Destination {
     INTERNATIONAL,
@@ -7,5 +6,3 @@ enum Destination {
     SIMPLE,
     NEARCITY
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef HOMEWORK_SAVETOFILECONSTANTS_H
-#define HOMEWORK_SAVETOFILECONSTANTS_H
+#pragma once
 
 #include <iostream>
 
@@ -13,4 +12,4 @@ static const string ARRIVE = "arrive:";
 static const string DEPARTURE = "departure:";
 static const string RATE = "rate:";
 
-#endif
+static const string PATH = "../2ndSemester/LaboratoryWork1/DataBase_txt.txt";

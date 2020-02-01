@@ -1,10 +1,8 @@
-#ifndef HOMEWORK_TRAIN_H
-#define HOMEWORK_TRAIN_H
+#pragma once
 
-#include <iostream>
 #include "Date.h"
 #include "DestinationENUM.h"
-#include "SaveToFileCONSTANTS.h"
+#include "../saveTo/textFile/SaveConstants.h"
 
 class Train {
 public:
@@ -15,7 +13,7 @@ public:
     Date departure = Date(0, 0, 0, 0, 1804);
     double rate;
 
-    Train(string number, string optionalName, Destination destination1, Date arrive, Date departure, double rate) {
+    Train(string number, string optionalName, Destination destination, Date arrive, Date departure, double rate) {
         if (number.length() != 4) {
             throw invalid_argument("incorrect Train number");
         }
@@ -28,7 +26,7 @@ public:
 
         this->number = number;
         this->optionalName = optionalName;
-        this->destination = destination1;
+        this->destination = destination;
         this->arrive = arrive;
         this->departure = departure;
         this->rate = rate;
@@ -38,12 +36,9 @@ public:
         string textToSave = NUMBER + this->number + "\n" +
                             OPTIONAL_NAME + this->optionalName + "\n" +
                             DESTINATION + to_string(this->destination) + "\n" +
-                            ARRIVE + this->arrive.toString() + "\n" +
-                            DEPARTURE + this->departure.toString() + "\n" +
+                            ARRIVE + this->arrive.getTextToSave() + "\n" +
+                            DEPARTURE + this->departure.getTextToSave() + "\n" +
                             RATE + to_string(this->rate) + "\n";
         return textToSave;
     }
 };
-
-#endif
-

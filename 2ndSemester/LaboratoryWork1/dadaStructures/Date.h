@@ -1,7 +1,6 @@
-#ifndef HOMEWORK_DATE_H
-#define HOMEWORK_DATE_H
+#pragma once
 
-#include<sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -36,10 +35,8 @@ struct Date {
         this->yar = yar;
     }
 
-    string toString() {
+    string getTextToSave() {
         return to_string(hour) + ":" + to_string(minute) + " "
                + to_string(day) + "/" + to_string(month) + "/" + to_string(yar);
     }
 };
-
-#endif

@@ -8,7 +8,7 @@ that is, some of the seats are empty, or more than 1 - that is, not everyone can
 buy a ticket).
 
 Search criteria:
-Trains with a name ending in a given snippet;
+trains with a name ending in a given snippet;
 trains of a given type with a number in a given range;
 trains with the date and time of departure not previously specified.
 
@@ -23,7 +23,7 @@ trains with the date and time of departure not previously specified.
 придбати квиток).
 
 Критерії пошуку:
-Потяги з назвою, що завершується на заданий фрагмент тексту;
+потяги з назвою, що завершується на заданий фрагмент тексту;
 потяги заданого типу з номером у заданому діапазоні;
 потяги з датою та часом відправлення не раніше заданих.
 */

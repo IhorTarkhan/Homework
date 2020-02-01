@@ -1,22 +1,17 @@
-#include <iostream>
-#include "dadaStructures/Train.h"
-#include "dadaStructures/SaveToFileCONSTANTS.h"
-#include "lib/saveTextFile/addOperations.h"
+#include "saveTo/memory/SaveFunctions.h"
+#include "saveTo/textFile/SaveFunctions.h"
 
 int main_Lab_2_1() {
-    vector<Train> trains;
+    Date arrive_1 = Date(0, 0, 0, 0, 1900);
+    Date departure_1 = Date(1, 1, 1, 1, 1991);
+    Date arrive_2 = Date(14, 29, 5, 12, 1804);
+    Date departure_2 = Date(23, 59, 31, 12, 2019);
 
-    Train train1 = Train("0001", "myName", NEARCITY,
-                         Date(0, 0, 0, 0, 1900),
-                         Date(1, 1, 1, 1, 1991),
-                         1.0);
-    trains.push_back(train1);
+    Train train1 = Train("0001", "myName", NEARCITY, arrive_1, departure_1, 1.0);
+    Train train2 = Train("0020", "yourName", INTERNATIONAL, arrive_2, departure_2, 1.5);
 
-    Train train2 = Train("0020", "yourName", INTERNATIONAL,
-                         Date(14, 29, 5, 12, 1804),
-                         Date(23, 59, 31, 12, 2019),
-                         1.5);
-    trains.push_back(train2);
+    saveTrainToMemory(train1);
+    saveTrainToMemory(train2);
 
-    addVectorToFile("../2ndSemester/LaboratoryWork1/test.txt", trains);
+    saveMemoryToText();
 }
