@@ -25,8 +25,8 @@ struct Date {
         if (month < 0 || month > 12)
             throw invalid_argument("incorrect months");
 
-        if (year < 1804)
-            throw invalid_argument("trains don't exist yet, they started do in 1804");
+        if (year < 0)
+            throw invalid_argument("incorrect year");
 
         this->minute = minute;
         this->hour = hour;

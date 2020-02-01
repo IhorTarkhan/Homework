@@ -1,8 +1,32 @@
-id:1
-number:8765
-optionalName:train56
-destination:NEARCITY
-arrive:4:4 4/4/4444
-departure:5:5 5/5/5555
-rate:6.000000
+id: 1
+number: 4444
+optionalName: 333
+destination: SIMPLE
+arrive: 1:1 1/1/1
+departure: 22:22 22/2/22
+rate: 2.000000
+
+id: 2
+number: 3333
+optionalName: sfw4e
+destination: INTERNATIONAL
+arrive: 4:4 4/4/4
+departure: 5:5 5/5/5
+rate: 5.000000
+
+id: 3
+number: 5555
+optionalName: sef
+destination: NEARCITY
+arrive: 3:3 3/3/3
+departure: 4:4 4/4/4
+rate: 4.000000
+
+id: 4
+number: 5555
+optionalName: hhh
+destination: FAST
+arrive: 4:4 4/4/4
+departure: 9:9 9/9/9
+rate: 999.000000
 

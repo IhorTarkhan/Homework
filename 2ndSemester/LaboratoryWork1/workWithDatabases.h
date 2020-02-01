@@ -5,50 +5,103 @@
 
 using namespace std;
 
+bool isItInt(string line) {
+    for (int i = 0; i < line.size(); ++i)
+        if (line[i] < '0' || line[i] > '9')
+            return false;
+    return true;
+}
+
+bool isItDouble(string line) {
+    bool wasPoint = false;
+    for (int i = 0; i < line.size(); ++i)
+        if (line[i] < '0' || line[i] > '9')
+            if ((line[i] != '.' && line[i] != ',') || wasPoint)
+                return false;
+            else
+                wasPoint = true;
+    return true;
+}
+
 Train getTrainFromConsole() {
     string number;
     string optionalName;
-    int destinationInInt;
+    string destinationIntInString;
     Destination destination;
-    int arriveHour;
-    int arriveMinute;
-    int arriveDay;
-    int arriveMonth;
-    int arriveYear;
-    int departureHour;
-    int departureMinute;
-    int departureDay;
-    int departureMonth;
-    int departureYear;
-    double rate;
+    string arriveHourString;
+    string arriveMinuteString;
+    string arriveDayString;
+    string arriveMonthString;
+    string arriveYearString;
+    string departureHourString;
+    string departureMinuteString;
+    string departureDayString;
+    string departureMonthString;
+    string departureYearString;
+    string rateString;
+    Date arrive = Date(1, 1, 1, 1, 1);
+    Date departure = Date(1, 1, 1, 1, 1);
+
     cout << "Adding in Memory..." << endl;
-    cout << "Number (\"nnnn\"): ";
-    cin >> number;
+
+    do {
+        cout << "Number (\"nnnn\"): ";
+        cin >> number;
+    } while (number.length() != 4 || !isItInt(number));
+
     cout << "Obtional Name (\"S...s\"): ";
     cin >> optionalName;
 
-    cout << "Destination:" << endl;
-    for (int i = 0; i < DestinationMap.size(); i++) {
-        cout << "\"" + to_string(i + 1) + "\" - " + DestinationMap[i] << endl;
+    do {
+        cout << "Destination: " << endl;
+        for (int i = 0; i < DestinationMap.size(); ++i) {
+            cout << "\"" << to_string(i) << "\" - " << DestinationMap[i] << endl;
+        }
+        cout << "Destination: ";
+        cin >> destinationIntInString;
+    } while (destinationIntInString.length() != 1 ||
+             (destinationIntInString[0] <= '0' || destinationIntInString[0] > '4'));
+    destination = static_cast<Destination>(stoi(destinationIntInString) - 1);
+
+    while (true) {
+        do {
+            cout << "Arrive date (\"h m d m y\"): ";
+            cin >> arriveHourString >> arriveMinuteString >> arriveDayString >> arriveMonthString
+                >> arriveYearString;
+        } while (!isItInt(arriveHourString) || !isItInt(arriveMinuteString) || !isItInt(arriveDayString) ||
+                 !isItInt(arriveMonthString) || !isItInt(arriveYearString));
+        try {
+            arrive = Date(stoi(arriveHourString), stoi(arriveMinuteString), stoi(arriveDayString),
+                          stoi(arriveMonthString), stoi(arriveYearString));
+            break;
+        }
+        catch (const std::invalid_argument &ia) {
+            continue;
+        }
     }
-    cout << "Destination: ";
-    cin >> destinationInInt;
-    if (destinationInInt <= 0 || destinationInInt > DestinationMap.size())
-        throw invalid_argument("incorrect destination");
-    destination = static_cast<Destination>(destinationInInt - 1);
 
-    cout << "Arrive date (\"h m d m y\"): ";
-    cin >> arriveHour >> arriveMinute >> arriveDay >> arriveMonth >> arriveYear;
-    Date arrive = Date(arriveHour, arriveMinute, arriveDay, arriveMonth, arriveYear);
+    while (true) {
+        do {
+            cout << "Departure date (\"h m d m y\"): ";
+            cin >> departureHourString >> departureMinuteString >> departureDayString >> departureMonthString
+                >> departureYearString;
+        } while (!isItInt(departureHourString) || !isItInt(departureMinuteString) || !isItInt(departureDayString) ||
+                 !isItInt(departureMonthString) || !isItInt(departureYearString));
+        try {
+            departure = Date(stoi(departureHourString), stoi(departureMinuteString), stoi(departureDayString),
+                             stoi(departureMonthString), stoi(departureYearString));
+            break;
+        }
+        catch (const std::invalid_argument &ia) {
+            continue;
+        }
+    }
 
-    cout << "Departure date (\"h m d m y\"): ";
-    cin >> departureHour >> departureMinute >> departureDay >> departureMonth >> departureYear;
-    Date departure = Date(departureHour, departureMinute, departureDay, departureMonth, departureYear);
+    do {
+        cout << "Rate (\"double\"): ";
+        cin >> rateString;
+    } while (!isItDouble(rateString));
 
-    cout << "Rate: ";
-    cin >> rate;
-
-    Train train = Train(number, optionalName, destination, arrive, departure, rate);
-
+    Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
     return train;
 }

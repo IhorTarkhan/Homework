@@ -9,8 +9,8 @@ public:
     string number;
     string optionalName;
     Destination destination;
-    Date arrive = Date(0, 0, 0, 0, 1804);
-    Date departure = Date(0, 0, 0, 0, 1804);
+    Date arrive = Date(1, 1, 1, 1, 1);
+    Date departure = Date(1, 1, 1, 1, 1);
     double rate;
 
     Train(string number, string optionalName, Destination destination, Date arrive, Date departure, double rate) {
