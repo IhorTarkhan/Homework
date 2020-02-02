@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "functionsOfDatabases/memory/SaveFunctions.h"
+#include "functionsOfDatabases/textFile/SaveFunctions.h"
 
 using namespace std;
 
@@ -104,4 +105,45 @@ Train getTrainFromConsole() {
 
     Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
     return train;
+}
+
+void addInMemory() {
+    Train train = getTrainFromConsole();
+    saveTrainToMemory(train);
+}
+
+void addInText() {
+    Train train = getTrainFromConsole();
+    saveTrainToText(train);
+}
+
+void addFromMemoryToText() {
+    saveMemoryToText();
+}
+
+void clearMemory() {
+    trainsInMemory.clear();
+}
+
+void clearText() {
+    ofstream file(PATH);
+    file << "";
+    file.close();
+}
+
+void getFromMemory() {
+    for (int i = 0; i < trainsInMemory.size(); ++i) {
+        cout << trainsInMemory[i].getInText() << endl;
+    }
+}
+
+void getFromText() {
+    ifstream file(PATH);
+    string line;
+    while (getline(file, line)) {
+        if (line.substr(0, ID.length()) != ID) {
+            cout << line << endl;
+        }
+    }
+    file.close();
 }
