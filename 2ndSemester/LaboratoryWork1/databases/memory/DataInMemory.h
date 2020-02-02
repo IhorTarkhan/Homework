@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../dadaStructures/Train.h"
+#include "../../dataStructures/Train.h"
 #include <vector>
 
 static vector<Train> trainsInMemory;

@@ -1,9 +1,8 @@
 #pragma once
 
 #include <fstream>
-#include "../../dadaStructures/Train.h"
-#include "../memory/DataInMemory.h"
-#include "Constants.h"
+#include "../../memory/DataInMemory.h"
+#include "../Path.h"
 
 int getMaxID() {
     int maxID = 0;
@@ -114,25 +113,19 @@ void saveTextToMemory() {
             line = line.substr(RATE.length());
             rateString = line;
             Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
-            saveTrainToMemory(train);
+            trainsInMemory.push_back(train);
             continue;
         }
     }
     file.close();
 }
 
-void saveTrainToText(Train train) {
+void saveTrainInText(Train train) {
     int maxID = getMaxID();
     ofstream file(PATH, ios_base::app);
     string textToSave = "";
     textToSave += ID + to_string(++maxID) + "\n" + train.getInText() + "\n";
     file << textToSave;
-    file.close();
-}
-
-void clearTrainsInText() {
-    ofstream file(PATH);
-    file << "";
     file.close();
 }
 
@@ -147,6 +140,12 @@ string getTrainsFromText() {
     }
     file.close();
     return trainsInString;
+}
+
+void clearTrainsInText() {
+    ofstream file(PATH);
+    file << "";
+    file.close();
 }
 
 string getTrainsWithIDFromText() {

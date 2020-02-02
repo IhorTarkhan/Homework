@@ -1,8 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "functionsOfDatabases/memory/Functions.h"
-#include "functionsOfDatabases/textFile/Functions.h"
+#include "../dataStructures/Train.h"
 
 using namespace std;
 
@@ -105,72 +104,4 @@ Train getTrainFromConsole() {
 
     Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
     return train;
-}
-
-void addInMemory() {
-    Train train = getTrainFromConsole();
-    saveTrainToMemory(train);
-}
-
-void addInText() {
-    Train train = getTrainFromConsole();
-    saveTrainToText(train);
-}
-
-void addFromMemoryToText() {
-    saveMemoryToText();
-}
-
-void clearMemory() {
-    clearTrainsInMemory();
-}
-
-void clearText() {
-    clearTrainsInText();
-}
-
-void getFromMemory() {
-    cout << getTrainsFromMemory();
-}
-
-void getFromText() {
-    cout << getTrainsFromText();
-}
-
-void getFromTextToMemory() {
-    saveTextToMemory();
-}
-
-void changeInMemory() {
-    int id = 0;
-    cout << getTrainsWithIDFromMemory();
-    cout << "Witch id change?" << endl << "id = ";
-    cin >> id;
-    Train train = getTrainFromConsole();
-    changeInMemory(id, train);
-}
-
-void changeInText() {
-    int id = 0;
-    cout << getTrainsWithIDFromText();
-    cout << "Witch id change?" << endl << "id = ";
-    cin >> id;
-    Train train = getTrainFromConsole();
-    changeInText(id, train);
-}
-
-void deleteInMemory() {
-    int id = 0;
-    cout << getTrainsWithIDFromMemory();
-    cout << "Witch id delete?" << endl << "id = ";
-    cin >> id;
-    deleteInMemory(id);
-}
-
-void deleteInText() {
-    int id = 0;
-    cout << getTrainsWithIDFromText();
-    cout << "Witch id delete?" << endl << "id = ";
-    cin >> id;
-    deleteInText(id);
 }

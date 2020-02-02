@@ -11,6 +11,3 @@ static const string DESTINATION = "destination: ";
 static const string ARRIVE = "arrive: ";
 static const string DEPARTURE = "departure: ";
 static const string RATE = "rate: ";
-
-static const char PATH[] = "../2ndSemester/LaboratoryWork1/DataBase_txt.txt";
-static const char newPATH[] = "../2ndSemester/LaboratoryWork1/DataBase_txt.txt.new.txt";

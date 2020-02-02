@@ -2,7 +2,7 @@
 
 #include "Date.h"
 #include "DestinationENUM.h"
-#include "../functionsOfDatabases/textFile/Constants.h"
+#include "Constants.h"
 
 class Train {
 public:

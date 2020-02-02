@@ -1,13 +1,9 @@
 #pragma once
 
-#include "DataInMemory.h"
+#include "../DataInMemory.h"
 
 void saveTrainToMemory(Train train) {
     trainsInMemory.push_back(train);
-}
-
-void clearTrainsInMemory() {
-    trainsInMemory.clear();
 }
 
 string getTrainsFromMemory() {
@@ -16,6 +12,10 @@ string getTrainsFromMemory() {
         trainsInString += trainsInMemory[i].getInText() + "\n";
     }
     return trainsInString;
+}
+
+void clearTrainsInMemory() {
+    trainsInMemory.clear();
 }
 
 string getTrainsWithIDFromMemory() {
@@ -27,14 +27,14 @@ string getTrainsWithIDFromMemory() {
     return trainsInString;
 }
 
-void changeInMemory(int id, Train train) {
+void changeTrainInMemory(int id, Train train) {
     if (id < 0 || id >= trainsInMemory.size()) {
         throw invalid_argument("incorrect id");
     }
     trainsInMemory[id] = train;
 }
 
-void deleteInMemory(int id) {
+void deleteTrainInMemory(int id) {
     if (id < 0 || id >= trainsInMemory.size()) {
         throw invalid_argument("incorrect id");
     }
