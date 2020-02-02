@@ -148,3 +148,41 @@ string getTrainsFromText() {
     file.close();
     return trainsInString;
 }
+
+string getTrainsWithIDFromText() {
+    string trainsInString = "";
+    ifstream file(PATH);
+    string line;
+    while (getline(file, line)) {
+        trainsInString += line + "\n";
+    }
+    file.close();
+    return trainsInString;
+}
+
+void changeInText(int id, Train train) {
+    if (id <= 0 || id > getMaxID()) {
+        throw invalid_argument("incorrect id");
+    }
+    ifstream file(PATH);
+    ofstream newFile(newPATH);
+    string line;
+    bool ignore_lines = false;
+    while (getline(file, line)) {
+        if (line.substr(0, ID.length()) == ID) {
+            newFile << line << endl;
+            if (stoi(line.substr(ID.length())) == id) {
+                ignore_lines = true;
+                newFile << train.getInText() << endl;
+            } else {
+                ignore_lines = false;
+            }
+        } else if (!ignore_lines) {
+            newFile << line << endl;
+        }
+    }
+    file.close();
+    newFile.close();
+    remove(PATH);
+    rename(newPATH, PATH);
+}

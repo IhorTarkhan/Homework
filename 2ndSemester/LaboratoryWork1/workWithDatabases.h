@@ -142,17 +142,19 @@ void getFromTextToMemory() {
 }
 
 void changeInMemory() {
-    //TODO
+    int id = 0;
+    cout << getTrainsWithIDFromMemory();
+    cout << "Witch id change?" << endl << "id = ";
+    cin >> id;
+    Train train = getTrainFromConsole();
+    changeInMemory(id, train);
 }
 
 void changeInText() {
-    //TODO
-}
-
-void deleteInMemory() {
-    //TODO
-}
-
-void deleteInText() {
-    //TODO
+    int id = 0;
+    cout << getTrainsWithIDFromText();
+    cout << "Witch id change?" << endl << "id = ";
+    cin >> id;
+    Train train = getTrainFromConsole();
+    changeInText(id, train);
 }
