@@ -56,7 +56,7 @@ Train getTrainFromConsole() {
     do {
         cout << "Destination: " << endl;
         for (int i = 0; i < DestinationMap.size(); ++i) {
-            cout << "\"" << to_string(i) << "\" - " << DestinationMap[i] << endl;
+            cout << "\"" << to_string(i + 1) << "\" - " << DestinationMap[i] << endl;
         }
         cout << "Destination: ";
         cin >> destinationIntInString;
@@ -157,4 +157,20 @@ void changeInText() {
     cin >> id;
     Train train = getTrainFromConsole();
     changeInText(id, train);
+}
+
+void deleteInMemory() {
+    int id = 0;
+    cout << getTrainsWithIDFromMemory();
+    cout << "Witch id delete?" << endl << "id = ";
+    cin >> id;
+    deleteInMemory(id);
+}
+
+void deleteInText() {
+    int id = 0;
+    cout << getTrainsWithIDFromText();
+    cout << "Witch id delete?" << endl << "id = ";
+    cin >> id;
+    deleteInText(id);
 }

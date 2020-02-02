@@ -22,11 +22,3 @@ arrive: 9:9 9/9/9000
 departure: 13:13 13/10/13
 rate: 5.700000
 
-id: 4
-number: 5555
-optionalName: hhh
-destination: FAST
-arrive: 4:4 4/4/4
-departure: 9:9 9/9/9
-rate: 999.000000
-

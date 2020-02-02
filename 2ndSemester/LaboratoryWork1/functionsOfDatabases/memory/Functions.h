@@ -21,15 +21,23 @@ string getTrainsFromMemory() {
 string getTrainsWithIDFromMemory() {
     string trainsInString = "";
     for (int i = 0; i < trainsInMemory.size(); ++i) {
-        trainsInString += ID + to_string(i);
+        trainsInString += ID + to_string(i) + "\n";
         trainsInString += trainsInMemory[i].getInText() + "\n";
     }
     return trainsInString;
 }
 
 void changeInMemory(int id, Train train) {
-    if (id < 0 || id >=trainsInMemory.size()){
+    if (id < 0 || id >= trainsInMemory.size()) {
         throw invalid_argument("incorrect id");
     }
     trainsInMemory[id] = train;
+}
+
+void deleteInMemory(int id) {
+    if (id < 0 || id >= trainsInMemory.size()) {
+        throw invalid_argument("incorrect id");
+    }
+    vector<Train>::iterator it = trainsInMemory.begin() + id + 1;
+    trainsInMemory.erase(it);
 }

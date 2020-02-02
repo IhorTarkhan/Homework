@@ -186,3 +186,29 @@ void changeInText(int id, Train train) {
     remove(PATH);
     rename(newPATH, PATH);
 }
+
+void deleteInText(int id) {
+    if (id <= 0 || id > getMaxID()) {
+        throw invalid_argument("incorrect id");
+    }
+    ifstream file(PATH);
+    ofstream newFile(newPATH);
+    string line;
+    bool ignore_lines = false;
+    while (getline(file, line)) {
+        if (line.substr(0, ID.length()) == ID) {
+            if (stoi(line.substr(ID.length())) == id) {
+                ignore_lines = true;
+            } else {
+                newFile << line << endl;
+                ignore_lines = false;
+            }
+        } else if (!ignore_lines) {
+            newFile << line << endl;
+        }
+    }
+    file.close();
+    newFile.close();
+    remove(PATH);
+    rename(newPATH, PATH);
+}
