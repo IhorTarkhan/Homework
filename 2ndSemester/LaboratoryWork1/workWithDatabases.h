@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "functionsOfDatabases/memory/SaveFunctions.h"
-#include "functionsOfDatabases/textFile/SaveFunctions.h"
+#include "functionsOfDatabases/memory/Functions.h"
+#include "functionsOfDatabases/textFile/Functions.h"
 
 using namespace std;
 
@@ -122,28 +122,37 @@ void addFromMemoryToText() {
 }
 
 void clearMemory() {
-    trainsInMemory.clear();
+    clearTrainsInMemory();
 }
 
 void clearText() {
-    ofstream file(PATH);
-    file << "";
-    file.close();
+    clearTrainsInText();
 }
 
 void getFromMemory() {
-    for (int i = 0; i < trainsInMemory.size(); ++i) {
-        cout << trainsInMemory[i].getInText() << endl;
-    }
+    cout << getTrainsFromMemory();
 }
 
 void getFromText() {
-    ifstream file(PATH);
-    string line;
-    while (getline(file, line)) {
-        if (line.substr(0, ID.length()) != ID) {
-            cout << line << endl;
-        }
-    }
-    file.close();
+    cout << getTrainsFromText();
+}
+
+void getFromTextToMemory() {
+    saveTextToMemory();
+}
+
+void changeInMemory() {
+    //TODO
+}
+
+void changeInText() {
+    //TODO
+}
+
+void deleteInMemory() {
+    //TODO
+}
+
+void deleteInText() {
+    //TODO
 }
