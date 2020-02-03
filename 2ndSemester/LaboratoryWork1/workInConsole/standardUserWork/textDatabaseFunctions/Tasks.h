@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../databases/text/functions/Tasks.h"
-#include "../Tasks.h"
+#include "../../../databases/text/functions/Tasks.h"
+#include "../generalFunctions/Tasks.h"
 
 void task1InText() {
     task1In__(task1InText);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GetTrain.h"
+#include "../GetTrain.h"
 
 void task1In__(vector<Train> task1(string)) {
     vector<Train> taskResult;

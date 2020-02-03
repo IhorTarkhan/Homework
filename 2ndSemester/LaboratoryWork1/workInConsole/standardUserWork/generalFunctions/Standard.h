@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GetTrain.h"
+#include "../GetTrain.h"
 
 void saveTo__(void saveTrainIn__(Train)) {
     Train train = getTrainFromConsole();

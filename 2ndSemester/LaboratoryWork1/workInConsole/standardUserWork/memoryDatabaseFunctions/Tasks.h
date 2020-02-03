@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../databases/memory/functions/Tasks.h"
-#include "../Tasks.h"
+#include "../../../databases/memory/functions/Tasks.h"
+#include "../generalFunctions/Tasks.h"
 
 void task1InMemory() {
     task1In__(task1InMemory);

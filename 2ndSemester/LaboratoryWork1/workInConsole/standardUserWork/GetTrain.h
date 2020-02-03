@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "../dataStructures/Train.h"
+#include "../../dataStructures/Train.h"
 
 using namespace std;
 

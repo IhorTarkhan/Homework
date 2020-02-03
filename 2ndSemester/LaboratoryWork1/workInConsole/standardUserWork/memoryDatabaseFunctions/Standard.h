@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../databases/memory/functions/Standard.h"
-#include "../Standard.h"
+#include "../../../databases/memory/functions/Standard.h"
+#include "../generalFunctions/Standard.h"
 
 void saveToMemory() {
     saveTo__(saveTrainInMemory);

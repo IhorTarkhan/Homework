@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../../databases/text/functions/Standard.h"
-#include "../Standard.h"
+#include "../../../databases/text/functions/Standard.h"
+#include "../generalFunctions/Standard.h"
 
 void saveFromMemoryToText() {
     saveMemoryToText();
