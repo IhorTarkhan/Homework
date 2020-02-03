@@ -1,12 +1,13 @@
 #pragma once
 
 #include "../DataInMemory.h"
+#include "../../taskConditions.h"
 
 vector<Train> task1InMemory(string lastFragmentOfName) {
     vector<Train> res;
     for (int i = 0; i < trainsInMemory.size(); ++i) {
         string iTrainName = trainsInMemory[i].optionalName;
-        if (iTrainName.substr(iTrainName.length() - lastFragmentOfName.length()) == lastFragmentOfName) {
+        if (task1Boolean(trainsInMemory[i], lastFragmentOfName)) {
             res.push_back(trainsInMemory[i]);
         }
     }
@@ -17,8 +18,7 @@ vector<Train> task2InMemory(Destination destinationRequested, string numberMIN, 
     vector<Train> res;
     for (int i = 0; i < trainsInMemory.size(); ++i) {
         string iTrainName = trainsInMemory[i].optionalName;
-        if (trainsInMemory[i].destination == destinationRequested &&
-            (stoi(trainsInMemory[i].number) >= stoi(numberMIN) && stoi(trainsInMemory[i].number) <= stoi(numberMAX))) {
+        if (task2Boolean(trainsInMemory[i], destinationRequested, numberMIN, numberMAX)) {
             res.push_back(trainsInMemory[i]);
         }
     }
@@ -29,25 +29,7 @@ vector<Train> task3InMemory(Date departureGet) {
     vector<Train> res;
     for (int i = 0; i < trainsInMemory.size(); ++i) {
         string iTrainName = trainsInMemory[i].optionalName;
-        if ((trainsInMemory[i].departure.year > departureGet.year) ||
-
-            (trainsInMemory[i].departure.year == departureGet.year &&
-             trainsInMemory[i].departure.month > departureGet.month) ||
-
-            (trainsInMemory[i].departure.year == departureGet.year &&
-             trainsInMemory[i].departure.month == departureGet.month &&
-             trainsInMemory[i].departure.day > departureGet.day) ||
-
-            (trainsInMemory[i].departure.year == departureGet.year &&
-             trainsInMemory[i].departure.month == departureGet.month &&
-             trainsInMemory[i].departure.day == departureGet.day &&
-             trainsInMemory[i].departure.hour > departureGet.hour) ||
-
-            (trainsInMemory[i].departure.year == departureGet.year &&
-             trainsInMemory[i].departure.month == departureGet.month &&
-             trainsInMemory[i].departure.day == departureGet.day &&
-             trainsInMemory[i].departure.hour == departureGet.hour &&
-             trainsInMemory[i].departure.minute > departureGet.minute)) {
+        if (task3Boolean(trainsInMemory[i], departureGet)) {
             res.push_back(trainsInMemory[i]);
         }
     }

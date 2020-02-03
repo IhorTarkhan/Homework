@@ -1,34 +1,24 @@
 #pragma once
 
 #include "../../databases/memory/functions/Standard.h"
-#include "../GetTrain.h"
+#include "../Standard.h"
 
 void saveToMemory() {
-    Train train = getTrainFromConsole();
-    saveTrainToMemory(train);
+    saveTo__(saveTrainInMemory);
 }
 
 void printMemory() {
-    cout << getTrainsFromMemory();
+    print__(getTrainsFromMemory);
 }
 
 void clearMemory() {
-    clearTrainsInMemory();
+    clear__(clearTrainsInMemory);
 }
 
 void changeInMemory() {
-    int id = 0;
-    cout << getTrainsWithIDFromMemory();
-    cout << "Witch id change?" << endl << "id = ";
-    cin >> id;
-    Train train = getTrainFromConsole();
-    changeTrainInMemory(id, train);
+    changeIn__(getTrainsWithIDFromMemory, changeTrainInMemory);
 }
 
 void deleteInMemory() {
-    int id = 0;
-    cout << getTrainsWithIDFromMemory();
-    cout << "Witch id delete?" << endl << "id = ";
-    cin >> id;
-    deleteTrainInMemory(id);
+    deleteIn__(getTrainsWithIDFromMemory, deleteTrainInMemory);
 }

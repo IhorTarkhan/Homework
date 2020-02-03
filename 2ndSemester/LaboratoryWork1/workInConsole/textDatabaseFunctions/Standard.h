@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../databases/text/functions/Standard.h"
-#include "../GetTrain.h"
+#include "../Standard.h"
 
 void saveFromMemoryToText() {
     saveMemoryToText();
@@ -12,31 +12,21 @@ void saveFromTextToMemory() {
 }
 
 void saveToText() {
-    Train train = getTrainFromConsole();
-    saveTrainInText(train);
+    saveTo__(saveTrainInText);
 }
 
 void printText() {
-    cout << getTrainsFromText();
+    print__(getTrainsFromText);
 }
 
 void clearText() {
-    clearTrainsInText();
+    clear__(clearTrainsInText);
 }
 
 void changeInText() {
-    int id = 0;
-    cout << getTrainsWithIDFromText();
-    cout << "Witch id change?" << endl << "id = ";
-    cin >> id;
-    Train train = getTrainFromConsole();
-    changeInText(id, train);
+    changeIn__(getTrainsWithIDFromText, changeInText);
 }
 
 void deleteInText() {
-    int id = 0;
-    cout << getTrainsWithIDFromText();
-    cout << "Witch id delete?" << endl << "id = ";
-    cin >> id;
-    deleteInText(id);
+    deleteIn__(getTrainsWithIDFromText, deleteInText);
 }

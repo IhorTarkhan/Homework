@@ -2,7 +2,7 @@
 
 #include "../DataInMemory.h"
 
-void saveTrainToMemory(Train train) {
+void saveTrainInMemory(Train train) {
     trainsInMemory.push_back(train);
 }
 

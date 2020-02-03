@@ -3,6 +3,7 @@
 #include <fstream>
 #include "../../../dataStructures/Train.h"
 #include "../Path.h"
+#include "../../taskConditions.h"
 
 vector<Train> task1InText(string lastFragmentOfName) {
     vector<Train> res;
@@ -91,7 +92,7 @@ vector<Train> task1InText(string lastFragmentOfName) {
             line = line.substr(RATE.length());
             rateString = line;
             Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
-            if (optionalName.substr(optionalName.length() - lastFragmentOfName.length()) == lastFragmentOfName) {
+            if (task1Boolean(train, lastFragmentOfName)) {
                 res.push_back(train);
             }
             continue;
@@ -188,8 +189,7 @@ vector<Train> task2InText(Destination destinationRequested, string numberMIN, st
             line = line.substr(RATE.length());
             rateString = line;
             Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
-            if (destination == destinationRequested &&
-                (stoi(number) >= stoi(numberMIN) && stoi(number) <= stoi(numberMAX))) {
+            if (task2Boolean(train, destinationRequested, numberMIN, numberMAX)) {
                 res.push_back(train);
             }
             continue;
@@ -286,19 +286,7 @@ vector<Train> task3InText(Date departureGet) {
             line = line.substr(RATE.length());
             rateString = line;
             Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
-            if ((departure.year > departureGet.year) ||
-
-                (departure.year == departureGet.year && departure.month > departureGet.month) ||
-
-                (departure.year == departureGet.year && departure.month == departureGet.month &&
-                 departure.day > departureGet.day) ||
-
-                (departure.year == departureGet.year && departure.month == departureGet.month &&
-                 departure.day == departureGet.day && departure.hour > departureGet.hour) ||
-
-                (departure.year == departureGet.year && departure.month == departureGet.month &&
-                 departure.day == departureGet.day && departure.hour == departureGet.hour &&
-                 departure.minute > departureGet.minute)) {
+            if (task3Boolean(train, departureGet)) {
                 res.push_back(train);
             }
             continue;
