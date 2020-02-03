@@ -13,9 +13,8 @@ Train createRandomTrain() {
     Date arrive = Date(rand() % 24, rand() % 60, rand() % 31 + 1, rand() % 12 + 1, rand() % 1000 + 1500);
     Date departure = Date(rand() % 24, rand() % 60, rand() % 31 + 1, rand() % 12 + 1, rand() % 1000 + 1500);
     double rate = (rand() % 2000000) / 1000000.0;
-    int nameLength = rand() % 10 + 1;
-    for (int i = 0; i < nameLength; ++i) {
-        optionalName += (rand() % ('z' - 'a') + 'a');
+    for (int i = 0; i < 10; ++i) {
+        optionalName += (rand() % ('z' - 'a') + ((rand() % 2) ? 'a' : 'A'));
     }
     Train train = Train(number, optionalName, destination, arrive, departure, rate);
     return train;
