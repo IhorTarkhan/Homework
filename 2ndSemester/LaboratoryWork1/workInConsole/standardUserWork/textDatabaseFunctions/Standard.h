@@ -2,6 +2,7 @@
 
 #include "../../../databases/text/functions/Standard.h"
 #include "../generalFunctions/Standard.h"
+#include "../GetTrain.h"
 
 void saveFromMemoryToText() {
     saveMemoryToText();
@@ -12,7 +13,7 @@ void saveFromTextToMemory() {
 }
 
 void saveToText() {
-    saveTo__(saveTrainInText);
+    saveTo__(saveTrainInText, getTrainFromConsole());
 }
 
 void printText() {
@@ -24,7 +25,7 @@ void clearText() {
 }
 
 void changeInText() {
-    changeIn__(getTrainsWithIDFromText, changeInText);
+    changeIn__(getTrainsWithIDFromText, changeInText, getTrainFromConsole());
 }
 
 void deleteInText() {

@@ -2,9 +2,10 @@
 
 #include "../../../databases/memory/functions/Standard.h"
 #include "../generalFunctions/Standard.h"
+#include "../GetTrain.h"
 
 void saveToMemory() {
-    saveTo__(saveTrainInMemory);
+    saveTo__(saveTrainInMemory, getTrainFromConsole());
 }
 
 void printMemory() {
@@ -16,7 +17,7 @@ void clearMemory() {
 }
 
 void changeInMemory() {
-    changeIn__(getTrainsWithIDFromMemory, changeTrainInMemory);
+    changeIn__(getTrainsWithIDFromMemory, changeTrainInMemory, getTrainFromConsole());
 }
 
 void deleteInMemory() {
