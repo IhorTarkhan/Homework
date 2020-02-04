@@ -7,8 +7,5 @@
 #include "workInConsole/demoWork/demo.h"
 
 int main_Lab_2_1() {
-    Train t = createRandomTrain();
-    saveTrainInMemory(t);
-    printMemory();
-
+    demon();
 }

@@ -20,6 +20,48 @@ Train createRandomTrain() {
     return train;
 }
 
-void demo() {
+void demon() {
+    const string RedInConsole = "\u001B[31m";
+    const string BlueInConsole = "\u001B[34m";
+    const string PurpleInConsole = "\u001B[35m";
+
+    const string YellowInConsole = "\u001B[33m";
+    const string StandardConsole = "\u001B[0m";
+
+    Train randomTrain = createRandomTrain();
+
+    cout << RedInConsole + "Save random train in memory ..." + StandardConsole << endl;
+    saveTrainInMemory(randomTrain);
+    cout << RedInConsole + "Saved" + StandardConsole << endl << endl;
+
+    cout << RedInConsole + "Print from memory ..." + StandardConsole << endl;
+    cout << getTrainsFromMemory();
+    cout << RedInConsole + "Printed" + StandardConsole << endl << endl;
+
+    cout << RedInConsole + "Deleting from memory ..." + StandardConsole << endl;
+    clearTrainsInMemory();
+    cout << RedInConsole + "Deleted" + StandardConsole << endl << endl;
+
+    cout << RedInConsole + "Save 5 random trains in memory ..." + StandardConsole << endl;
+    randomTrain = createRandomTrain();
+    saveTrainInMemory(randomTrain);
+    randomTrain = createRandomTrain();
+    saveTrainInMemory(randomTrain);
+    randomTrain = createRandomTrain();
+    saveTrainInMemory(randomTrain);
+    randomTrain = createRandomTrain();
+    saveTrainInMemory(randomTrain);
+    randomTrain = createRandomTrain();
+    saveTrainInMemory(randomTrain);
+    cout << RedInConsole + "Saved" + StandardConsole << endl << endl;
+
+    cout << RedInConsole + "Print from memory ..." + StandardConsole << endl;
+    cout << getTrainsFromMemory();
+    cout << RedInConsole + "Printed" + StandardConsole << endl << endl;
+
+    cout << RedInConsole + "Print from memory with ID..." + StandardConsole << endl;
+    cout << getTrainsWithIDFromMemory();
+    cout << RedInConsole + "Printed with ID" + StandardConsole << endl << endl;
+
 
 }

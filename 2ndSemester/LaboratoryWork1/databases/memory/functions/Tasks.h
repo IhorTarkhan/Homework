@@ -3,6 +3,7 @@
 #include "../DataInMemory.h"
 #include "../../taskConditions.h"
 
+//template <typename Params>
 vector<Train> task1InMemory(string lastFragmentOfName) {
     vector<Train> res;
     for (int i = 0; i < trainsInMemory.size(); ++i) {

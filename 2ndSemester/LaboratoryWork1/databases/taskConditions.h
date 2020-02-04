@@ -27,5 +27,3 @@ bool task3Boolean(Train train, Date departureGet) {
             train.departure.day == departureGet.day && train.departure.hour == departureGet.hour &&
             train.departure.minute > departureGet.minute);
 }
-
-
