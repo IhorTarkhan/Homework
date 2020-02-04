@@ -4,7 +4,7 @@
 #include "../../memory/DataInMemory.h"
 #include "../Path.h"
 
-int getMaxID() {
+int getMaxIDInText() {
     int maxID = 0;
     string line;
     ifstream file(PATH);
@@ -18,7 +18,7 @@ int getMaxID() {
 }
 
 void saveMemoryToText() {
-    int maxID = getMaxID();
+    int maxID = getMaxIDInText();
     string textToSave = "";
     ofstream file(PATH, ios_base::app);
     for (int i = 0; i < trainsInMemory.size(); i++) {
@@ -121,7 +121,7 @@ void saveTextToMemory() {
 }
 
 void saveTrainInText(Train train) {
-    int maxID = getMaxID();
+    int maxID = getMaxIDInText();
     ofstream file(PATH, ios_base::app);
     string textToSave = "";
     textToSave += ID + to_string(++maxID) + "\n" + train.getInText() + "\n";
@@ -160,7 +160,7 @@ string getTrainsWithIDFromText() {
 }
 
 void changeInText(int id, Train train) {
-    if (id <= 0 || id > getMaxID()) {
+    if (id <= 0 || id > getMaxIDInText()) {
         throw invalid_argument("incorrect id");
     }
     ifstream file(PATH);
@@ -187,7 +187,7 @@ void changeInText(int id, Train train) {
 }
 
 void deleteInText(int id) {
-    if (id <= 0 || id > getMaxID()) {
+    if (id <= 0 || id > getMaxIDInText()) {
         throw invalid_argument("incorrect id");
     }
     ifstream file(PATH);

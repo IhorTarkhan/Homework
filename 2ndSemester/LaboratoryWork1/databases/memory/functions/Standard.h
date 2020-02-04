@@ -2,6 +2,10 @@
 
 #include "../DataInMemory.h"
 
+int getMaxIDInMemory() {
+    return trainsInMemory.size() - 1;
+}
+
 void saveTrainInMemory(Train train) {
     trainsInMemory.push_back(train);
 }
