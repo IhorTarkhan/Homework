@@ -1,33 +1,33 @@
 #pragma once
 
-#include "../../../databases/text/functions/Standard.h"
 #include "../generalFunctions/Standard.h"
 #include "../GetTrain.h"
+#include "../../../databases/TextDatabase.h"
 
 void saveFromMemoryToText() {
-    saveMemoryToText();
+    TextDatabase::saveMemoryToText();
 }
 
 void saveFromTextToMemory() {
-    saveTextToMemory();
+    TextDatabase::saveTextToMemory();
 }
 
 void saveToText() {
-    saveTo__(saveTrainInText, getTrainFromConsole());
+    saveTo__(TextDatabase::addTrain, getTrainFromConsole());
 }
 
 void printText() {
-    print__(getTrainsFromText);
+    print__(TextDatabase::getTrains);
 }
 
 void clearText() {
-    clear__(clearTrainsInText);
+    clear__(TextDatabase::clear);
 }
 
 void changeInText() {
-    changeIn__(getTrainsWithIDFromText, changeInText, getTrainFromConsole());
+    changeIn__(TextDatabase::getTrainsWithID, TextDatabase::change, getTrainFromConsole());
 }
 
 void deleteInText() {
-    deleteIn__(getTrainsWithIDFromText, deleteInText);
+    deleteIn__(TextDatabase::getTrainsWithID, TextDatabase::deleteTrain);
 }

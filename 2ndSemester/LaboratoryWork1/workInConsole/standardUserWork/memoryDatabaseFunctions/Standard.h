@@ -1,25 +1,25 @@
 #pragma once
 
-#include "../../../databases/memory/functions/Standard.h"
 #include "../generalFunctions/Standard.h"
 #include "../GetTrain.h"
+#include "../../../databases/MemoryDatabase.h"
 
 void saveToMemory() {
-    saveTo__(saveTrainInMemory, getTrainFromConsole());
+    saveTo__(MemoryDatabase::saveTrainInMemory, getTrainFromConsole());
 }
 
 void printMemory() {
-    print__(getTrainsFromMemory);
+    print__(MemoryDatabase::getTrainsFromMemory);
 }
 
 void clearMemory() {
-    clear__(clearTrainsInMemory);
+    clear__(MemoryDatabase::clearTrainsInMemory);
 }
 
 void changeInMemory() {
-    changeIn__(getTrainsWithIDFromMemory, changeTrainInMemory, getTrainFromConsole());
+    changeIn__(MemoryDatabase::getTrainsWithIDFromMemory, MemoryDatabase::changeTrainInMemory, getTrainFromConsole());
 }
 
 void deleteInMemory() {
-    deleteIn__(getTrainsWithIDFromMemory, deleteTrainInMemory);
+    deleteIn__(MemoryDatabase::getTrainsWithIDFromMemory, MemoryDatabase::deleteTrainInMemory);
 }

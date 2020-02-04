@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../../../dataStructures/Train.h"
+
 void saveTo__(void saveTrainIn__(Train), Train train) {
     saveTrainIn__(train);
 }
