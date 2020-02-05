@@ -10,15 +10,15 @@ static vector<Train> trainsInMemory;
 class MemoryDatabase {
 public:
 
-    static int getMaxIDInMemory() {
+    static int getMaxID() {
         return trainsInMemory.size() - 1;
     }
 
-    static void saveTrainInMemory(Train train) {
+    static void saveTrain(Train train) {
         trainsInMemory.push_back(train);
     }
 
-    static string getTrainsFromMemory() {
+    static string getTrains() {
         string trainsInString = "";
         for (int i = 0; i < trainsInMemory.size(); ++i) {
             trainsInString += trainsInMemory[i].getInText() + "\n";
@@ -26,11 +26,11 @@ public:
         return trainsInString;
     }
 
-    static void clearTrainsInMemory() {
+    static void clearTrains() {
         trainsInMemory.clear();
     }
 
-    static string getTrainsWithIDFromMemory() {
+    static string getTrainsWithID() {
         string trainsInString = "";
         for (int i = 0; i < trainsInMemory.size(); ++i) {
             trainsInString += ID + to_string(i) + "\n";
@@ -39,14 +39,14 @@ public:
         return trainsInString;
     }
 
-    static void changeTrainInMemory(int id, Train train) {
+    static void changeTrain(int id, Train train) {
         if (id < 0 || id >= trainsInMemory.size()) {
             throw invalid_argument("incorrect id");
         }
         trainsInMemory[id] = train;
     }
 
-    static void deleteTrainInMemory(int id) {
+    static void deleteTrain(int id) {
         if (id < 0 || id >= trainsInMemory.size()) {
             throw invalid_argument("incorrect id");
         }
@@ -54,8 +54,7 @@ public:
         trainsInMemory.erase(it);
     }
 
-    //template <typename Params>
-    static vector<Train> task1InMemory(string lastFragmentOfName) {
+    static vector<Train> task1(string lastFragmentOfName) {
         vector<Train> res;
         for (int i = 0; i < trainsInMemory.size(); ++i) {
             string iTrainName = trainsInMemory[i].optionalName;
@@ -66,7 +65,7 @@ public:
         return res;
     }
 
-    static vector<Train> task2InMemory(Destination destinationRequested, string numberMIN, string numberMAX) {
+    static vector<Train> task2(Destination destinationRequested, string numberMIN, string numberMAX) {
         vector<Train> res;
         for (int i = 0; i < trainsInMemory.size(); ++i) {
             string iTrainName = trainsInMemory[i].optionalName;
@@ -77,7 +76,7 @@ public:
         return res;
     }
 
-    static vector<Train> task3InMemory(Date departureGet) {
+    static vector<Train> task3(Date departureGet) {
         vector<Train> res;
         for (int i = 0; i < trainsInMemory.size(); ++i) {
             string iTrainName = trainsInMemory[i].optionalName;

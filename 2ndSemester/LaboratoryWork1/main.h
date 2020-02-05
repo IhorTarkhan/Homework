@@ -1,11 +1,8 @@
-#include "workInConsole/standardUserWork/memoryDatabaseFunctions/Standard.h"
-#include "workInConsole/standardUserWork/textDatabaseFunctions/Standard.h"
-
-#include "workInConsole/standardUserWork/memoryDatabaseFunctions/Tasks.h"
-#include "workInConsole/standardUserWork/textDatabaseFunctions/Tasks.h"
-
-#include "workInConsole/demoWork/demo.h"
+#include "workInConsole/demoWork/demon.h"
+#include "workInConsole/standardUserWork/DatabaseConsole.h"
 
 int main_Lab_2_1() {
-    demon();
+    demon<MemoryDatabase>();
+    demon<TextDatabase>();
+//    demon<BinaryDatabase>();
 }

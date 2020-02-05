@@ -13,7 +13,7 @@ private:
     constexpr static const char *newPATH = "../2ndSemester/LaboratoryWork1/DataBase_txt.txt.new.txt";
 
 public:
-    static void saveMemoryToText() {
+    static void saveMemoryToIt() {
         int maxID = getMaxID();
         string textToSave = "";
         ofstream file(TextDatabase::PATH, ios_base::app);
@@ -24,7 +24,7 @@ public:
         file.close();
     }
 
-    static void saveTextToMemory() {
+    static void saveItToMemory() {
         string number;
         string optionalName;
         Destination destination;
@@ -82,7 +82,7 @@ public:
                 arriveYearString = line;
 
                 arrive = Date(stoi(arriveHourString), stoi(arriveMinuteString),
-                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveMonthString));
+                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveYearString));
                 continue;
             }
             if (line.substr(0, DEPARTURE.length()) == DEPARTURE) {
@@ -102,7 +102,7 @@ public:
                 departureYearString = line;
 
                 departure = Date(stoi(departureHourString), stoi(departureMinuteString),
-                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureMonthString));
+                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureYearString));
                 continue;
             }
             if (line.substr(0, RATE.length()) == RATE) {
@@ -129,7 +129,7 @@ public:
         return maxID;
     }
 
-    static void addTrain(Train train) {
+    static void saveTrain(Train train) {
         int maxID = getMaxID();
         ofstream file(TextDatabase::PATH, ios_base::app);
         string textToSave = "";
@@ -151,7 +151,7 @@ public:
         return trainsInString;
     }
 
-    static void clear() {
+    static void clearTrains() {
         ofstream file(TextDatabase::PATH);
         file << "";
         file.close();
@@ -168,7 +168,7 @@ public:
         return trainsInString;
     }
 
-    static void change(int id, Train train) {
+    static void changeTrain(int id, Train train) {
         if (id <= 0 || id > getMaxID()) {
             throw invalid_argument("incorrect id");
         }
@@ -281,7 +281,7 @@ public:
                 arriveYearString = line;
 
                 arrive = Date(stoi(arriveHourString), stoi(arriveMinuteString),
-                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveMonthString));
+                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveYearString));
                 continue;
             }
             if (line.substr(0, DEPARTURE.length()) == DEPARTURE) {
@@ -301,7 +301,7 @@ public:
                 departureYearString = line;
 
                 departure = Date(stoi(departureHourString), stoi(departureMinuteString),
-                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureMonthString));
+                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureYearString));
                 continue;
             }
             if (line.substr(0, RATE.length()) == RATE) {
@@ -378,7 +378,7 @@ public:
                 arriveYearString = line;
 
                 arrive = Date(stoi(arriveHourString), stoi(arriveMinuteString),
-                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveMonthString));
+                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveYearString));
                 continue;
             }
             if (line.substr(0, DEPARTURE.length()) == DEPARTURE) {
@@ -398,7 +398,7 @@ public:
                 departureYearString = line;
 
                 departure = Date(stoi(departureHourString), stoi(departureMinuteString),
-                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureMonthString));
+                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureYearString));
                 continue;
             }
             if (line.substr(0, RATE.length()) == RATE) {
@@ -475,7 +475,7 @@ public:
                 arriveYearString = line;
 
                 arrive = Date(stoi(arriveHourString), stoi(arriveMinuteString),
-                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveMonthString));
+                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveYearString));
                 continue;
             }
             if (line.substr(0, DEPARTURE.length()) == DEPARTURE) {
@@ -495,7 +495,7 @@ public:
                 departureYearString = line;
 
                 departure = Date(stoi(departureHourString), stoi(departureMinuteString),
-                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureMonthString));
+                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureYearString));
                 continue;
             }
             if (line.substr(0, RATE.length()) == RATE) {
