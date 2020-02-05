@@ -4,9 +4,6 @@
 #include "../../databases/TextDatabase.h"
 #include "../../databases/BinaryDatabase.h"
 #include "../../dataStructures/Train.h"
-#include <stdio.h>
-#include <iostream>
-
 
 void pauseDemon() {
     const string YellowInConsole = "\u001B[33m";
@@ -227,7 +224,12 @@ void demon() {
 
         //pauseDemon();
         cout << DatabaseInConsole + "Saving from " + textDatabase + " to Memory ..." + StandardConsole << endl;
-        Database::saveItToMemory();
+        if (typeid(Database) == typeid(TextDatabase)) {
+            TextDatabase::saveItToMemory();
+        }
+        if (typeid(Database) == typeid(BinaryDatabase)) {
+            // --- BinaryDatabase::saveItToMemory();
+        }
         cout << DatabaseInConsole + "Saved" + StandardConsole << endl << endl;
 
         //pauseDemon();
