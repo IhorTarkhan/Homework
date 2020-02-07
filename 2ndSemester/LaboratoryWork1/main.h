@@ -2,7 +2,14 @@
 #include "workInConsole/standardUserWork/DatabaseConsole.h"
 
 int main_Lab_2_1() {
-    demon<MemoryDatabase>();
-    demon<TextDatabase>();
-//    demon<BinaryDatabase>();
+    BinaryDatabase::refresh_file();
+    cout << endl;
+    BinaryDatabase::saveTrain(createRandomTrain());
+    BinaryDatabase::saveTrain(createRandomTrain());
+    BinaryDatabase::saveTrain(createRandomTrain());
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << endl;
+    cout << BinaryDatabase::getTrains();
 }

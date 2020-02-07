@@ -9,9 +9,11 @@ public:
     string number;
     string optionalName;
     Destination destination;
-    Date arrive = Date(1, 1, 1, 1, 1);
-    Date departure = Date(1, 1, 1, 1, 1);
+    Date arrive;
+    Date departure;
     double rate;
+
+    Train() = default;
 
     Train(string number, string optionalName, Destination destination, Date arrive, Date departure, double rate) {
         if (number.length() != 4) {
@@ -33,12 +35,12 @@ public:
     }
 
     string getInText() {
-        string textToSave = NUMBER + this->number + "\n" +
-                            OPTIONAL_NAME + this->optionalName + "\n" +
-                            DESTINATION + DestinationMap[this->destination] + "\n" +
-                            ARRIVE + this->arrive.getInText() + "\n" +
-                            DEPARTURE + this->departure.getInText() + "\n" +
-                            RATE + to_string(this->rate) + "\n";
+        string textToSave = NUMBER + number + "\n" +
+                            OPTIONAL_NAME + optionalName + "\n" +
+                            DESTINATION + DestinationMap[destination] + "\n" +
+                            ARRIVE + arrive.getInText() + "\n" +
+                            DEPARTURE + departure.getInText() + "\n" +
+                            RATE + to_string(rate) + "\n";
         return textToSave;
     }
 };

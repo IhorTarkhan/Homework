@@ -11,6 +11,8 @@ struct Date {
     int month;
     int year;
 
+    Date() = default;
+
     Date(int hour, int minute, int day, int month, int year) {
         if (hour < 0 || hour >= 24)
             throw invalid_argument("incorrect hours");

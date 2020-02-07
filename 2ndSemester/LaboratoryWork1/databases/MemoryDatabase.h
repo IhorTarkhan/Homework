@@ -9,7 +9,6 @@ static vector<Train> trainsInMemory;
 
 class MemoryDatabase {
 public:
-
     static int getMaxID() {
         return trainsInMemory.size() - 1;
     }

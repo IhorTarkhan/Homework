@@ -39,8 +39,8 @@ Train getTrainFromConsole() {
     string departureMonthString;
     string departureYearString;
     string rateString;
-    Date arrive = Date(1, 1, 1, 1, 1);
-    Date departure = Date(1, 1, 1, 1, 1);
+    Date arrive;
+    Date departure;
 
     cout << "Adding in Memory..." << endl;
 

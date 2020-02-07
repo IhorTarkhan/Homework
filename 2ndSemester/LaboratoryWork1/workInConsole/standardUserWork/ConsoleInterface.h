@@ -106,7 +106,7 @@ public:
         string departureDayString;
         string departureMonthString;
         string departureYearString;
-        Date departure = Date(1, 1, 1, 1, 1);
+        Date departure;
         string lastFragmentOfName;
         while (true) {
             do {
