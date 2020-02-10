@@ -12,7 +12,7 @@ private:
     constexpr static const char *PATH = "../2ndSemester/LaboratoryWork1/DataBase_txt.txt";
     constexpr static const char *newPATH = "../2ndSemester/LaboratoryWork1/DataBase_txt.txt.new.txt";
 
-    static void extractTrain(Train &train, string &line) {
+    static void extractTrain(Train &train, string line) {
         if (line.substr(0, NUMBER.length()) == NUMBER) {
             line = line.substr(NUMBER.length());
             train.number = line;
@@ -79,92 +79,15 @@ public:
 
     static void saveItToMemory() {
         MemoryDatabase::clearTrains();
-        string number;
-        string optionalName;
-        Destination destination;
-        string arriveHourString;
-        string arriveMinuteString;
-        string arriveDayString;
-        string arriveMonthString;
-        string arriveYearString;
-        string departureHourString;
-        string departureMinuteString;
-        string departureDayString;
-        string departureMonthString;
-        string departureYearString;
-        string rateString;
-        Date arrive;
-        Date departure;
+        vector<Train> res;
 
+        Train train;
         ifstream file(TextDatabase::PATH);
         string line;
         while (getline(file, line)) {
-            if (line.substr(0, NUMBER.length()) == NUMBER) {
-                line = line.substr(NUMBER.length());
-                number = line;
-                continue;
-            }
-            if (line.substr(0, OPTIONAL_NAME.length()) == OPTIONAL_NAME) {
-                line = line.substr(OPTIONAL_NAME.length());
-                optionalName = line;
-                continue;
-            }
-            if (line.substr(0, DESTINATION.length()) == DESTINATION) {
-                line = line.substr(DESTINATION.length());
-                for (int i = 0; i < DestinationMap.size(); ++i) {
-                    if (line == DestinationMap[i]) {
-                        destination = DestinationList[i];
-                        break;
-                    }
-                }
-                continue;
-            }
-            if (line.substr(0, ARRIVE.length()) == ARRIVE) {
-                line = line.substr(ARRIVE.length());
-                arriveHourString = line.substr(0, line.find_first_of(":"));
-                line = line.substr(line.find_first_of(":") + 1);
-
-                arriveMinuteString = line.substr(0, line.find_first_of(" "));
-                line = line.substr(line.find_first_of(" ") + 1);
-
-                arriveDayString = line.substr(0, line.find_first_of("/"));
-                line = line.substr(line.find_first_of("/") + 1);
-
-                arriveMonthString = line.substr(0, line.find_first_of("/"));
-                line = line.substr(line.find_first_of("/") + 1);
-
-                arriveYearString = line;
-
-                arrive = Date(stoi(arriveHourString), stoi(arriveMinuteString),
-                              stoi(arriveDayString), stoi(arriveMonthString), stoi(arriveYearString));
-                continue;
-            }
-            if (line.substr(0, DEPARTURE.length()) == DEPARTURE) {
-                line = line.substr(DEPARTURE.length());
-                departureHourString = line.substr(0, line.find_first_of(":"));
-                line = line.substr(line.find_first_of(":") + 1);
-
-                departureMinuteString = line.substr(0, line.find_first_of(" "));
-                line = line.substr(line.find_first_of(" ") + 1);
-
-                departureDayString = line.substr(0, line.find_first_of("/"));
-                line = line.substr(line.find_first_of("/") + 1);
-
-                departureMonthString = line.substr(0, line.find_first_of("/"));
-                line = line.substr(line.find_first_of("/") + 1);
-
-                departureYearString = line;
-
-                departure = Date(stoi(departureHourString), stoi(departureMinuteString),
-                                 stoi(departureDayString), stoi(departureMonthString), stoi(departureYearString));
-                continue;
-            }
+            extractTrain(train, line);
             if (line.substr(0, RATE.length()) == RATE) {
-                line = line.substr(RATE.length());
-                rateString = line;
-                Train train = Train(number, optionalName, destination, arrive, departure, stod(rateString));
                 trainsInMemory.push_back(train);
-                continue;
             }
         }
         file.close();
