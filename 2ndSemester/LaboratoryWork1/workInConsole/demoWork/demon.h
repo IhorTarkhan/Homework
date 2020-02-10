@@ -37,20 +37,20 @@ void demon() {
     const string StandardConsole = "\u001B[0m";
     string DatabaseInConsole = "";
 
-    string textDatabase = "";
+    string textInConsoleDatabase = "";
     if (typeid(Database) == typeid(MemoryDatabase)) {
-        textDatabase = "Memory";
+        textInConsoleDatabase = "Memory";
         DatabaseInConsole = RedInConsole;
         MemoryDatabase::clearTrains();
     }
     if (typeid(Database) == typeid(TextDatabase)) {
-        textDatabase = "Text";
+        textInConsoleDatabase = "Text";
         DatabaseInConsole = BlueInConsole;
         MemoryDatabase::clearTrains();
         Database::clearTrains();
     }
     if (typeid(Database) == typeid(BinaryDatabase)) {
-        textDatabase = "Binary";
+        textInConsoleDatabase = "Binary";
         DatabaseInConsole = PurpleInConsole;
         MemoryDatabase::clearTrains();
         Database::clearTrains();
@@ -69,17 +69,12 @@ void demon() {
         cout << DatabaseInConsole + "Printed" + StandardConsole << endl << endl;
 
         //pauseDemon();
-        cout << DatabaseInConsole + "Saving from Memory to " + textDatabase + " ..." + StandardConsole << endl;
-        if (typeid(Database) == typeid(TextDatabase)) {
-            TextDatabase::saveMemoryToIt();
-        }
-        if (typeid(Database) == typeid(BinaryDatabase)) {
-            // --- BinaryDatabase::saveMemoryToIt();
-        }
+        cout << DatabaseInConsole + "Saving from Memory to " + textInConsoleDatabase + " ..." + StandardConsole << endl;
+        Database::saveMemoryToIt();
         cout << DatabaseInConsole + "Saved" + StandardConsole << endl << endl;
 
         //pauseDemon();
-        cout << DatabaseInConsole + "Printing from " + textDatabase + " ..." + StandardConsole << endl;
+        cout << DatabaseInConsole + "Printing from " + textInConsoleDatabase + " ..." + StandardConsole << endl;
         cout << Database::getTrains();
         cout << DatabaseInConsole + "Printed" + StandardConsole << endl << endl;
     }
@@ -88,27 +83,27 @@ void demon() {
     vector<Train> taskResults;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Saving random train in " + textDatabase + " ..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Saving random train in " + textInConsoleDatabase + " ..." + StandardConsole << endl;
     Database::saveTrain(randomTrain);
     cout << DatabaseInConsole + "Saved" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Printing from " + textDatabase + " ..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Printing from " + textInConsoleDatabase + " ..." + StandardConsole << endl;
     cout << Database::getTrains();
     cout << DatabaseInConsole + "Printed" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Deleting from " + textDatabase + " ..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Deleting from " + textInConsoleDatabase + " ..." + StandardConsole << endl;
     Database::clearTrains();
     cout << DatabaseInConsole + "Deleted" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Printing from " + textDatabase + " ..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Printing from " + textInConsoleDatabase + " ..." + StandardConsole << endl;
     cout << Database::getTrains();
     cout << DatabaseInConsole + "Printed" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Save 5 random trains in " + textDatabase + " ..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Save 5 random trains in " + textInConsoleDatabase + " ..." + StandardConsole << endl;
     randomTrain = createRandomTrain();
     Database::saveTrain(randomTrain);
     randomTrain = createRandomTrain();
@@ -122,37 +117,37 @@ void demon() {
     cout << DatabaseInConsole + "Saved" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Printing from " + textDatabase + " ..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Printing from " + textInConsoleDatabase + " ..." + StandardConsole << endl;
     cout << Database::getTrains();
     cout << DatabaseInConsole + "Printed" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Print from " + textDatabase + " with ID..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Print from " + textInConsoleDatabase + " with ID..." + StandardConsole << endl;
     cout << Database::getTrainsWithID();
     cout << DatabaseInConsole + "Printed with ID" + StandardConsole << endl << endl;
 
     //pauseDemon();
     cout << DatabaseInConsole + "Deleting Train with ID = " + to_string(Database::getMaxID() - 2) + " in " +
-            textDatabase + " ..." +
+            textInConsoleDatabase + " ..." +
             StandardConsole << endl;
     Database::deleteTrain(Database::getMaxID() - 2);
     cout << DatabaseInConsole + "Deleted" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Print from " + textDatabase + " with ID..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Print from " + textInConsoleDatabase + " with ID..." + StandardConsole << endl;
     cout << Database::getTrainsWithID();
     cout << DatabaseInConsole + "Printed with ID" + StandardConsole << endl << endl;
 
     //pauseDemon();
     cout << DatabaseInConsole + "Changing Train name with ID = " + to_string(Database::getMaxID() - 3) +
-            " in " + textDatabase + " ..." +
+            " in " + textInConsoleDatabase + " ..." +
             StandardConsole << endl;
     randomTrain.optionalName = "normalName";
     Database::changeTrain(Database::getMaxID() - 3, randomTrain);
     cout << DatabaseInConsole + "Changed" + StandardConsole << endl << endl;
 
     //pauseDemon();
-    cout << DatabaseInConsole + "Print from " + textDatabase + " with ID..." + StandardConsole << endl;
+    cout << DatabaseInConsole + "Print from " + textInConsoleDatabase + " with ID..." + StandardConsole << endl;
     cout << Database::getTrainsWithID();
     cout << DatabaseInConsole + "Printed with ID" + StandardConsole << endl << endl;
 
@@ -223,13 +218,8 @@ void demon() {
         cout << DatabaseInConsole + "Printed" + StandardConsole << endl << endl;
 
         //pauseDemon();
-        cout << DatabaseInConsole + "Saving from " + textDatabase + " to Memory ..." + StandardConsole << endl;
-        if (typeid(Database) == typeid(TextDatabase)) {
-            TextDatabase::saveItToMemory();
-        }
-        if (typeid(Database) == typeid(BinaryDatabase)) {
-            // --- BinaryDatabase::saveItToMemory();
-        }
+        cout << DatabaseInConsole + "Saving from " + textInConsoleDatabase + " to Memory ..." + StandardConsole << endl;
+        Database::saveItToMemory();
         cout << DatabaseInConsole + "Saved" + StandardConsole << endl << endl;
 
         //pauseDemon();

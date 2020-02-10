@@ -16,6 +16,9 @@ public:
 
     static void saveMemoryToIt() {
         clearTrains();
+        for (int i = 0; i < trainsInMemory.size(); i++) {
+            saveTrain(trainsInMemory[i]);
+        }
     }
 
     static void saveItToMemory() {

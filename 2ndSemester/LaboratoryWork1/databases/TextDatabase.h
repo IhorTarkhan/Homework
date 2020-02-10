@@ -15,14 +15,9 @@ private:
 public:
     static void saveMemoryToIt() {
         clearTrains();
-        int maxID = getMaxID();
-        string textToSave = "";
-        ofstream file(TextDatabase::PATH, ios_base::app);
         for (int i = 0; i < trainsInMemory.size(); i++) {
-            textToSave += ID + to_string(++maxID) + "\n" + trainsInMemory[i].getInText() + "\n";
+            saveTrain(trainsInMemory[i]);
         }
-        file << textToSave;
-        file.close();
     }
 
     static void saveItToMemory() {
