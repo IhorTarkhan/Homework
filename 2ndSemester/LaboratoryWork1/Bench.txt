@@ -1,13 +1,68 @@
+Mon Feb 10 23:24:32 2020
+
+Memory
+N = 10 elements		size = 1200 bites		time = 0 ms
+N = 20 elements		size = 2400 bites		time = 0 ms
+N = 40 elements		size = 4800 bites		time = 0 ms
+N = 80 elements		size = 9600 bites		time = 0 ms
+N = 160 elements		size = 19200 bites		time = 0 ms
+N = 320 elements		size = 38400 bites		time = 0 ms
+N = 640 elements		size = 76800 bites		time = 1 ms
+N = 1280 elements		size = 153600 bites		time = 2 ms
+N = 2560 elements		size = 307200 bites		time = 4 ms
+N = 5120 elements		size = 614400 bites		time = 10 ms
+N = 10240 elements		size = 1228800 bites		time = 17 ms
+N = 20480 elements		size = 2457600 bites		time = 34 ms
+N = 40960 elements		size = 4915200 bites		time = 71 ms
+N = 81920 elements		size = 9830400 bites		time = 156 ms
+N = 163840 elements		size = 19660800 bites		time = 302 ms
+N = 327680 elements		size = 39321600 bites		time = 556 ms
+N = 655360 elements		size = 78643200 bites		time = 1125 ms
+N = 983040 elements		size = 117964800 bites		time = 1577 ms
+N = 1310720 elements		size = 157286400 bites		time = 2268 ms
+N = 1638400 elements		size = 196608000 bites		time = 2638 ms
+N = 1966080 elements		size = 235929600 bites		time = 3173 ms
+N = 2293760 elements		size = 275251200 bites		time = 3951 ms
+N = 2621440 elements		size = 314572800 bites		time = 4294 ms
+N = 2949120 elements		size = 353894400 bites		time = 4882 ms
+N = 3276800 elements		size = 393216000 bites		time = 5375 ms
+N = 3604480 elements		size = 432537600 bites		time = 6222 ms
+N = 3932160 elements		size = 471859200 bites		time = 6626 ms
+N = 4259840 elements		size = 511180800 bites		time = 7495 ms
+N = 4587520 elements		size = 550502400 bites		time = 7723 ms
+N = 4915200 elements		size = 589824000 bites		time = 9940 ms
+N = 5242880 elements		size = 629145600 bites		time = 10456 ms
+
+Mon Feb 10 23:25:58 2020
+
+Text
+N = 10 elements		size = 1313 bites		time = 1 ms
+N = 20 elements		size = 2664 bites		time = 1 ms
+N = 40 elements		size = 5304 bites		time = 4 ms
+N = 80 elements		size = 10610 bites		time = 12 ms
+N = 160 elements		size = 21208 bites		time = 24 ms
+N = 320 elements		size = 42577 bites		time = 63 ms
+N = 640 elements		size = 85308 bites		time = 224 ms
+N = 1280 elements		size = 171220 bites		time = 676 ms
+N = 2560 elements		size = 343224 bites		time = 2116 ms
+N = 3840 elements		size = 515246 bites		time = 4577 ms
+N = 5120 elements		size = 686725 bites		time = 8008 ms
+N = 6400 elements		size = 860156 bites		time = 12361 ms
+
+Mon Feb 10 23:26:32 2020
+
+Binary
 N = 10 elements		size = 860 bites		time = 1 ms
-N = 20 elements		size = 1720 bites		time = 2 ms
+N = 20 elements		size = 1720 bites		time = 3 ms
 N = 40 elements		size = 3440 bites		time = 3 ms
-N = 80 elements		size = 6880 bites		time = 8 ms
-N = 160 elements		size = 13760 bites		time = 19 ms
-N = 320 elements		size = 27520 bites		time = 53 ms
-N = 640 elements		size = 55040 bites		time = 152 ms
-N = 1280 elements		size = 110080 bites		time = 512 ms
-N = 2560 elements		size = 220160 bites		time = 1667 ms
-N = 3840 elements		size = 330240 bites		time = 3487 ms
-N = 5120 elements		size = 440320 bites		time = 6020 ms
-N = 6400 elements		size = 550400 bites		time = 9095 ms
-N = 7680 elements		size = 660480 bites		time = 13713 ms
+N = 80 elements		size = 6880 bites		time = 10 ms
+N = 160 elements		size = 13760 bites		time = 16 ms
+N = 320 elements		size = 27520 bites		time = 48 ms
+N = 640 elements		size = 55040 bites		time = 140 ms
+N = 1280 elements		size = 110080 bites		time = 453 ms
+N = 2560 elements		size = 220160 bites		time = 1503 ms
+N = 3840 elements		size = 330240 bites		time = 3195 ms
+N = 5120 elements		size = 440320 bites		time = 6025 ms
+N = 6400 elements		size = 550400 bites		time = 9247 ms
+N = 7680 elements		size = 660480 bites		time = 12736 ms
+

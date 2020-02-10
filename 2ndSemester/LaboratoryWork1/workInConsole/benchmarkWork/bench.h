@@ -23,6 +23,17 @@ static void createAndFindingIn_N_Elements(long N) {
 template<typename Database>
 static void bench() {
     ofstream file("../2ndSemester/LaboratoryWork1/Bench.txt", ios_base::app);
+    time_t end_time = chrono::system_clock::to_time_t(chrono::system_clock::now());
+    file << ctime(&end_time) << endl;
+    if (typeid(Database) == typeid(MemoryDatabase)) {
+        file << "Memory" << endl;
+    }
+    if (typeid(Database) == typeid(TextDatabase)) {
+        file << "Text" << endl;
+    }
+    if (typeid(Database) == typeid(BinaryDatabase)) {
+        file << "Binary" << endl;
+    }
     Database::clearTrains();
     long N = 10;
     long N_10 = 10;
@@ -75,5 +86,6 @@ static void bench() {
 
         N += N_10;
     }
+    file << endl;
     file.close();
 }

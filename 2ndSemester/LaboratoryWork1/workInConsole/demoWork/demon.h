@@ -70,7 +70,10 @@ void demon() {
 
         //pauseDemon();
         cout << DatabaseInConsole + "Saving from Memory to " + textInConsoleDatabase + " ..." + StandardConsole << endl;
-        Database::saveMemoryToIt();
+        if (typeid(Database) == typeid(TextDatabase))
+        TextDatabase::saveMemoryToIt();
+        if (typeid(Database) == typeid(BinaryDatabase))
+            BinaryDatabase::saveMemoryToIt();
         cout << DatabaseInConsole + "Saved" + StandardConsole << endl << endl;
 
         //pauseDemon();
@@ -219,7 +222,10 @@ void demon() {
 
         //pauseDemon();
         cout << DatabaseInConsole + "Saving from " + textInConsoleDatabase + " to Memory ..." + StandardConsole << endl;
-        Database::saveItToMemory();
+        if (typeid(Database) == typeid(TextDatabase))
+            TextDatabase::saveItToMemory();
+        if (typeid(Database) == typeid(BinaryDatabase))
+            BinaryDatabase::saveItToMemory();
         cout << DatabaseInConsole + "Saved" + StandardConsole << endl << endl;
 
         //pauseDemon();

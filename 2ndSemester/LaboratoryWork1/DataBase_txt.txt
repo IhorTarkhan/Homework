@@ -1,0 +1,32 @@
+id: 1
+number: 5372
+optionalName: GGaQBbVXvi
+destination: FAST
+arrive: 16:58 14/4/2362
+departure: 17:42 21/9/1668
+rate: 0.337421
+
+id: 2
+number: 9049
+optionalName: normalName
+destination: FAST
+arrive: 19:35 10/8/2318
+departure: 2:27 29/12/1707
+rate: 0.594796
+
+id: 4
+number: 2221
+optionalName: RuYewVxlmx
+destination: SIMPLE
+arrive: 15:17 23/8/2265
+departure: 0:5 28/7/2282
+rate: 1.488465
+
+id: 5
+number: 6666
+optionalName: normalName
+destination: FAST
+arrive: 19:35 10/8/2318
+departure: 20:50 20/6/2000
+rate: 0.594796
+
