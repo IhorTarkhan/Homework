@@ -172,17 +172,17 @@ public:
         ifstream file(TextDatabase::PATH);
         ofstream newFile(TextDatabase::newPATH);
         string line;
-        bool ignore_lines = false;
+        bool ignoreLines = false;
         while (getline(file, line)) {
             if (line.substr(0, ID.length()) == ID) {
                 newFile << line << endl;
                 if (stoi(line.substr(ID.length())) == id) {
-                    ignore_lines = true;
+                    ignoreLines = true;
                     newFile << train.getInText() << endl;
                 } else {
-                    ignore_lines = false;
+                    ignoreLines = false;
                 }
-            } else if (!ignore_lines) {
+            } else if (!ignoreLines) {
                 newFile << line << endl;
             }
         }
@@ -199,16 +199,16 @@ public:
         ifstream file(TextDatabase::PATH);
         ofstream newFile(TextDatabase::newPATH);
         string line;
-        bool ignore_lines = false;
+        bool ignoreLines = false;
         while (getline(file, line)) {
             if (line.substr(0, ID.length()) == ID) {
                 if (stoi(line.substr(ID.length())) == id) {
-                    ignore_lines = true;
+                    ignoreLines = true;
                 } else {
                     newFile << line << endl;
-                    ignore_lines = false;
+                    ignoreLines = false;
                 }
-            } else if (!ignore_lines) {
+            } else if (!ignoreLines) {
                 newFile << line << endl;
             }
         }
