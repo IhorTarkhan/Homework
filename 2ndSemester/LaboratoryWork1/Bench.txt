@@ -1,0 +1,13 @@
+N = 10 elements		size = 860 bites		time = 1 ms
+N = 20 elements		size = 1720 bites		time = 2 ms
+N = 40 elements		size = 3440 bites		time = 3 ms
+N = 80 elements		size = 6880 bites		time = 8 ms
+N = 160 elements		size = 13760 bites		time = 19 ms
+N = 320 elements		size = 27520 bites		time = 53 ms
+N = 640 elements		size = 55040 bites		time = 152 ms
+N = 1280 elements		size = 110080 bites		time = 512 ms
+N = 2560 elements		size = 220160 bites		time = 1667 ms
+N = 3840 elements		size = 330240 bites		time = 3487 ms
+N = 5120 elements		size = 440320 bites		time = 6020 ms
+N = 6400 elements		size = 550400 bites		time = 9095 ms
+N = 7680 elements		size = 660480 bites		time = 13713 ms
