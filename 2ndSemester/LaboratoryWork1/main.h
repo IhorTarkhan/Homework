@@ -2,5 +2,5 @@
 #include "workInConsole/standardUserWork/DatabaseConsole.h"
 
 int main_Lab_2_1() {
-    demon<TextDatabase>();
+    demon<BinaryDatabase>();
 }
