@@ -37,7 +37,7 @@ struct Date {
         this->year = year;
     }
 
-    string getInText() {
+    string getInText() const {
         return to_string(hour) + ":" + to_string(minute) + " "
                + to_string(day) + "/" + to_string(month) + "/" + to_string(year);
     }

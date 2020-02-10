@@ -34,7 +34,7 @@ public:
         this->rate = rate;
     }
 
-    string getInText() {
+    string getInText() const {
         string textToSave = NUMBER + number + "\n" +
                             OPTIONAL_NAME + optionalName + "\n" +
                             DESTINATION + DestinationMap[destination] + "\n" +
