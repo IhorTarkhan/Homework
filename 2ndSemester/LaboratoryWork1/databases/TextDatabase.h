@@ -14,6 +14,7 @@ private:
 
 public:
     static void saveMemoryToIt() {
+        clearTrains();
         int maxID = getMaxID();
         string textToSave = "";
         ofstream file(TextDatabase::PATH, ios_base::app);
@@ -25,6 +26,7 @@ public:
     }
 
     static void saveItToMemory() {
+        MemoryDatabase::clearTrains();
         string number;
         string optionalName;
         Destination destination;

@@ -15,9 +15,11 @@ private:
 public:
 
     static void saveMemoryToIt() {
+        clearTrains();
     }
 
     static void saveItToMemory() {
+        MemoryDatabase::clearTrains();
     }
 
     static int getMaxID() {
