@@ -23,6 +23,51 @@ public:
 
     static void saveItToMemory() {
         MemoryDatabase::clearTrains();
+
+        ifstream file(BinaryDatabase::PATH, ios_base::binary);
+
+        while (!file.eof()) {
+            int trainID;
+            Train train;
+
+            file.read((char *) &(trainID), sizeof(trainID));
+            if (file.eof()) { break; }
+
+            size_t numberSize;
+            file.read((char *) &numberSize, sizeof(numberSize));
+            char *numberBuffer = new char[numberSize + 1];
+            file.read(numberBuffer, numberSize);
+            numberBuffer[numberSize] = '\0';
+            train.number = numberBuffer;
+
+            size_t nameSize;
+            file.read((char *) &nameSize, sizeof(nameSize));
+            char *nameBuffer = new char[nameSize + 1];
+            file.read(nameBuffer, nameSize);
+            nameBuffer[nameSize] = '\0';
+            train.optionalName = nameBuffer;
+
+            file.read((char *) &(train.destination), sizeof(train.destination));
+
+
+            file.read((char *) &(train.arrive.hour), sizeof(train.arrive.hour));
+            file.read((char *) &(train.arrive.minute), sizeof(train.arrive.minute));
+            file.read((char *) &(train.arrive.day), sizeof(train.arrive.day));
+            file.read((char *) &(train.arrive.month), sizeof(train.arrive.month));
+            file.read((char *) &(train.arrive.year), sizeof(train.arrive.year));
+
+            file.read((char *) &(train.departure.hour), sizeof(train.departure.hour));
+            file.read((char *) &(train.departure.minute), sizeof(train.departure.minute));
+            file.read((char *) &(train.departure.day), sizeof(train.departure.day));
+            file.read((char *) &(train.departure.month), sizeof(train.departure.month));
+            file.read((char *) &(train.departure.year), sizeof(train.departure.year));
+
+
+            file.read((char *) &(train.rate), sizeof(train.rate));
+
+            trainsInMemory.push_back(train);
+        }
+        file.close();
     }
 
     static int getMaxID() {
