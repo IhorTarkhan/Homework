@@ -53,6 +53,10 @@ public:
         trainsInMemory.erase(it);
     }
 
+    static size_t getSize() {
+        return trainsInMemory.size() * sizeof(Train);
+    }
+
     static vector<Train> task1(string lastFragmentOfName) {
         vector<Train> res;
         for (int i = 0; i < trainsInMemory.size(); ++i) {

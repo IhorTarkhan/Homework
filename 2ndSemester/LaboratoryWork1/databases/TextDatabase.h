@@ -198,6 +198,13 @@ public:
         rename(TextDatabase::newPATH, TextDatabase::PATH);
     }
 
+    static size_t getSize() {
+        ifstream in(TextDatabase::PATH, std::ifstream::ate | std::ifstream::binary);
+        size_t size = in.tellg();
+        in.close();
+        return size;
+    }
+
     static vector<Train> task1(string lastFragmentOfName) {
         vector<Train> res;
 

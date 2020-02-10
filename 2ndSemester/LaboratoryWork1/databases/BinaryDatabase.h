@@ -215,6 +215,13 @@ public:
         rename(BinaryDatabase::newPATH, BinaryDatabase::PATH);
     }
 
+    static size_t getSize() {
+        ifstream in(BinaryDatabase::PATH, std::ifstream::ate | std::ifstream::binary);
+        size_t size = in.tellg();
+        in.close();
+        return size;
+    }
+
     static vector<Train> task1(string lastFragmentOfName) {
         vector<Train> result;
         ifstream file(BinaryDatabase::PATH, ios_base::binary);
