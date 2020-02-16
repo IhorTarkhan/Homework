@@ -4,7 +4,8 @@
 #include "1stSemester/LaboratoryWork4/main.h"
 #include "1stSemester/LaboratoryWork5/main.h"
 #include "2ndSemester/LaboratoryWork1/main.h"
+#include "2ndSemester/LaboratoryWork2/main.h"
 
 int main() {
-    main_Lab_2_1();
+    main_Lab_2_2();
 }

@@ -1,0 +1,49 @@
+Implement a given data structure using three different approaches:
+    1. Based on a fixed size array. Exit an error when exiting an array.
+    2. Based on a dynamic array (for example, std :: vector).
+    3. Based on a linked list. Choose one or two lists and other
+    implementation details yourself.
+
+The following operating modes for the implemented program must be implemented:
+    1. Interactive dialog mode - when the user can choose which operations
+    to perform and set the required parameters.
+    2. Demonstration mode - set fixed values ​​of parameters and sequence of
+    operations that demonstrate the correct operation of data structures and
+    operations in different situations. The user does not have to enter
+    anything in this mode.
+    3. Automatic benchmark mode with performance measurements of different
+    versions of data structures.
+
+Implement the queue data structure with the following operations:
+    1) create_empty - create an empty queue;
+    2) enqueue - adding an element to the end of the queue;
+    3) dequeue - deleting an element from the beginning of the queue;
+    4) is_empty - bool check.
+The structure stores points in three-dimensional space (valid coordinates).
+
+/*
+Реалізувати задану структуру даних, використовуючи три різні підходи:
+    1. На основі масиву фіксованого розміру. При виході за межі масиву
+    видавати повідомлення про помилку.
+    2. На основі динамічного масиву (наприклад, std::vector).
+    3. На основі зв’язного списку. Самостійно обрати однозв’язний чи
+    двозв’язний список та інші деталі реалізації.
+
+Необхідно реалізувати наступні режими роботи для реалізованої програми:
+    1. Інтерактивний діалоговий режим – коли користувач може
+    вибирати, які операції виконувати та задавати необхідні
+    параметри.
+    2. Демонстраційний режим – задаються фіксовані значення
+    параметрів та послідовності виконання операцій, що
+    демонструють правильність роботи структур даних та операцій в
+    різних ситуаціях. В цьому режимі користувач не має нічого вводити.
+    3. Автоматичний режим “benchmark” з вимірами ефективності
+    роботи різних версій структур даних.
+
+Реалізувати структуру даних «черга» з наступними операціями:
+    1) create_empty – створення пустої черги;
+    2) enqueue – додавання елементу до кінця черги;
+    3) dequeue – вилучення елементу з початку черги;
+    4) is_empty – перевірка на пустоту.
+В структурі зберігаються точки у тривимірному просторі (дійсні координати).
+*/
