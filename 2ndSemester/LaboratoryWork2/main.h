@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ArrayQueue.h"
+#include "VectorQueue.h"
 
 using namespace std;
 
@@ -10,8 +11,8 @@ void printPosition(Position position) {
 int main_Lab_2_2() {
     const int n = 5;
 
-    ArrayQueue aQueue = ArrayQueue();
-    aQueue.create_empty(n);
+    VectorQueue aQueue = VectorQueue();
+    aQueue.create_empty();
     cout << aQueue.is_empty() << endl;
 
     aQueue.enqueue(Position(1, 40.999999999, 30.555555555));
