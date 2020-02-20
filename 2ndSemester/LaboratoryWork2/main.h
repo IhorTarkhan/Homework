@@ -12,14 +12,21 @@ int main_Lab_2_2() {
 
     ArrayQueue aQueue = ArrayQueue();
     aQueue.create_empty(n);
+    cout << aQueue.is_empty() << endl;
 
     aQueue.enqueue(Position(1, 40.999999999, 30.555555555));
+    cout << aQueue.is_empty() << endl;
     aQueue.enqueue(Position(2, 40.999999999, 30.555555555));
+    cout << aQueue.is_empty() << endl;
     aQueue.enqueue(Position(3, 40.999999999, 30.555555555));
+    cout << aQueue.is_empty() << endl;
     aQueue.enqueue(Position(4, 40.999999999, 30.555555555));
+    cout << aQueue.is_empty() << endl;
     aQueue.enqueue(Position(5, 40.999999999, 30.555555555));
+    cout << aQueue.is_empty() << endl;
 
     for (int i = 0; i < n; ++i) {
         printPosition(aQueue.dequeue());
+        cout << aQueue.is_empty() << endl;
     }
 }
