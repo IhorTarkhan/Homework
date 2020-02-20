@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ArrayQueue.h"
 #include "VectorQueue.h"
+#include "LinkedQueue.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ void printPosition(Position position) {
 int main_Lab_2_2() {
     const int n = 5;
 
-    VectorQueue aQueue = VectorQueue();
+    LinkedQueue aQueue = LinkedQueue();
     aQueue.create_empty();
     cout << aQueue.is_empty() << endl;
 
