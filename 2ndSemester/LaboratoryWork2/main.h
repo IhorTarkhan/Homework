@@ -7,30 +7,29 @@
 
 using namespace std;
 
-void printPosition(Position position) {
-    cout << to_string(position.x) << "; " << to_string(position.y) << "; " << to_string(position.z) << endl;
-}
-
 int main_Lab_2_2() {
-    const int n = 5;
+    Interactive interactive;
+    string standard = "\u001B[38m";
+    while (true) {
+        cout << standard;
+        cout << "Enter operating, witch you want to use:" << endl;
+        cout << "1 - interactive;" << endl;
+        cout << "2 - demo;" << endl;
+        cout << "3 - benchmark." << endl;
+        cout << "Your choice: ";
 
-    VirtualQueue *aQueue = new LinkedQueue();
-    aQueue->create_empty(n);
-    cout << aQueue->is_empty() << endl;
-
-    aQueue->enqueue(Position(1, 40.999999999, 30.555555555));
-    cout << aQueue->is_empty() << endl;
-    aQueue->enqueue(Position(2, 40.999999999, 30.555555555));
-    cout << aQueue->is_empty() << endl;
-    aQueue->enqueue(Position(3, 40.999999999, 30.555555555));
-    cout << aQueue->is_empty() << endl;
-    aQueue->enqueue(Position(4, 40.999999999, 30.555555555));
-    cout << aQueue->is_empty() << endl;
-    aQueue->enqueue(Position(5, 40.999999999, 30.555555555));
-    cout << aQueue->is_empty() << endl;
-
-    for (int i = 0; i < n; ++i) {
-        printPosition(aQueue->dequeue());
-        cout << aQueue->is_empty() << endl;
+        int choiceValue;
+        cin >> choiceValue;
+        switch (choiceValue) {
+            case 1:
+                interactive.run();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                cout << "Incorrect option selected!" << endl;
+        }
     }
 }
