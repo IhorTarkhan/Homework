@@ -1,6 +1,8 @@
 #ifndef HOMEWORK_LINKEDQUEUE_H
 #define HOMEWORK_LINKEDQUEUE_H
 
+#include "VirtualQueue.h"
+
 class Node {
 public:
     Position value;
@@ -8,13 +10,16 @@ public:
     Node *prev;
 };
 
-struct LinkedQueue {
+struct LinkedQueue : VirtualQueue {
     int fillingSize = -1;
     Node *head;
     Node *tail;
 
 public:
-    void create_empty() {
+    void create_empty(const int size) {
+        if (size < 0) {
+            throw "Incorrect argument of size";
+        }
         if (fillingSize >= 0) {
             throw "Queue is already existed";
         }
