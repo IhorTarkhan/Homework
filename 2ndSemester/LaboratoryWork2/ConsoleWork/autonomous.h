@@ -118,12 +118,38 @@ private:
         use_is_empty(queue, colorInConsole);
     }
 
+    void additionalDemoForArray(string colorInConsole) {
+        cout << colorInConsole;
+        cout << "\t" << "\t" << "Clear Array-Queue or create new one, if it don't existed:" << endl;
+        try {
+            arrayQueue->create_empty(arrayQueueSize);
+        } catch (...) {}
+        while (!arrayQueue->is_empty()) {
+            arrayQueue->dequeue();
+        }
+        cout << "\t" << "\t" << "Done!" << endl << endl;
+
+        cout << "\t" << "\t" << "Now Array-Queue size = " << arrayQueueSize << endl;
+        cout << "\t" << "\t" << "And Array-Queue is empty." << endl << endl;
+
+        for (int i = 0; i < arrayQueueSize + 2; ++i) {
+            cout << "\t" << "\t" << "#" << (i + 1) << ", size = " << arrayQueueSize << endl;
+            use_enqueue(arrayQueue, colorInConsole);
+        }
+    }
+
+    void standardBench(VirtualQueue *queue, string colorInConsole) {
+
+    }
+
 public:
     void demon() {
         cout << _1ST_DEMO;
         cout << "\t" << "Demonstrating Array-Queue:" << endl;
         standardDemo(arrayQueue, _1ST_DEMO);
+        additionalDemoForArray(_1ST_DEMO);
         cout << endl << endl;
+
 
         cout << _2ND_DEMO;
         cout << "\t" << "Demonstrating Vector-Queue:" << endl;
@@ -136,8 +162,19 @@ public:
     }
 
     void bench() {
-        Position position = createRandomPosition();
-        getPositionInString(position);
+        cout << _1ST_DEMO;
+        cout << "\t" << "Benchmark of Array-Queue:" << endl;
+        standardBench(arrayQueue, _1ST_DEMO);
+        cout << endl << endl;
+
+        cout << _2ND_DEMO;
+        cout << "\t" << "Benchmark of Vector-Queue:" << endl;
+        standardBench(vectorQueue, _2ND_DEMO);
+        cout << endl << endl;
+
+        cout << _3RD_DEMO;
+        cout << "\t" << "Benchmark of Linked-Queue:" << endl;
+        standardBench(linkedQueue, _3RD_DEMO);
     }
 };
 
