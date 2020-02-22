@@ -2,13 +2,14 @@
 #include "QueueImplementations/ArrayQueue.h"
 #include "QueueImplementations/VectorQueue.h"
 #include "QueueImplementations/LinkedQueue.h"
-#include "ConsoleWork/demo.h"
+#include "ConsoleWork/autonomous.h"
 #include "ConsoleWork/interactive.h"
 
 using namespace std;
 
 int main_Lab_2_2() {
     Interactive interactive;
+    Autonomous autonomous;
     string standard = "\u001B[38m";
     while (true) {
         cout << standard;
@@ -25,8 +26,10 @@ int main_Lab_2_2() {
                 interactive.run();
                 break;
             case 2:
+                autonomous.demon();
                 break;
             case 3:
+                autonomous.bench();
                 break;
             default:
                 cout << "Incorrect option selected!" << endl;

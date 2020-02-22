@@ -8,16 +8,18 @@ private:
     LinkedQueue *linkedQueue = new struct LinkedQueue();
     VirtualQueue *queue;
 
+    const string _1ST_LEVEL_PRINTING = "\u001B[34m";    /// BLUE
+    const string _2ND_LEVEL_PRINTING = "\u001B[33m";    /// YELLOW
+    const string _3RG_LEVEL_PRINTING = "\u001B[35m";    /// VIOLET
+
     void printPosition(Position position) {
-        string violet = "\u001B[35m";
-        cout << violet;
+        cout << _3RG_LEVEL_PRINTING;
         cout << "\t" << "\t" << "\t" << to_string(position.x) << "; " << to_string(position.y) << "; "
              << to_string(position.z) << endl;
     }
 
     Position readPositionFromConsole() {
-        string violet = "\u001B[35m";
-        cout << violet;
+        cout << _3RG_LEVEL_PRINTING;
         Position position;
         cout << "\t" << "\t" << "\t" << "Enter position values in format \"<x> <y> <z>\": ";
 
@@ -31,8 +33,7 @@ private:
     }
 
     int readSizeOfArrayFromConsole() {
-        string violet = "\u001B[35m";
-        cout << violet;
+        cout << _3RG_LEVEL_PRINTING;
         string size;
         do {
             cout << "\t" << "\t" << "\t" << "Enter size of array: ";
@@ -42,9 +43,7 @@ private:
     }
 
     void readFunctionType() {
-        string yellow = "\u001B[33m";
-        string violet = "\u001B[35m";
-        cout << yellow;
+        cout << _2ND_LEVEL_PRINTING;
         while (true) {
             cout << "\t" << "\t" << "Enter type of Function, witch you want to use:" << endl;
             cout << "\t" << "\t" << "1 - create_empty;" << endl;
@@ -72,7 +71,7 @@ private:
                     printPosition(queue->dequeue());
                     return;
                 case 4:
-                    cout << violet;
+                    cout << _3RG_LEVEL_PRINTING;
                     cout << "\t" << "\t" << "\t" << ((queue->is_empty()) ? "TRUE" : "FALSE");
                     cout << endl;
                     return;
@@ -83,8 +82,7 @@ private:
     }
 
     void readQueueType() {
-        string blue = "\u001B[34m";
-        cout << blue;
+        cout << _1ST_LEVEL_PRINTING;
         while (true) {
             cout << "\t" << "Enter type of Queue, witch you want to use:" << endl;
             cout << "\t" << "1 - Array;" << endl;
