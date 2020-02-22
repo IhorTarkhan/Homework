@@ -7,17 +7,17 @@ using namespace std;
 
 class Autonomous {
 private:
-    ArrayQueue *arrayQueue = new struct ArrayQueue();
+    ArrayQueue *arrayQueue;
     const int arrayQueueSize = 3;
-    VectorQueue *vectorQueue = new struct VectorQueue();
-    LinkedQueue *linkedQueue = new struct LinkedQueue();
+    VectorQueue *vectorQueue;
+    LinkedQueue *linkedQueue;
 
-    const string _1ST_DEMO = "\u001B[30m";            /// WHITE
-    const string _2ND_DEMO = "\u001B[34m";            /// BLUE
-    const string _3RD_DEMO = "\u001B[35m";            /// VIOLET
+    const string _1ST_IN_CONSOLE = "\u001B[30m";            /// WHITE
+    const string _2ND_IN_CONSOLE = "\u001B[34m";            /// BLUE
+    const string _3RD_IN_CONSOLE = "\u001B[35m";            /// VIOLET
 
-    const string EXCEPTION_DEMO = "\u001B[31m";       /// READ
-    const string MESSAGE_DEMO = "\u001B[33m";         /// YELLOW
+    const string EXCEPTION_IN_CONSOLE = "\u001B[31m";       /// READ
+    const string MESSAGE_IN_CONSOLE = "\u001B[33m";         /// YELLOW
 
     Position createRandomPosition() {
         const double max = 30;
@@ -44,7 +44,7 @@ private:
             queue->create_empty(arrayQueueSize);
             cout << "\t" << "\t" << "Complete!" << endl;
         } catch (const char *msg) {
-            cout << EXCEPTION_DEMO;
+            cout << EXCEPTION_IN_CONSOLE;
             cout << "\t" << "\t" << "\t" << msg << endl;
             cout << colorInConsole;
         }
@@ -56,14 +56,14 @@ private:
             cout << colorInConsole;
             cout << "\t" << "\t" << "Try to use function \"enqueue( <random position> )\" ..." << endl;
             Position position = createRandomPosition();
-            cout << MESSAGE_DEMO;
+            cout << MESSAGE_IN_CONSOLE;
             cout << "\t" << "\t" << "\t" << "Position = " << getPositionInString(position) << endl;
             cout << colorInConsole;
 
             queue->enqueue(position);
             cout << "\t" << "\t" << "Complete!" << endl;
         } catch (const char *msg) {
-            cout << EXCEPTION_DEMO;
+            cout << EXCEPTION_IN_CONSOLE;
             cout << "\t" << "\t" << "\t" << msg << endl;
             cout << colorInConsole;
         }
@@ -77,7 +77,7 @@ private:
             queue->dequeue();
             cout << "\t" << "\t" << "Complete!" << endl;
         } catch (const char *msg) {
-            cout << EXCEPTION_DEMO;
+            cout << EXCEPTION_IN_CONSOLE;
             cout << "\t" << "\t" << "\t" << msg << endl;
             cout << colorInConsole;
         }
@@ -88,13 +88,13 @@ private:
         cout << colorInConsole;
         cout << "\t" << "\t" << "Try to use function \"is_empty()\" ..." << endl;
         try {
-            cout << MESSAGE_DEMO;
+            cout << MESSAGE_IN_CONSOLE;
             bool isEmpty = queue->is_empty();
             cout << "\t" << "\t" << "\t" << ((isEmpty) ? "TRUE" : "FALSE") << endl;
             cout << colorInConsole;
             cout << "\t" << "\t" << "Complete!" << endl;
         } catch (const char *msg) {
-            cout << EXCEPTION_DEMO;
+            cout << EXCEPTION_IN_CONSOLE;
             cout << "\t" << "\t" << "\t" << msg << endl;
             cout << colorInConsole;
         }
@@ -139,42 +139,49 @@ private:
     }
 
     void standardBench(VirtualQueue *queue, string colorInConsole) {
+        cout << colorInConsole;
 
     }
 
 public:
     void demon() {
-        cout << _1ST_DEMO;
+        arrayQueue = new struct ArrayQueue();
+        cout << _1ST_IN_CONSOLE;
         cout << "\t" << "Demonstrating Array-Queue:" << endl;
-        standardDemo(arrayQueue, _1ST_DEMO);
-        additionalDemoForArray(_1ST_DEMO);
+        standardDemo(arrayQueue, _1ST_IN_CONSOLE);
+        additionalDemoForArray(_1ST_IN_CONSOLE);
         cout << endl << endl;
 
 
-        cout << _2ND_DEMO;
+        vectorQueue = new struct VectorQueue();
+        cout << _2ND_IN_CONSOLE;
         cout << "\t" << "Demonstrating Vector-Queue:" << endl;
-        standardDemo(vectorQueue, _2ND_DEMO);
+        standardDemo(vectorQueue, _2ND_IN_CONSOLE);
         cout << endl << endl;
 
-        cout << _3RD_DEMO;
+        linkedQueue = new struct LinkedQueue();
+        cout << _3RD_IN_CONSOLE;
         cout << "\t" << "Demonstrating Linked-Queue:" << endl;
-        standardDemo(linkedQueue, _3RD_DEMO);
+        standardDemo(linkedQueue, _3RD_IN_CONSOLE);
     }
 
     void bench() {
-        cout << _1ST_DEMO;
+        arrayQueue = new struct ArrayQueue();
+        cout << _1ST_IN_CONSOLE;
         cout << "\t" << "Benchmark of Array-Queue:" << endl;
-        standardBench(arrayQueue, _1ST_DEMO);
+        standardBench(arrayQueue, _1ST_IN_CONSOLE);
         cout << endl << endl;
 
-        cout << _2ND_DEMO;
+        vectorQueue = new struct VectorQueue();
+        cout << _2ND_IN_CONSOLE;
         cout << "\t" << "Benchmark of Vector-Queue:" << endl;
-        standardBench(vectorQueue, _2ND_DEMO);
+        standardBench(vectorQueue, _2ND_IN_CONSOLE);
         cout << endl << endl;
 
-        cout << _3RD_DEMO;
+        linkedQueue = new struct LinkedQueue();
+        cout << _3RD_IN_CONSOLE;
         cout << "\t" << "Benchmark of Linked-Queue:" << endl;
-        standardBench(linkedQueue, _3RD_DEMO);
+        standardBench(linkedQueue, _3RD_IN_CONSOLE);
     }
 };
 
