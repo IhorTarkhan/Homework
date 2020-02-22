@@ -55,7 +55,13 @@ public:
         }
         Position positionToReturn;
         positionToReturn = head->value;
-        head = head->next;
+        if (head->next) {
+            head = head->next;
+            head->prev = nullptr;
+        } else {
+            head = nullptr;
+            tail = nullptr;
+        }
         --fillingSize;
         return positionToReturn;
     }

@@ -12,6 +12,8 @@ private:
     VectorQueue *vectorQueue;
     LinkedQueue *linkedQueue;
 
+    const int numberOfBenchmarkObjects = 1000;
+
     const string _1ST_IN_CONSOLE = "\u001B[30m";            /// WHITE
     const string _2ND_IN_CONSOLE = "\u001B[34m";            /// BLUE
     const string _3RD_IN_CONSOLE = "\u001B[35m";            /// VIOLET
@@ -35,7 +37,7 @@ private:
         return to_string(position.x) + "; " + to_string(position.y) + "; " + to_string(position.z);
     }
 
-    void use_create_empty(VirtualQueue *queue, string colorInConsole) {
+    void demo_create_empty(VirtualQueue *queue, string colorInConsole) {
         cout << colorInConsole;
         cout << "\t" << "\t"
              << "Try to use function \"create_empty\" (for array size by default = " + to_string(arrayQueueSize) + ")" +
@@ -51,7 +53,7 @@ private:
         cout << endl;
     }
 
-    void use_enqueue(VirtualQueue *queue, string colorInConsole) {
+    void demo_enqueue(VirtualQueue *queue, string colorInConsole) {
         try {
             cout << colorInConsole;
             cout << "\t" << "\t" << "Try to use function \"enqueue( <random position> )\" ..." << endl;
@@ -70,7 +72,7 @@ private:
         cout << endl;
     }
 
-    void use_dequeue(VirtualQueue *queue, string colorInConsole) {
+    void demo_dequeue(VirtualQueue *queue, string colorInConsole) {
         cout << colorInConsole;
         cout << "\t" << "\t" << "Try to use function \"dequeue()\" ..." << endl;
         try {
@@ -84,7 +86,7 @@ private:
         cout << endl;
     }
 
-    void use_is_empty(VirtualQueue *queue, string colorInConsole) {
+    void demo_is_empty(VirtualQueue *queue, string colorInConsole) {
         cout << colorInConsole;
         cout << "\t" << "\t" << "Try to use function \"is_empty()\" ..." << endl;
         try {
@@ -102,20 +104,20 @@ private:
     }
 
     void standardDemo(VirtualQueue *queue, string colorInConsole) {
-        use_enqueue(queue, colorInConsole);
-        use_dequeue(queue, colorInConsole);
-        use_is_empty(queue, colorInConsole);
+        demo_enqueue(queue, colorInConsole);
+        demo_dequeue(queue, colorInConsole);
+        demo_is_empty(queue, colorInConsole);
 
-        use_create_empty(queue, colorInConsole);
-        use_create_empty(queue, colorInConsole);
+        demo_create_empty(queue, colorInConsole);
+        demo_create_empty(queue, colorInConsole);
 
-        use_is_empty(queue, colorInConsole);
+        demo_is_empty(queue, colorInConsole);
 
-        use_enqueue(queue, colorInConsole);
-        use_is_empty(queue, colorInConsole);
+        demo_enqueue(queue, colorInConsole);
+        demo_is_empty(queue, colorInConsole);
 
-        use_dequeue(queue, colorInConsole);
-        use_is_empty(queue, colorInConsole);
+        demo_dequeue(queue, colorInConsole);
+        demo_is_empty(queue, colorInConsole);
     }
 
     void additionalDemoForArray(string colorInConsole) {
@@ -134,13 +136,99 @@ private:
 
         for (int i = 0; i < arrayQueueSize + 2; ++i) {
             cout << "\t" << "\t" << "#" << (i + 1) << ", size = " << arrayQueueSize << endl;
-            use_enqueue(arrayQueue, colorInConsole);
+            demo_enqueue(arrayQueue, colorInConsole);
         }
     }
 
-    void standardBench(VirtualQueue *queue, string colorInConsole) {
+    void bench_create_empty(VirtualQueue *queue, string colorInConsole) {
         cout << colorInConsole;
+        auto start = high_resolution_clock::now();
+        queue->create_empty(numberOfBenchmarkObjects);
+        auto stop = high_resolution_clock::now();
 
+        auto duration = duration_cast<nanoseconds>(stop - start);
+        cout << "\t" << "\t" << "Creating queue took " << duration.count() << " nanoseconds" << endl;
+    }
+
+    void bench_enqueue(VirtualQueue *queue, string colorInConsole) {
+        cout << colorInConsole;
+        vector<Position> positions;
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            positions.push_back(createRandomPosition());
+        }
+        auto start = high_resolution_clock::now();
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            queue->enqueue(positions[i]);
+        }
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<nanoseconds>(stop - start);
+        cout << "\t" << "\t" << "Enqueue " << numberOfBenchmarkObjects << " elements took " <<
+             duration.count() << " nanoseconds" << endl;
+    }
+
+    void bench_dequeue(VirtualQueue *queue, string colorInConsole) {
+        cout << colorInConsole;
+        vector<Position> positions;
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            positions.push_back(createRandomPosition());
+        }
+        auto start = high_resolution_clock::now();
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            queue->dequeue();
+        }
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<nanoseconds>(stop - start);
+        cout << "\t" << "\t" << "Dequeue " << numberOfBenchmarkObjects << " times took " <<
+             duration.count() << " nanoseconds" << endl;
+    }
+
+    void bench_is_empty(VirtualQueue *queue, string colorInConsole) {
+        cout << colorInConsole;
+        vector<Position> positions;
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            positions.push_back(createRandomPosition());
+        }
+        auto start = high_resolution_clock::now();
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            queue->is_empty();
+        }
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<nanoseconds>(stop - start);
+        cout << "\t" << "\t" << "Is empty check " << numberOfBenchmarkObjects << " times took " <<
+             duration.count() << " nanoseconds" << endl;
+    }
+
+    void bench_script(VirtualQueue *queue, string colorInConsole) {
+        cout << colorInConsole;
+        vector<Position> positions;
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            positions.push_back(createRandomPosition());
+        }
+        auto start = high_resolution_clock::now();
+        for (int i = 0; i < numberOfBenchmarkObjects; ++i) {
+            queue->enqueue(positions[i]);
+        }
+        for (int i = 0; i < numberOfBenchmarkObjects / 3; ++i) {
+            queue->dequeue();
+        }
+        for (int i = 0; i < numberOfBenchmarkObjects / 4; ++i) {
+            queue->is_empty();
+        }
+        while (!queue->is_empty()) {
+            queue->dequeue();
+        }
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<nanoseconds>(stop - start);
+        cout << "\t" << "\t" << "My benchmark script took " << duration.count() << " nanoseconds" << endl;
+    }
+
+    void standardBench(VirtualQueue *queue, string colorInConsole) {
+        bench_create_empty(queue, colorInConsole);
+        bench_enqueue(queue, colorInConsole);
+        bench_dequeue(queue, colorInConsole);
+        bench_is_empty(queue, colorInConsole);
+        cout << endl;
+        bench_script(queue, colorInConsole);
     }
 
 public:

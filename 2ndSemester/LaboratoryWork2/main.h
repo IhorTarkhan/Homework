@@ -10,9 +10,10 @@ using namespace std;
 int main_Lab_2_2() {
     Interactive interactive;
     Autonomous autonomous;
-    string standard = "\u001B[38m";
+    const string STANDARD_CONSOLE = "\u001B[38m";
+    const string EXCEPTION_IN_CONSOLE = "\u001B[31m";
     while (true) {
-        cout << standard;
+        cout << STANDARD_CONSOLE;
         cout << "Enter operating, witch you want to use:" << endl;
         cout << "1 - interactive;" << endl;
         cout << "2 - demo;" << endl;
@@ -23,7 +24,13 @@ int main_Lab_2_2() {
         cin >> choiceValue;
         switch (choiceValue) {
             case 1:
-                interactive.run();
+                try {
+                    interactive.run();
+                } catch (const char *msg) {
+                    cout << EXCEPTION_IN_CONSOLE;
+                    cout << msg << endl;
+                    cout << STANDARD_CONSOLE;
+                }
                 break;
             case 2:
                 autonomous.demon();
