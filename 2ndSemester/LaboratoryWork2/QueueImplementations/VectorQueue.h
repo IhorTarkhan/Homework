@@ -5,6 +5,7 @@
 #include "VirtualQueue.h"
 
 struct VectorQueue : VirtualQueue {
+private:
     int fillingSize = -1;
     vector<Position> queue;
 

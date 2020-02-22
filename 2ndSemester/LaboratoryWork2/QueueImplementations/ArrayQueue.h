@@ -4,6 +4,7 @@
 #include "VirtualQueue.h"
 
 struct ArrayQueue : VirtualQueue {
+private:
     int size = -1;
     int fillingSize;
     Position *queue;

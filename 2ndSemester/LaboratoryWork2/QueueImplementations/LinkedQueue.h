@@ -11,6 +11,7 @@ public:
 };
 
 struct LinkedQueue : VirtualQueue {
+private:
     int fillingSize = -1;
     Node *head;
     Node *tail;

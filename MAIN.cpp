@@ -8,4 +8,7 @@
 
 int main() {
     main_Lab_2_2();
+//    for (int i = 0; i < 250; ++i) {
+//        cout << "\u001B[" + to_string(i) + "m" << i << endl;
+//    }
 }
