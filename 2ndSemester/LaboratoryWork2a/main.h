@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int main_Lab_2_2() {
+int main_Lab_2_2a() {
     Interactive interactive;
     Autonomous autonomous;
     const string STANDARD_CONSOLE = "\u001B[38m";
