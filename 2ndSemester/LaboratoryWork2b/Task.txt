@@ -1,5 +1,20 @@
 Tasks:
- 16.(**) The numbers from 1 to N are written in a circle. A sequence
+ 9. (*) Implement zip lists - one is built from two lists
+    containing pairs of elements from corresponding lists
+    (for example, zip ([1,2,3], [5,7,11]) = [(1,5) , (2,7), (3,11).]
+    Additional parameters describe what to do in the case of lists
+    of different sizes - to throw away the excess values, to take
+    both values from the long list, to substitute a fixed value
+    instead of the missing value.
+
+ 11.(*) Implement a rotate operation for lists. This operation takes
+    three indexes begin, new_begin, end and rearranges the elements
+    between begin and end so that the element new_begin becomes a new
+    beginning, while the relative order of the elements is preserved.
+    For example, if lst = [0,1,2,3,4,5,6,7], then rotate
+    (lst, 2, 4, 5) = [0,1,4,5,2,3,6, 7] (highlighted changed items).
+
+ 17.(**) The numbers from 1 to N are written in a circle. A sequence
     of KK steps is specified. The circle is bypassed and sequentially
     deleted by each KK [i] th element. When the sequence of steps comes
     to an end, it is restarted from the beginning. (For example, if
@@ -10,10 +25,6 @@ Tasks:
     number. Output what number will be deleted at a given step, starting
     with the last step (ie if step 0 is given - which number will be
     deleted last, if given 1 - which will be deleted last but so on)
-
- 26.(***) Implement the Unrolled link list data structure (see,
-    for example, https://en.wikipedia.org/wiki/Unrolled_linked_list).
-    The operations are standard for lists.
 
 The following operating modes for the implemented program must be
 implemented:
@@ -26,7 +37,21 @@ implemented:
 
 /*
 Задачі:
- 16.(**) Числа від 1 до N записано по колу. Задається послідовність кроків
+ 9. (*) Реалізувати списки з операцією zip – з двох списків будується один,
+    що містить пари елементів з відповідних списків (наприклад,
+    zip([1,2,3],[5,7,11]) = [(1,5),(2,7),(3,11)]. Додаткові параметри описують,
+    що робити у випадку списків різних розмірів – відкидати надлишкові
+    значення, брати обидва значення з довгого списку, підставляти замість
+    відсутнього значення фіксоване значення.
+
+ 11.(*) Реалізувати операцію rotate для списків. Ця операція приймає три
+    індекси begin, new_begin, end і переставляє елементи між begin та end
+    таким чином, щоб новим початком став елемент new_begin, при цьому
+    відносний порядок елементів зберігається. Наприклад, якщо lst =
+    [0,1,2,3,4,5,6,7], то rotate(lst, 2, 4, 5) = [0,1,4,5,2,3,6,7]
+    (виділено змінені елементи).
+
+ 17.(**) Числа від 1 до N записано по колу. Задається послідовність кроків
     KK. Коло обходять і послідовно видаляють кожен KK[i]-ий елемент.
     Коли послідовність кроків доходить кінця, вона запускається заново з
     початку. (Наприклад, якщо KK=[2,3,5], то починаючи з початку кола
@@ -37,10 +62,6 @@ implemented:
     на заданому кроці, починаючи з останнього (тобто якщо задано крок 0
     – яке число видалиться останнім, якщо задано 1 – яке видалиться
     передостаннім і т.д.)
-
- 26.(***) Реалізувати структуру даних Unrolled link list (див. наприклад
-    https://en.wikipedia.org/wiki/Unrolled_linked_list ).
-    Операції стандартні для списків.
 
 Необхідно реалізувати наступні режими роботи для реалізованої програми:
     1. Інтерактивний діалоговий режим – коли користувач може

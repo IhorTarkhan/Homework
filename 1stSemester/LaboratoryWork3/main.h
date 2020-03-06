@@ -8,13 +8,13 @@
 #include "Square.h"
 using namespace std;
 
-bool is_to_point_equil(Point p1, Point p2) {
+inline bool is_to_point_equil(Point p1, Point p2) {
 	if (p1.get_X() == p2.get_X() && p1.get_Y() == p2.get_Y())
 		return true;
 	return false;
 }
 
-Square get_square_from_4_segments(Segment s1, Segment s2, Segment s3, Segment s4) {
+inline Square get_square_from_4_segments(Segment s1, Segment s2, Segment s3, Segment s4) {
 	vector <Point> square_in_points;
 	square_in_points.push_back(s1.get_Point_1());
 	square_in_points.push_back(s1.get_Point_2());
@@ -76,19 +76,19 @@ Square get_square_from_4_segments(Segment s1, Segment s2, Segment s3, Segment s4
 	return Square(square_in_points[0], square_in_points[1], square_in_points[2], square_in_points[3]);
 }
 
-bool is_perpendicular(Segment s1, Segment s2) {
+inline bool is_perpendicular(Segment s1, Segment s2) {
 	if (s1.lenght_X() * s2.lenght_X() + s1.lenght_Y() * s2.lenght_Y() == 0)
 		return true;
 	return false;
 }
 
-bool is_equal(Segment s1, Segment s2) {
+inline bool is_equal(Segment s1, Segment s2) {
 	if (s1.getLenght() == s2.getLenght())
 		return true;
 	return false;
 }
 
-bool is_rectangle(Segment s1, Segment s2, Segment s3, Segment s4) {
+inline bool is_rectangle(Segment s1, Segment s2, Segment s3, Segment s4) {
 	if (is_perpendicular(s1, s2) && is_perpendicular(s1, s3) && is_perpendicular(s4, s2) && is_perpendicular(s4, s3))
 		return true;
 	if (is_perpendicular(s1, s3) && is_perpendicular(s1, s4) && is_perpendicular(s2, s3) && is_perpendicular(s2, s4))
@@ -142,4 +142,5 @@ int main_Lab_1_3() {
 	}
 
 	cout << endl << s1.toString();
+    return 0;
 }

@@ -2,7 +2,7 @@
 #include <math.h>
 using namespace std;
 
-int numberOf1Calculun2(int number) {
+inline int numberOf1Calculun2(int number) {
 	int numberOf1 = 0;
 	while (number != 0) {
 		if (number % 2)
@@ -24,4 +24,5 @@ int main_Lab_1_1() {
 		}
 	}
 	cout << numberReturn;
+    return 0;
 }

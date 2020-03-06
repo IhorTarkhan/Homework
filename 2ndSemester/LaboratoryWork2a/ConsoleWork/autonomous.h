@@ -2,6 +2,7 @@
 #define HOMEWORK_AUTONOMOUS_H
 
 #include "../Data/Position.h"
+#include <math.h>
 
 using namespace std;
 

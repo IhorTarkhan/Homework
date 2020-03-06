@@ -35,4 +35,5 @@ int main_Lab_1_5() {
 		cout << valueOfLine << endl;
 	}
 	file2.close();
+    return 0;
 }
