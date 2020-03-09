@@ -16,6 +16,7 @@ int main_Lab_2_2b() {
     Task11 task11;
     Task17 task17;
     while (true) {
+        cout << endl << endl;
         cout << "My tasks: #" << task9Int << ", #" << task11Int << ", #" << task17Int << endl;
         cout << "My demons: #" << task9DemoInt << ", #" << task11DemoInt << ", #" << task17DemoInt << endl;
         cout << "Choice one: ";

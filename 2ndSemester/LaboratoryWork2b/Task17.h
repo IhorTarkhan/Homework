@@ -131,7 +131,32 @@ public:
         printGivenStepDeleting();
     }
 
-    void demon() {}
+    void demon() {
+        fillInCircle(10);
+        cout << "Circle: ";
+        for (int i = 0; i < circle.size(); ++i) {
+            cout << circle[i] << " ";
+        }
+        cout << endl;
+
+        KK = {rand() % 10, rand() % 10};
+        cout << "KK: ";
+        for (int i = 0; i < KK.size(); ++i) {
+            cout << KK[i] << " ";
+        }
+        cout << endl;
+
+        givenNumber = rand() % 10;
+        cout << "Given number: " << givenNumber << endl;
+
+        givenStepFromLastStep = rand() % 10;
+        cout << "Given step from last step: " << givenStepFromLastStep << endl;
+
+        deleting(0, 0);
+        printDeletingSteps();
+        printGivenNumberDeleting();
+        printGivenStepDeleting();
+    }
 };
 
 #endif
