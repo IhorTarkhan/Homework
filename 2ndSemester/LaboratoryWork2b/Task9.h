@@ -34,7 +34,7 @@ private:
     }
 
     vector<int> getMaxLists(vector<int> x, const vector<int> y) {
-        if (min(x.size(), y.size()) == x.size()) {
+        if (max(x.size(), y.size()) == x.size()) {
             return x;
         } else {
             return y;
