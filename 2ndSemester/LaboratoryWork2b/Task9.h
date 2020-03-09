@@ -18,6 +18,10 @@ private:
     vector<int> arr1;
     vector<int> arr2;
     ZIP_OPTIONS option;
+    vector<string> zipOptionsMap = {"REJECT_TO_SHORT_LENGTH",
+                                    "USE_LONGER_AND_REJECT_LAST_IF_ODD_LEFT",
+                                    "USE_LONGER_AND_ADD_TO_END_IF_ODD_LEFT",
+                                    "USE_LONGER_AND_USE_VALUE_INSTEAD_SHORTER"};
     int constValue;
 
     vector<pair<int, int>> pairs;
@@ -67,7 +71,7 @@ private:
         int minLength = min(x.size(), y.size());
         int maxLength = max(x.size(), y.size());
         vector<int> maxList = getMaxLists(x, y);
-        for (int i = minLength; i < maxLength - 1; i += 2) {
+        for (int i = minLength; i < maxLength; i += 2) {
             if (i == maxLength - 1) {
                 pairs.emplace_back(maxList[i], constantValue);
                 break;
@@ -168,6 +172,25 @@ private:
         }
     }
 
+    void printArray(vector<int> array, string textBefore) {
+        cout << textBefore << " (";
+        for (int i = 0; i < array.size(); ++i) {
+            cout << array[i] << " ";
+        }
+        cout << ")" << endl;
+    }
+
+    void singleDemon(vector<int> arr1, vector<int> arr2, ZIP_OPTIONS option, int constValue) {
+        printArray(arr1, "Array 1:");
+        printArray(arr2, "Array 2:");
+        cout << "Option: " << zipOptionsMap[option] << endl;
+        cout << "Const value: " << constValue << endl;
+
+        pairs = zipWithOptions(arr1, arr2, option, constValue);
+        cout << "Printing pairs:" << endl;
+        printPairs(pairs);
+    }
+
 public:
     void run() {
         cout << "Enter array 1" << endl;
@@ -186,7 +209,12 @@ public:
         printPairs(pairs);
     }
 
-    void demon() {}
+    void demon() {
+        singleDemon({1, 2, 3, 4, 5}, {11, 22, 33, 44, 55}, REJECT_TO_SHORT_LENGTH, -1);
+        singleDemon({1, 2, 3, 4, 5}, {11, 22, 33, 44, 55, 66, 77, 88}, USE_LONGER_AND_REJECT_LAST_IF_ODD_LEFT, -1);
+        singleDemon({1, 2, 3, 4, 5}, {11, 22, 33, 44, 55, 66, 77, 88}, USE_LONGER_AND_ADD_TO_END_IF_ODD_LEFT, -1);
+        singleDemon({1, 2, 3, 4, 5}, {11, 22, 33, 44, 55, 66, 77, 88}, USE_LONGER_AND_USE_VALUE_INSTEAD_SHORTER, -1);
+    }
 };
 
 #endif
