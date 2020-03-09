@@ -1,7 +1,7 @@
 Tasks:
  9. (*) Implement zip lists - one is built from two lists
     containing pairs of elements from corresponding lists
-    (for example, zip ([1,2,3], [5,7,11]) = [(1,5) , (2,7), (3,11).]
+    (for example, zip ([1,2,3], [5,7,11]) = [(1,5), (2,7), (3,11).]
     Additional parameters describe what to do in the case of lists
     of different sizes - to throw away the excess values, to take
     both values from the long list, to substitute a fixed value
@@ -12,7 +12,7 @@ Tasks:
     between begin and end so that the element new_begin becomes a new
     beginning, while the relative order of the elements is preserved.
     For example, if lst = [0,1,2,3,4,5,6,7], then rotate
-    (lst, 2, 4, 5) = [0,1,4,5,2,3,6, 7] (highlighted changed items).
+    (lst, 2, 4, 5) = [0,1,4,5,2,3,6,7].
 
  17.(**) The numbers from 1 to N are written in a circle. A sequence
     of KK steps is specified. The circle is bypassed and sequentially
@@ -48,8 +48,7 @@ implemented:
     індекси begin, new_begin, end і переставляє елементи між begin та end
     таким чином, щоб новим початком став елемент new_begin, при цьому
     відносний порядок елементів зберігається. Наприклад, якщо lst =
-    [0,1,2,3,4,5,6,7], то rotate(lst, 2, 4, 5) = [0,1,4,5,2,3,6,7]
-    (виділено змінені елементи).
+    [0,1,2,3,4,5,6,7], то rotate(lst, 2, 4, 5) = [0,1,4,5,2,3,6,7].
 
  17.(**) Числа від 1 до N записано по колу. Задається послідовність кроків
     KK. Коло обходять і послідовно видаляють кожен KK[i]-ий елемент.

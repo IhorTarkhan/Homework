@@ -47,7 +47,8 @@ private:
     void getKKFromConsole() {
         const string END_STRING = "end.";
         string numberInString;
-        for (int i = 0; numberInString != END_STRING; ++i) {
+        int i = 0;
+        while (numberInString != END_STRING) {
             cout << "Enter KK array and in the end enter \"" + END_STRING + "\":" << endl;
             cout << "#" << i + 1 << ": ";
             cin >> numberInString;
@@ -56,6 +57,7 @@ private:
             } else {
                 KK.push_back(stoi(numberInString));
                 numberInString = "";
+                ++i;
             }
         }
     }
@@ -66,6 +68,8 @@ public:
         writeInCircle(N);
         getKKFromConsole();
     }
+
+    void demon() {}
 };
 
 #endif

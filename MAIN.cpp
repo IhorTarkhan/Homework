@@ -7,6 +7,6 @@
 #include "2ndSemester/LaboratoryWork2a/main.h"
 #include "2ndSemester/LaboratoryWork2b/main.h"
 
-int main() {
+int main(int argc, char *argv[]) {
     main_Lab_2_2b();
 }
