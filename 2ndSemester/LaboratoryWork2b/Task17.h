@@ -10,6 +10,9 @@ class Task17 {
 private:
     vector<int> circle;
     vector<int> KK;
+    vector<int> deleted;
+    int givenNumber;
+    int givenStepFromLastStep;
 
     bool isInt(string nString) {    // TODO correct checking IsInt
         int n;
@@ -20,6 +23,26 @@ private:
             return false;
         }
         return to_string(n) == nString;
+    }
+
+    void getNumberFromConsole() {
+        string numberInString;
+        do {
+            cout << "Enter number: ";
+            cin >> numberInString;
+
+        } while (!isInt(numberInString));
+        givenNumber = stoi(numberInString);
+    }
+
+    void getStepFromConsole() {
+        string numberInString;
+        do {
+            cout << "Enter step: ";
+            cin >> numberInString;
+
+        } while (!isInt(numberInString));
+        givenStepFromLastStep = stoi(numberInString);
     }
 
     int getMaxNumberFromConsole() {
@@ -38,7 +61,7 @@ private:
         return N;
     }
 
-    void writeInCircle(int N) {
+    void fillInCircle(int N) {
         for (int i = 0; i < N; ++i) {
             circle.push_back(i + 1);
         }
@@ -62,11 +85,50 @@ private:
         }
     }
 
+    void deleting(int elementKK, int elementCircle) {
+        while (circle.size() != 0) {
+            elementKK %= KK.size();
+            elementCircle = (elementCircle + KK[elementKK]) % circle.size();
+            deleted.push_back(circle[elementCircle]);
+            circle.erase(circle.begin() + elementCircle);
+            deleting(elementKK + 1, elementCircle);
+        }
+    }
+
+    void printDeletingSteps() {
+        cout << "Deleted steps: " << endl;
+        for (int i = 0; i < deleted.size(); ++i) {
+            cout << "step " << i + 1 << ": " << deleted[i] << endl;
+        }
+    }
+
+    void printGivenNumberDeleting() {
+        for (int i = 0; i < deleted.size(); ++i) {
+            if (deleted[i] == givenNumber) {
+                cout << givenNumber << " was deleted on " << i + 1 << " step" << endl;
+                break;
+            }
+        }
+    }
+
+    void printGivenStepDeleting() {
+        cout << "On step " << givenStepFromLastStep << " from last step was deleted number "
+             << deleted[deleted.size() - 1 - givenStepFromLastStep] << endl;
+    }
+
 public:
     void run() {
         int N = getMaxNumberFromConsole();
-        writeInCircle(N);
+        fillInCircle(N);
         getKKFromConsole();
+        getNumberFromConsole();
+        getStepFromConsole();
+
+        deleting(0, 0);
+
+        printDeletingSteps();
+        printGivenNumberDeleting();
+        printGivenStepDeleting();
     }
 
     void demon() {}
