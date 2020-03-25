@@ -6,7 +6,8 @@
 #include "2ndSemester/LaboratoryWork1/main.h"
 #include "2ndSemester/LaboratoryWork2a/main.h"
 #include "2ndSemester/LaboratoryWork2b/main.h"
+#include "2ndSemester/LaboratoryWork3a/main.h"
 
 int main(int argc, char *argv[]) {
-    main_Lab_2_2b();
+    main_Lab_2_3a();
 }
