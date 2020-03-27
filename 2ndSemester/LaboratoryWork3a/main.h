@@ -1,74 +1,44 @@
 #include <iostream>
-#include<stdlib.h>
-#include<stdio.h>
+#include "Coordinates.h"
+#include "Sorts.h"
 
 using namespace std;
 
-void merge(int arr[], int l, int m, int r) {
-    int i, j, k;
-    int n1 = m - l + 1;
-    int n2 = r - m;
-
-    int L[n1], R[n2];
-
-    for (i = 0; i < n1; i++)
-        L[i] = arr[l + i];
-    for (j = 0; j < n2; j++)
-        R[j] = arr[m + 1 + j];
-
-    i = 0;
-    j = 0;
-    k = l;
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        } else {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
+void printArray(vector<Coordinates> array) {
+    for (int i = 0; i < array.size(); i++) {
+        cout << array[i].getSortValue() << " ";
     }
-
-    while (i < n1) {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
+    cout << endl;
 }
 
-void mergeSort(int arr[], int l, int r) {
-    if (l < r) {
-        int m = l + (r - l) / 2;
-        mergeSort(arr, l, m);
-        mergeSort(arr, m + 1, r);
-        merge(arr, l, m, r);
+vector<Coordinates> createRandomArray(int size) {
+    vector<Coordinates> arr(size);
+    vector<int> places(size);
+    for (int i = 0; i < size; ++i) {
+        places[i] = i;
     }
-}
-
-void printArray(int A[], int size) {
-    int i;
-    for (i = 0; i < size; i++)
-        printf("%d ", A[i]);
-    printf("\n");
+    for (int i = 0; i < size; ++i) {
+        int place = rand() % places.size();
+        double coordinate_X = (i + 1) / pow(3, 0.5);
+        arr[places[place]] = Coordinates(coordinate_X, coordinate_X, coordinate_X);
+        places.erase(places.begin() + place);
+    }
+    return arr;
 }
 
 int main_Lab_2_3a() {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int arr_size = sizeof(arr) / sizeof(arr[0]);
+    vector<Coordinates> arr = createRandomArray(10);
 
-    printf("Given array is \n");
-    printArray(arr, arr_size);
+    cout << "Given array is" << endl;
+    Sorts<Coordinates>::print(arr);
+    cout << endl;
 
-    mergeSort(arr, 0, arr_size - 1);
+    Sorts<Coordinates>::mergeSort(arr);
+    cout << endl;
 
-    printf("\nSorted array is \n");
-    printArray(arr, arr_size);
+    cout << "Sorted array is" << endl;
+    Sorts<Coordinates>::print(arr);
+    cout << endl;
+
     return 0;
 }

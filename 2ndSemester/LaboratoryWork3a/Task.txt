@@ -1,5 +1,43 @@
-Tasks:
+Data structure:
+    Coordinates of points in three-dimensional space (valid), first at the distance from the origin, in ascending order.
+
+Implement sorting algorithms for a given data structure (list 1). Implement the following algorithms:
+    1) Insertion of varieties;
+    2) Quicksort (Hoare partition scheme, leftmost pivot);
+    3) Merge varieties (bottom-up);
+    4) Combined algorithm that uses a more efficient algorithm (one of quicksort or merge sort) for large arrays and a
+    simple algorithm for small arrays;
+    5) Sorting using library functions.
+
+The following operating modes must be implemented:
+    1. Demonstration mode - sets the size of the array, generates an array of the appropriate size, the array is sorted
+    by different algorithms, outputs intermediate steps of each algorithm;
+    2. Automatic benchmark mode with speed measurements of each algorithm.
+
+All algorithms should work on the same arrays. Consider:
+    - random arrays;
+    - almost sorted in the correct order;
+    - almost sorted in the wrong order.
 
 /*
-Задачі:
+Структура даних:
+    Координати точок в тривимірному просторі (дійсні), спершу за відстанню від початку координат, за зростанням.
+
+Реалізувати алгоритми сортування для заданої структури даних (список 1). Реалізувати наступні алгоритми:
+    1) Insertion sort;
+    2) Quicksort (Hoare partition scheme, leftmost pivot);
+    3) Merge sort (bottom-up);
+    4) Комбінований алгоритм, який використовує більш ефективний алгоритм (один з quicksort чи merge sort) для великих
+    масивів і простий алгоритм для маленький масивів;
+    5) Сортування з використанням бібліотечних функцій.
+
+Необхідно реалізувати наступні режими роботи:
+    1. Демонстраційний режим – задається розмір масиву, генерується масив відповідного розміру, масив сортується різними
+    алгоритмами, виводяться проміжні кроки кожного алгоритму;
+    2. Автоматичний режим “benchmark” з вимірами швидкості роботи кожного з алгоритмів.
+
+Всі алгоритми мають працювати на однакових масивах. Розглянути:
+    - випадкові масиви;
+    - майже відсортовані в правильному порядку;
+    - майже відсортовані в неправильному порядку.
 */
