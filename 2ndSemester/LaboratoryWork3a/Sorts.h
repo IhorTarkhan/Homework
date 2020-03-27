@@ -45,19 +45,21 @@ private:
         }
     }
 
-    static void mergeSort(vector<DataStructure> &array, int l, int r) {
+    static void mergeSort(vector<DataStructure> &array, int l, int r, bool demonstrateSteps) {
         if (l < r) {
             int m = l + (r - l) / 2;
-            mergeSort(array, l, m);
-            mergeSort(array, m + 1, r);
+            mergeSort(array, l, m, demonstrateSteps);
+            mergeSort(array, m + 1, r, demonstrateSteps);
             merge(array, l, m, r);
-            print(array);
+            if (demonstrateSteps) {
+                print(array);
+            }
         }
     }
 
 public:
-    static void mergeSort(vector<DataStructure> &array) {
-        mergeSort(array, 0, array.size() - 1);
+    static void mergeSort(vector<DataStructure> &array, bool demonstrateSteps) {
+        mergeSort(array, 0, array.size() - 1, demonstrateSteps);
     }
 };
 

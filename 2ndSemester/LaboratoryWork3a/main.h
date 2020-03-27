@@ -4,13 +4,6 @@
 
 using namespace std;
 
-void printArray(vector<Coordinates> array) {
-    for (int i = 0; i < array.size(); i++) {
-        cout << array[i].getSortValue() << " ";
-    }
-    cout << endl;
-}
-
 vector<Coordinates> createRandomArray(int size) {
     vector<Coordinates> arr(size);
     vector<int> places(size);
@@ -26,14 +19,50 @@ vector<Coordinates> createRandomArray(int size) {
     return arr;
 }
 
+vector<Coordinates> createAlmostSortedArray(int size) {
+    vector<Coordinates> arr(size);
+    for (int i = 0; i < size; ++i) {
+        int N_i;
+        if (i % 2 == 0) {
+            N_i = (i + 2);
+            if (i + 1 == size) {
+                N_i = (i + 1);
+            }
+        } else {
+            N_i = (i);
+        }
+        double coordinate_X_Y_Z = N_i / pow(3, 0.5);
+        arr[i] = Coordinates(coordinate_X_Y_Z, coordinate_X_Y_Z, coordinate_X_Y_Z);
+    }
+    return arr;
+}
+
+vector<Coordinates> createAlmostSortedInversionArray(int size) {
+    vector<Coordinates> arr(size);
+    for (int i = 0; i < size; ++i) {
+        int N_i;
+        if (i % 2 == 0) {
+            N_i = (size - i - 1);
+            if (i + 1 == size) {
+                N_i = (size - i);
+            }
+        } else {
+            N_i = (size - i + 1);
+        }
+        double coordinate_X_Y_Z = N_i / pow(3, 0.5);
+        arr[i] = Coordinates(coordinate_X_Y_Z, coordinate_X_Y_Z, coordinate_X_Y_Z);
+    }
+    return arr;
+}
+
 int main_Lab_2_3a() {
-    vector<Coordinates> arr = createRandomArray(10);
+    vector<Coordinates> arr = createAlmostSortedInversionArray(11);
 
     cout << "Given array is" << endl;
     Sorts<Coordinates>::print(arr);
     cout << endl;
 
-    Sorts<Coordinates>::mergeSort(arr);
+    Sorts<Coordinates>::mergeSort(arr, false);
     cout << endl;
 
     cout << "Sorted array is" << endl;
