@@ -5,7 +5,7 @@ template<typename DataStructure>
 class Sorts {
 public:
     static void print(vector<DataStructure> array) {
-        cout << "Sorted values:\t";
+        cout << "Sortable values:\t";
         for (int i = 0; i < array.size(); ++i) {
             cout << array[i].getSortValue() << "\t";
         }

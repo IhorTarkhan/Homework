@@ -6,6 +6,8 @@
 
 struct OperatingModes {
 private:
+    static const int BENCHMARK_ARRAY_SIZE = 10;
+
     static vector<Coordinates> createRandomArray(int size) {
         vector<Coordinates> arr(size);
         vector<int> places(size);
@@ -57,7 +59,7 @@ private:
         return arr;
     }
 
-    static void demon(int n, vector<Coordinates> functionOfCreate(int)) {
+    static void runAllSortsWithParameters(int n, vector<Coordinates> functionOfCreate(int), bool isItDemo) {
         vector<Coordinates> arrayOrigin = functionOfCreate(n);
         vector<Coordinates> array;
 
@@ -65,24 +67,64 @@ private:
         Sorts<Coordinates>::print(arrayOrigin);
 
         array = arrayOrigin;
-        cout << "Merge Sort" << endl;
-        Sorts<Coordinates>::mergeSort(array, true);
+        cout << "Insertion Sort" << endl;
+        auto start = high_resolution_clock::now();
+        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Insertion sort
+        if (!isItDemo) {
+            cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
+                 << " microseconds" << endl;
+        }
+
+        array = arrayOrigin;
+        cout << "Quicksort" << endl;
+        start = high_resolution_clock::now();
+        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Quicksort
+        if (!isItDemo) {
+            cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
+                 << " microseconds" << endl;
+        }
 
         array = arrayOrigin;
         cout << "Merge Sort" << endl;
-        Sorts<Coordinates>::mergeSort(array, true);
+        start = high_resolution_clock::now();
+        Sorts<Coordinates>::mergeSort(array, isItDemo);
+        if (!isItDemo) {
+            cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
+                 << " microseconds" << endl;
+        }
+
+        array = arrayOrigin;
+        cout << "Combined Sort" << endl;
+        start = high_resolution_clock::now();
+        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Combined sort
+        if (!isItDemo) {
+            cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
+                 << " microseconds" << endl;
+        }
+
+        array = arrayOrigin;
+        cout << "Library Sort" << endl;
+        start = high_resolution_clock::now();
+        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Library sort
+        if (!isItDemo) {
+            cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
+                 << " microseconds" << endl;
+        }
+
         cout << endl;
     }
 
 public:
     static void demon(int n) {
-        demon(n, createRandomArray);
-        demon(n, createAlmostSortedArray);
-        demon(n, createAlmostSortedInversionArray);
+        runAllSortsWithParameters(n, createRandomArray, true);
+        runAllSortsWithParameters(n, createAlmostSortedArray, true);
+        runAllSortsWithParameters(n, createAlmostSortedInversionArray, true);
     }
 
     static void benchmark() {
-
+        runAllSortsWithParameters(BENCHMARK_ARRAY_SIZE, createRandomArray, false);
+        runAllSortsWithParameters(BENCHMARK_ARRAY_SIZE, createAlmostSortedArray, false);
+        runAllSortsWithParameters(BENCHMARK_ARRAY_SIZE, createAlmostSortedInversionArray, false);
     }
 };
 
