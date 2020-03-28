@@ -12,6 +12,31 @@ public:
         cout << endl;
     }
 
+public:
+    static void insertionSort(vector<DataStructure> &array, bool demonstrateSteps) {
+        int i, j;
+        DataStructure key;
+        for (i = 1; i < array.size(); i++)
+        {
+            key = array[i];
+            j = i - 1;
+            while (j >= 0 && array[j].getSortValue() > key.getSortValue())
+            {
+                array[j + 1] = array[j];
+                j = j - 1;
+            }
+            array[j + 1] = key;
+            if (demonstrateSteps) {
+                print(array);
+            }
+        }
+    }
+
+public:
+    static void quickSort(vector<DataStructure> &array, bool demonstrateSteps) {
+        mergeSort(array, 0, array.size() - 1, demonstrateSteps);
+    }
+
 private:
     static void merge(vector<DataStructure> &array, int l, int m, int r) {
         int i = 0, j = 0, k = l;
@@ -60,6 +85,16 @@ private:
 
 public:
     static void mergeSort(vector<DataStructure> &array, bool demonstrateSteps) {
+        mergeSort(array, 0, array.size() - 1, demonstrateSteps);
+    }
+
+public:
+    static void combinedSort(vector<DataStructure> &array, bool demonstrateSteps) {
+        mergeSort(array, 0, array.size() - 1, demonstrateSteps);
+    }
+
+public:
+    static void librarySort(vector<DataStructure> &array, bool demonstrateSteps) {
         mergeSort(array, 0, array.size() - 1, demonstrateSteps);
     }
 };

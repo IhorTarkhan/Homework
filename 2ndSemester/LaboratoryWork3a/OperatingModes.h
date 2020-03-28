@@ -69,7 +69,7 @@ private:
         array = arrayOrigin;
         cout << "Insertion Sort" << endl;
         auto start = high_resolution_clock::now();
-        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Insertion sort
+        Sorts<Coordinates>::insertionSort(array, isItDemo);
         if (!isItDemo) {
             cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
                  << " microseconds" << endl;
