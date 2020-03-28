@@ -6,7 +6,8 @@
 
 struct OperatingModes {
 private:
-    static const int BENCHMARK_ARRAY_SIZE = 10;
+    static const int BENCHMARK_ARRAY_SIZE = 1000;
+    static const int DEFAULT_VALUE_FOR_COMBINED_SORT = 10;
 
     static vector<Coordinates> createRandomArray(int size) {
         vector<Coordinates> arr(size);
@@ -96,7 +97,7 @@ private:
         array = arrayOrigin;
         cout << "Combined Sort" << endl;
         start = high_resolution_clock::now();
-        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Combined sort
+        Sorts<Coordinates>::combinedSort(array, DEFAULT_VALUE_FOR_COMBINED_SORT, isItDemo);
         if (!isItDemo) {
             cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
                  << " microseconds" << endl;
@@ -105,7 +106,7 @@ private:
         array = arrayOrigin;
         cout << "Library Sort" << endl;
         start = high_resolution_clock::now();
-        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Library sort
+        Sorts<Coordinates>::librarySort(array);
         if (!isItDemo) {
             cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
                  << " microseconds" << endl;

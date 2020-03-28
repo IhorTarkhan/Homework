@@ -1,6 +1,8 @@
 #ifndef HOMEWORK_SORTS_H
 #define HOMEWORK_SORTS_H
 
+#include <bits/stdc++.h>
+
 template<typename DataStructure>
 class Sorts {
 public:
@@ -116,14 +118,37 @@ public:
         mergeSort(array, 0, array.size() - 1, demonstrateSteps);
     }
 
-public:
-    static void combinedSort(vector<DataStructure> &array, bool demonstrateSteps) {
-        mergeSort(array, 0, array.size() - 1, demonstrateSteps);
+private:
+    static void combinedSort(vector<DataStructure> &array, int l, int r, int changeSortSize, bool demonstrateSteps) {
+        if (l < r) {
+            if (array.size() >= changeSortSize) {
+                int m = l + (r - l) / 2;
+                mergeSort(array, l, m, demonstrateSteps);
+                mergeSort(array, m + 1, r, demonstrateSteps);
+                merge(array, l, m, r);
+            } else {
+                insertionSort(array, demonstrateSteps);
+            }
+            if (demonstrateSteps) {
+                print(array);
+            }
+        }
     }
 
 public:
-    static void librarySort(vector<DataStructure> &array, bool demonstrateSteps) {
-        mergeSort(array, 0, array.size() - 1, demonstrateSteps);
+    static void combinedSort(vector<DataStructure> &array, int changeSortSize, bool demonstrateSteps) {
+        combinedSort(array, 0, array.size() - 1, changeSortSize, demonstrateSteps);
+    }
+
+private:
+    static bool compare(DataStructure i1, DataStructure i2) {
+        return (i1.getSortValue() < i2.getSortValue());
+    }
+
+public:
+    static void librarySort(vector<DataStructure> &array) {
+
+        sort(array.begin(), array.end(), compare);
     }
 };
 
