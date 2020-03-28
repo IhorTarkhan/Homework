@@ -78,7 +78,7 @@ private:
         array = arrayOrigin;
         cout << "Quicksort" << endl;
         start = high_resolution_clock::now();
-        Sorts<Coordinates>::mergeSort(array, isItDemo);    // TODO    Quicksort
+        Sorts<Coordinates>::quickSort(array, isItDemo);
         if (!isItDemo) {
             cout << duration_cast<microseconds>(high_resolution_clock::now() - start).count()
                  << " microseconds" << endl;

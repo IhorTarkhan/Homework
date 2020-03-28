@@ -16,12 +16,10 @@ public:
     static void insertionSort(vector<DataStructure> &array, bool demonstrateSteps) {
         int i, j;
         DataStructure key;
-        for (i = 1; i < array.size(); i++)
-        {
+        for (i = 1; i < array.size(); i++) {
             key = array[i];
             j = i - 1;
-            while (j >= 0 && array[j].getSortValue() > key.getSortValue())
-            {
+            while (j >= 0 && array[j].getSortValue() > key.getSortValue()) {
                 array[j + 1] = array[j];
                 j = j - 1;
             }
@@ -32,9 +30,39 @@ public:
         }
     }
 
+private:
+    static void quickSort(vector<DataStructure> &a, int first, int last, bool demonstrateSteps) {
+        DataStructure x = a[first];
+        int i = first, j = last;
+        do {
+            while (a[i].getSortValue() < x.getSortValue()) {
+                i++;
+            }
+            while (a[j].getSortValue() > x.getSortValue()) {
+                j--;
+            }
+            if (i <= j) {
+                if (i < j) {
+                    swap(a[i], a[j]);
+                }
+                i++;
+                j--;
+            }
+        } while (i <= j);
+        if (demonstrateSteps) {
+            print(a);
+        }
+        if (first < j) {
+            quickSort(a, first, j, demonstrateSteps);
+        }
+        if (last > i) {
+            quickSort(a, i, last, demonstrateSteps);
+        }
+    }
+
 public:
     static void quickSort(vector<DataStructure> &array, bool demonstrateSteps) {
-        mergeSort(array, 0, array.size() - 1, demonstrateSteps);
+        quickSort(array, 0, array.size() - 1, demonstrateSteps);
     }
 
 private:
