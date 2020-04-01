@@ -38,7 +38,14 @@ struct Date {
     }
 
     string getInText() const {
-        return to_string(hour) + ":" + to_string(minute) + " "
-               + to_string(day) + "/" + to_string(month) + "/" + to_string(year);
+        return ((hour >= 10) ? "" : "0") + to_string(hour) +
+               ":" +
+               ((minute >= 10) ? "" : "0") + to_string(minute) +
+               " " +
+               ((day >= 10) ? "" : "0") + to_string(day) +
+               "/" +
+               ((month >= 10) ? "" : "0") + to_string(month) +
+               "/" +
+               to_string(year);
     }
 };

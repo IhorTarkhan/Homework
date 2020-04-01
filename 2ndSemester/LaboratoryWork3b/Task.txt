@@ -6,12 +6,12 @@ Sort Object - Field Train (Object Implementation and Some Functional Features: H
     - type - international, high-speed, ordinary, suburban;
     - date and time of arrival at the station and departure from the station;
     - the level of popularity of tickets for this train (the true number is the ratio of ticket requests to the number
-seats, may be less than 1 - some of the seats are empty, or more than 1 - not everyone can buy a ticket).
+seats, may be less than 1 - some of the seats are empty, or more than 1 - non-everyone can buy a ticket).
 
 Types and parameters of sorting:
 [Comparison sort]
     Sort (O (n log n), sorted by library function) objects by all fields present.
-[Not comparison sort]
+[Non-comparison sort]
     Counting sort by train type,
     Radix sort by train number.
 
@@ -19,8 +19,8 @@ The result should be a comparison of sorting speeds. Comparison should be includ
 field, and sort by the combination of fields that includes those fields.
 Specific
 
-Compare the [Comparison sort] and [Not comparison sort] sorting speeds by fields for which they are implemented
-[Not comparison sort], and combinations starting with these fields
+Compare the [Comparison sort] and [Non-comparison sort] sorting speeds by fields for which they are implemented
+[Non-comparison sort], and combinations starting with these fields
 
 /*
 Сортування
@@ -36,7 +36,7 @@ Compare the [Comparison sort] and [Not comparison sort] sorting speeds by fields
 Типи та параметри сортування:
 [Comparison sort]
     Відсортувати (O(n log n), допускається сортування бібліотечною функією) обєкти за всми присутніми полями.
-[Not comparison sort]
+[Non-comparison sort]
     Counting sort за типом потягу,
     Radix sort за номером потягу.
 
@@ -44,6 +44,6 @@ Compare the [Comparison sort] and [Not comparison sort] sorting speeds by fields
 полем, так і сортування за комбінацією полів, яка включає в себе ці поля.
 Уточне
 
-Порівняти швидкості сортування [Comparison sort] та [Not comparison sort], за полями для яких реалізовано
-[Not comparison sort], та комбінацфй які починаються з цих полів
+Порівняти швидкості сортування [Comparison sort] та [Non-comparison sort], за полями для яких реалізовано
+[Non-comparison sort], та комбінацфй які починаються з цих полів
 */

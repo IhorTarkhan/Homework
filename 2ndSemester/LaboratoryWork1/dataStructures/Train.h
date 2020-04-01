@@ -34,13 +34,24 @@ public:
         this->rate = rate;
     }
 
-    string getInText() const {
-        string textToSave = NUMBER + number + "\n" +
-                            OPTIONAL_NAME + optionalName + "\n" +
-                            DESTINATION + DestinationMap[destination] + "\n" +
-                            ARRIVE + arrive.getInText() + "\n" +
-                            DEPARTURE + departure.getInText() + "\n" +
-                            RATE + to_string(rate) + "\n";
+private:
+    string nSpace(int n) {
+        string spaces = "";
+        for (int i = 0; i < n; ++i) {
+            spaces += " ";
+        }
+        return spaces;
+    }
+
+public:
+
+    string getInText() {
+        string textToSave;
+        textToSave = optionalName + " (" + number + "):\t" +
+                     arrive.getInText() + "\t-\t" + departure.getInText() + "\t" +
+                     DestinationMap[destination] +
+                     nSpace(DestinationMap[0].size() - DestinationMap[destination].size()) +
+                     "\t" + to_string(rate);
         return textToSave;
     }
 };
