@@ -1,0 +1,49 @@
+Sorting
+
+Sort Object - Field Train (Object Implementation and Some Functional Features: Homework/2ndSemester/LaboratoryWork1)
+    - train number (four-digit integer);
+    - optional train name;
+    - type - international, high-speed, ordinary, suburban;
+    - date and time of arrival at the station and departure from the station;
+    - the level of popularity of tickets for this train (the true number is the ratio of ticket requests to the number
+seats, may be less than 1 - some of the seats are empty, or more than 1 - not everyone can buy a ticket).
+
+Types and parameters of sorting:
+[Comparison sort]
+    Sort (O (n log n), sorted by library function) objects by all fields present.
+[Not comparison sort]
+    Counting sort by train type,
+    Radix sort by train number.
+
+The result should be a comparison of sorting speeds. Comparison should be included as sorting by relevance only
+field, and sort by the combination of fields that includes those fields.
+Specific
+
+Compare the [Comparison sort] and [Not comparison sort] sorting speeds by fields for which they are implemented
+[Not comparison sort], and combinations starting with these fields
+
+/*
+Сортування
+
+Обєкт сортування - Потяг з полями (реалізація обєкту та деяких необхідних функцій: Homework/2ndSemester/LaboratoryWork1)
+    - номер потягу (чотиризначне ціле число);
+    - опціональна назва потягу;
+    - тип – міжнародний, швидкісний, звичайний, приміський;
+    - дата і час прибуття на станцію та відправлення зі станції;
+    - рівень популярності квитків на цей потяг (дійсне число – відношення кількості запитів на квитки до кількості
+місць, може бути менше 1 – тобто частина місць пусті, чи більше 1 – тобто не всі бажаючі змогли придбати квиток).
+
+Типи та параметри сортування:
+[Comparison sort]
+    Відсортувати (O(n log n), допускається сортування бібліотечною функією) обєкти за всми присутніми полями.
+[Not comparison sort]
+    Counting sort за типом потягу,
+    Radix sort за номером потягу.
+
+Результатом роботи має бути порівняння швидкостей сортування. Порівняння має включати як сортування лише за відповідним
+полем, так і сортування за комбінацією полів, яка включає в себе ці поля.
+Уточне
+
+Порівняти швидкості сортування [Comparison sort] та [Not comparison sort], за полями для яких реалізовано
+[Not comparison sort], та комбінацфй які починаються з цих полів
+*/
