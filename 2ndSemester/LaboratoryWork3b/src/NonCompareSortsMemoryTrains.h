@@ -7,8 +7,8 @@
 class NonCompareSortsMemoryTrains {
 private:
     static Train getMax(vector<Train> &trains, int getSortableValue(Train)) {
-        Train max = trains[1];
-        for (int i = 2; i <= trains.size(); i++) {
+        Train max = trains[0];
+        for (int i = 1; i < trains.size(); i++) {
             if (getSortableValue(trains[i]) > getSortableValue(max))
                 max = trains[i];
         }

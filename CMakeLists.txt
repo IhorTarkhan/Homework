@@ -3,4 +3,4 @@ project(Homework)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Homework MAIN.cpp 2ndSemester/LaboratoryWork3b/src/NonCompareSortsMemoryTrains.h)
+add_executable(Homework MAIN.cpp)

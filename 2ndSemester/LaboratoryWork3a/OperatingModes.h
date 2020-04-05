@@ -1,4 +1,4 @@
-#ifndef HOMEWORK_OPERATINGMODES_H
+#ifndef HOMEWORK_MODES_H
 #define HOMEWORK_OPERATINGMODES_H
 
 #include "Coordinates.h"

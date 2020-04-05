@@ -1,13 +1,39 @@
-#include "CompareSortsMemoryTrains.h"
-#include "NonCompareSortsMemoryTrains.h"
+#include "Modes.h"
+
+int getPositiveNFromConsole() {
+    int n;
+    do {
+        cout << "\t" << "Enter size: ";
+        cin >> n;
+        if (n <= 0) {
+            cout << "\t" << "Incorrect size" << endl;
+        }
+    } while (n <= 0);
+    return n;
+}
 
 int main_Lab_2_3b() {
-    int n = 200;
-    for (int i = 0; i < n; ++i) {
-        Train train = createRandomTrain();
-        trainsInMemory.push_back(train);
+    int n;
+    while (true) {
+        cout << "Menu:" << endl;
+        cout << "1 - demo;" << endl;
+        cout << "2 - benchmark." << endl;
+        cout << "Your choice: ";
+        int choiceValue;
+        cin >> choiceValue;
+        switch (choiceValue) {
+            case 1:
+                n = getPositiveNFromConsole();
+                Modes::demon(n);
+                break;
+            case 2:
+                n = getPositiveNFromConsole();
+                Modes::benchmark(n);
+                break;
+            default:
+                cout << "Incorrect option selected!" << endl;
+        }
     }
-
 //    Comparator::setFields(destination, number);
 //    CompareSortsMemoryTrains::mergeSort(Comparator::twoFieldCompare);
     NonCompareSortsMemoryTrains::radixSort();

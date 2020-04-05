@@ -3,6 +3,7 @@
 
 #include "../../LaboratoryWork1/dataStructures/Train.h"
 #include "../../LaboratoryWork1/databases/MemoryDatabase.h"
+#include "CompareOneField.h"
 
 class CompareSortsMemoryTrains {
 private:
