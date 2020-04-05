@@ -47,8 +47,8 @@ public:
 
     string getInText() {
         string textToSave;
-        textToSave = optionalName + " (" + number + "):\t" +
-                     arrive.getInText() + "\t-\t" + departure.getInText() + "\t" +
+        textToSave = optionalName + " (" + number + "):\t\t" +
+                     arrive.getInText() + "  -  " + departure.getInText() + "\t\t" +
                      DestinationMap[destination] +
                      nSpace(DestinationMap[0].size() - DestinationMap[destination].size()) +
                      "\t" + to_string(rate);
