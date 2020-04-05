@@ -1,10 +1,10 @@
-#ifndef HOMEWORK_SORTSMEMORYTRAINS_H
-#define HOMEWORK_SORTSMEMORYTRAINS_H
+#ifndef HOMEWORK_COMPARESORTSMEMORYTRAINS_H
+#define HOMEWORK_COMPARESORTSMEMORYTRAINS_H
 
 #include "../../LaboratoryWork1/dataStructures/Train.h"
 #include "../../LaboratoryWork1/databases/MemoryDatabase.h"
 
-class SortsMemoryTrains {
+class CompareSortsMemoryTrains {
 private:
     static void mergeSort(vector<Train> &left, vector<Train> &right, vector<Train> &bars,
                           bool compare(Train train1, Train train2)) {

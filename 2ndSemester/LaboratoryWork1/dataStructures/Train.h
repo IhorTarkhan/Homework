@@ -50,7 +50,7 @@ public:
         textToSave = optionalName + " (" + number + "):\t\t" +
                      arrive.getInText() + "  -  " + departure.getInText() + "\t\t" +
                      DestinationMap[destination] +
-                     nSpace(DestinationMap[0].size() - DestinationMap[destination].size()) +
+                     nSpace(DestinationMap[1].size() - DestinationMap[destination].size()) +
                      "\t" + to_string(rate);
         return textToSave;
     }

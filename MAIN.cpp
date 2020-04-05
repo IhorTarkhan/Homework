@@ -9,14 +9,6 @@
 #include "2ndSemester/LaboratoryWork3a/main.h"
 #include "2ndSemester/LaboratoryWork3b/src/main.h"
 
-
-void f() {
-    cout << "Hallo world" << endl;
-}
-
 int main(int argc, char *argv[]) {
     main_Lab_2_3b();
-//    void (*func)()(&f);
-//    func();
-//    delete[] func;
 }
