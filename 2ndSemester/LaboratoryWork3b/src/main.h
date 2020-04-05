@@ -13,7 +13,7 @@ int main_Lab_2_3b() {
         trainsInMemory.push_back(train);
     }
 
-    Comparator::setField1(destination);
+    Comparator::setFields(destination, number);
     SortsMemoryTrains::mergeSort(Comparator::oneFieldCompare);
 
     for (int i = 0; i < n; ++i) {
