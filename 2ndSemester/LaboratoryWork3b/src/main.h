@@ -14,7 +14,7 @@ int main_Lab_2_3b() {
     }
 
     Comparator::setFields(destination, number);
-    SortsMemoryTrains::mergeSort(Comparator::oneFieldCompare);
+    SortsMemoryTrains::mergeSort(Comparator::twoFieldCompare);
 
     for (int i = 0; i < n; ++i) {
         cout << trainsInMemory[i].getInText() << endl;
