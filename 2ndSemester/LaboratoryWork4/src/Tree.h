@@ -49,16 +49,34 @@ public:
         if (posterity.empty()) {
             return;
         }
+
+        vector<int> blackList;
         for (int i = 0; i < posterity.size(); ++i) {
             if (posterity[i]->value == value) {
-                vector<Tree *> reservePosterity = posterity[i]->posterity;
-                posterity.erase(posterity.begin() + i);
-
-                for (int j = 0; j < reservePosterity.size(); ++j) {
-                    add(reservePosterity[j], p);
-                }
-                deleteNode(value, p);
+                blackList.push_back(i);
             }
+        }
+
+        vector<Tree *> blackPosterity;
+        for (int i = 0; i < blackList.size(); ++i) {
+            for (int j = 0; j < this->posterity[blackList[i]]->posterity.size(); ++j) {
+                blackPosterity.push_back(posterity[blackList[i]]->posterity[j]);
+            }
+        }
+
+        for (int i = blackList.size() - 1; i >= 0; --i) {
+            posterity.erase(posterity.begin() + blackList[i]);
+        }
+
+        for (int i = 0; i < blackPosterity.size(); ++i) {
+            add(blackPosterity[i], p);
+        }
+
+        if (!blackPosterity.empty()) {
+            deleteNode(value, p);
+        }
+
+        for (int i = 0; i < posterity.size(); ++i) {
             posterity[i]->deleteNode(value, p);
         }
     }
