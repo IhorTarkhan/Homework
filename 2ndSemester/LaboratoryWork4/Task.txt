@@ -22,7 +22,7 @@ Block 4 - binary trees (in all tasks also implement tree output, based on the co
   18. Implement a data structure to describe a binary tree. Implement the function to add items according to value
     (smaller values ​​left, all others right). Core.
 Block 5 - Binary Trees View
-   21. Build a binary tree in a straightforward view.
+  21. Build a binary tree in a straightforward view.
 
 /*
 Реалізувати наступні режими роботи для кожної задачі:

@@ -6,20 +6,25 @@
 using namespace std;
 
 class TreeNode {
-public:
+private:
     int value;
+public:
     vector<TreeNode *> posterity;
 
     explicit TreeNode(int value) {
         this->value = value;
     }
 
-    string outputUsingParentheses() {
+    int getValue() const {
+        return value;
+    }
+
+    string getOutputUsingParentheses() {
         string outputData = to_string(value);
         if (!posterity.empty()) {
             outputData += "(";
             for (int i = 0; i < posterity.size(); ++i) {
-                outputData += posterity[i]->outputUsingParentheses();
+                outputData += posterity[i]->getOutputUsingParentheses();
                 if (i != posterity.size() - 1) {
                     outputData += ", ";
                 }

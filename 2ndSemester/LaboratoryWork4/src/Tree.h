@@ -26,7 +26,7 @@ public:
     }
 
     string outputUsingParentheses() {
-        return root->outputUsingParentheses();
+        return root->getOutputUsingParentheses();
     }
 };
 
