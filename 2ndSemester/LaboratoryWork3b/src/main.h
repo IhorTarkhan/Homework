@@ -34,12 +34,5 @@ int main_Lab_2_3b() {
                 cout << "Incorrect option selected!" << endl;
         }
     }
-//    Comparator::setFields(destination, number);
-//    CompareSortsMemoryTrains::mergeSort(Comparator::twoFieldCompare);
-    NonCompareSortsMemoryTrains::radixSort();
-
-    for (int i = 0; i < n; ++i) {
-        cout << trainsInMemory[i].getInText() << endl;
-    }
     return 0;
 }

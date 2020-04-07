@@ -1,0 +1,50 @@
+Implement the following modes for each task:
+  1. Interactive dialog mode - when the user can choose which operations to perform and set the required parameters.
+  2. Demonstration mode - set fixed values ​​and sequences of operations that demonstrate the correct operation of data
+    structures and operations in different situations. The user does not have to enter anything in this mode.
+
+Options:
+Block 0
+  1. Implement a data structure to describe a tree with an arbitrary number of "children". Integer nodes store integers.
+    Core.
+Block 1 - Add Items to a Tree
+  4. Implement a function to add an element to an arbitrary tree. Passes the value of the new element and the
+    probability p. With probability p, a new element is added as a child of a given node, with probability 1-p added by
+    one procedure to one of the children of the given node (one of the children is selected with equal probability).
+    Core. Provides: ADD_PROC
+Block 2 - tree output
+  7. Implement the function for tree output using parentheses for children. Core.
+Block 3 - delete items
+  16. Implement a function to remove an element from an arbitrary tree. The element value is passed (if there are
+    several elements with this value - all nodes are deleted). Removed sub-tree elements are added to the tree using the
+    add procedure. Core. Requires: ADD_PROC.
+Block 4 - binary trees (in all tasks also implement tree output, based on the corresponding function from block 2)
+  18. Implement a data structure to describe a binary tree. Implement the function to add items according to value
+    (smaller values ​​left, all others right). Core.
+
+/*
+Реалізувати наступні режими роботи для кожної задачі:
+  1. Інтерактивний діалоговий режим – коли користувач може вибирати, які операції виконувати та задавати необхідні
+    параметри.
+  2. Демонстраційний режим – задаються фіксовані значення та послідовності виконання операцій, що демонструють
+    правильність роботи структур даних та операцій в різних ситуаціях. В цьому режимі користувач не має нічого вводити.
+
+Варіанти:
+Блок 0
+  1. Реалізувати структуру даних для опису дерева з довільною кількістю «дітей». У вузлах дерева зберігаються цілі
+    числа. Core.
+Блок 1 – додавання елементів до дерева
+  4. Реалізувати функцію для додавання елемента до довільного дерева. Передається значення нового елемента та
+    вірогідність p. З вірогідністю p новий елемент додається як дитина заданого вузла, з вірогідністю 1-p додається за
+    тою самою процедурою до одного з дітей даного вузла (один з дітей обирається з однаковою вірогідністю). Core.
+    Provides: ADD_PROC
+Блок 2 – вивід дерева
+  7. Реалізувати функцію для виводу дерева з використанням дужок для дітей. Core.
+Блок 3 – видалення елементів
+  16. Реалізувати функцію для видалення елементу з довільного дерева. Передається значення елементу (якщо є кілька
+    елементів з таким значенням – видаляються всі вузли). Елементи видалених під-дерев додаються в дерево,
+    використовуючи процедуру для додавання. Core. Requires: ADD_PROC.
+Блок 4 – бінарні дерева (у всіх завданнях реалізувати також вивід дерева, на основі відповідної функції з блоку 2)
+  18. Реалізувати структуру даних для опису бінарного дерева. Реалізувати функцію для додавання елементів відповідно до
+  значення (менші значення наліво, всі інші направо). Core.
+*/
