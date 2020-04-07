@@ -55,6 +55,27 @@ public:
         outputData += ")";
         return outputData;
     }
+
+    string consistentPresentation(int &serialNumber) {     /// Format of Presentation: ('value', 'rightIndex', 'isLeft')
+        ++serialNumber;
+        if (left == nullptr && right == nullptr) {
+            return "(" + to_string(value) + ", -1, 0)";
+        }
+        if (left == nullptr && right != nullptr) {
+            string rightText = "(" + to_string(value) + ", " + to_string(serialNumber) + ", 0)";
+            return rightText + right->consistentPresentation(serialNumber);
+        }
+        if (left != nullptr && right == nullptr) {
+            return "(" + to_string(value) + ", -1, 1)" +
+                   left->consistentPresentation(serialNumber);
+        }
+        if (left != nullptr && right != nullptr) {
+            string leftText = left->consistentPresentation(serialNumber);
+            string rightText = "(" + to_string(value) + ", " + to_string(serialNumber) + ", 1)" + leftText;
+            return rightText + right->consistentPresentation(serialNumber);
+        }
+        return "";
+    }
 };
 
 

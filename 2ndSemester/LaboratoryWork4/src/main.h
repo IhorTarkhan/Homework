@@ -36,9 +36,11 @@ int main_Lab_2_4() {
     cout << root->getOutputUsingParentheses() << endl;*/
 
     BinaryTree *root = new BinaryTree(5);
-    for (int i = 1; i < 20; ++i) {
+    for (int i = 1; i < 10; ++i) {
         root->add(new BinaryTree(rand() % 10));
     }
     cout << root->getOutputUsingParentheses() << endl;
+    int n = 0;
+    cout << root->consistentPresentation(n) << endl;
     return 0;
 }
