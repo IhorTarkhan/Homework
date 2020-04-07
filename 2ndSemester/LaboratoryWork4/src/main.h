@@ -1,9 +1,11 @@
 #include "iostream"
+#include "BinaryTree.h"
 #include "Tree.h"
 
 using namespace std;
 
 int main_Lab_2_4() {
+    /*
     Tree *root = new Tree(0);
     for (int i = 1; i < 20; ++i) {
         root->add(new Tree(i), 0.9999999);
@@ -31,6 +33,12 @@ int main_Lab_2_4() {
 
     cout << root->getOutputUsingParentheses() << endl;
     root->deleteNode(5, 0.99999999999);
+    cout << root->getOutputUsingParentheses() << endl;*/
+
+    BinaryTree *root = new BinaryTree(5);
+    for (int i = 1; i < 20; ++i) {
+        root->add(new BinaryTree(rand() % 10));
+    }
     cout << root->getOutputUsingParentheses() << endl;
     return 0;
 }
