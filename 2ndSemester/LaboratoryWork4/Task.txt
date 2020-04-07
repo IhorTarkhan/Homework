@@ -21,6 +21,8 @@ Block 3 - delete items
 Block 4 - binary trees (in all tasks also implement tree output, based on the corresponding function from block 2)
   18. Implement a data structure to describe a binary tree. Implement the function to add items according to value
     (smaller values ​​left, all others right). Core.
+Block 5 - Binary Trees View
+   21. Build a binary tree in a straightforward view.
 
 /*
 Реалізувати наступні режими роботи для кожної задачі:
@@ -47,4 +49,6 @@ Block 4 - binary trees (in all tasks also implement tree output, based on the co
 Блок 4 – бінарні дерева (у всіх завданнях реалізувати також вивід дерева, на основі відповідної функції з блоку 2)
   18. Реалізувати структуру даних для опису бінарного дерева. Реалізувати функцію для додавання елементів відповідно до
   значення (менші значення наліво, всі інші направо). Core.
+Блок 5 – подання бінарних дерев
+  21. Побудувати з бінарного дерева послідовне подання на основі прямого порядку.
 */
