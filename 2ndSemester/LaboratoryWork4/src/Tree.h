@@ -15,14 +15,13 @@ public:
         if (p < 0 || p > 1) {
             throw invalid_argument("Incorrect random value p.");
         }
+
         double randValue = ((double) rand() / RAND_MAX);
-        if (randValue <= p) {
+        if (randValue <= p || node->posterity.empty()) {
             node->posterity.push_back(new TreeNode(value));
         } else {
-            if (!node->posterity.empty()) {
-                int randomElementIndex = rand() % node->posterity.size();
-                add(node->posterity[randomElementIndex], value, p);
-            }
+            int randomElementIndex = rand() % node->posterity.size();
+            add(node->posterity[randomElementIndex], value, p);
         }
     }
 
