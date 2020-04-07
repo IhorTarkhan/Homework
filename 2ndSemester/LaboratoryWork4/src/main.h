@@ -1,46 +1,29 @@
-#include "iostream"
-#include "BinaryTree.h"
-#include "Tree.h"
-
-using namespace std;
+#include "Interface.h"
 
 int main_Lab_2_4() {
-    /*
-    Tree *root = new Tree(0);
-    for (int i = 1; i < 20; ++i) {
-        root->add(new Tree(i), 0.9999999);
+    Tree *root = new Tree(-1);
+    BinaryTree *binaryRoot = new BinaryTree(-1);
+    const string RedInConsole = "\u001B[31m";
+    const string BlueInConsole = "\u001B[34m";
+    const string PurpleInConsole = "\u001B[35m";
+    const string StandardConsole = "\u001B[0m";
+    while (true) {
+        cout << RedInConsole << "Menu:" << endl;
+        cout << BlueInConsole << "1" << StandardConsole << " - dialog." << endl;
+        cout << BlueInConsole << "2" << StandardConsole << " - demon;" << endl;
+        cout << PurpleInConsole << "Your choice: " << StandardConsole;
+        int choiceValue;
+        cin >> choiceValue;
+        switch (choiceValue) {
+            case 1:
+                Interface::dialog(root, binaryRoot);
+                break;
+            case 2:
+                Interface::demon();
+                break;
+            default:
+                cout << "Incorrect option selected!" << endl;
+        }
     }
-    Tree *tree5_1 = new Tree(5);
-    tree5_1->add(new Tree(6), 0.9999999);
-    tree5_1->add(new Tree(5), 0.9999999);
-    tree5_1->add(new Tree(7), 0.9999999);
-    tree5_1->add(new Tree(6), 0.9999999);
-    Tree *tree5_2 = new Tree(2);
-    Tree *tree5_3 = new Tree(2);
-    Tree *tree5_4 = new Tree(4);
-    Tree *tree5_5 = new Tree(6);
-    Tree *tree5_6 = new Tree(7);
-    Tree *tree5_7 = new Tree(8);
-    Tree *tree5_55 = new Tree(5);
-    root->add(tree5_1, 0.9999999);
-    root->add(tree5_2, 0.9999999);
-    root->add(tree5_3, 0.9999999);
-    root->add(tree5_4, 0.9999999);
-    root->add(tree5_5, 0.9999999);
-    root->add(tree5_6, 0.9999999);
-    root->add(tree5_7, 0.9999999);
-    root->add(tree5_55, 0.9999999);
-
-    cout << root->getOutputUsingParentheses() << endl;
-    root->deleteNode(5, 0.99999999999);
-    cout << root->getOutputUsingParentheses() << endl;*/
-
-    BinaryTree *root = new BinaryTree(5);
-    for (int i = 1; i < 10; ++i) {
-        root->add(new BinaryTree(rand() % 10));
-    }
-    cout << root->getOutputUsingParentheses() << endl;
-    int n = 0;
-    cout << root->consistentPresentation(n) << endl;
     return 0;
 }
