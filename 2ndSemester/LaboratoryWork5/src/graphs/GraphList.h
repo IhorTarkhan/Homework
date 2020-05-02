@@ -89,6 +89,38 @@ public:
         }
         return m;
     }
+
+    bool isConnectivity(vector<int> &checkedVertices) {
+        bool isLeftUnchecked = false;
+        for (int i = 0; i < checkedVertices.size(); ++i) {
+            if (checkedVertices[i] == 1) {
+                isLeftUnchecked = true;
+                for (int j = 0; j < matrix[i].size(); ++j) {
+                    if (checkedVertices[matrix[i][j].first] != 2) {
+                        checkedVertices[matrix[i][j].first] = 1;
+                    }
+                }
+                checkedVertices[i] = 2;
+            }
+        }
+
+        if (isLeftUnchecked) {
+            return isConnectivity(checkedVertices);
+        } else {
+            for (int i = 0; i < checkedVertices.size(); ++i) {
+                if (checkedVertices[i] == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    bool isConnectivity() {
+        vector<int> checkedVertices(matrix.size());
+        checkedVertices[0] = 1;
+        return isConnectivity(checkedVertices);
+    }
 };
 
 #endif

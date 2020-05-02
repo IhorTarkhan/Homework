@@ -1,8 +1,8 @@
 #ifndef HOMEWORK_CONVERTER_H
 #define HOMEWORK_CONVERTER_H
 
-#include "GraphMatrix.h"
-#include "GraphList.h"
+#include "graphs/GraphMatrix.h"
+#include "graphs/GraphList.h"
 
 class Converter {
 public:
