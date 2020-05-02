@@ -15,6 +15,10 @@ public:
         return matrix;
     }
 
+    bool getDirected() {
+        return isDirected;
+    }
+
     GraphList(int nVertices, bool isDirected) {
         if (nVertices < 0) throw invalid_argument("Incorrect number of vertex");
         matrix = vector<vector<pair<int, int>>>(nVertices);
@@ -25,6 +29,12 @@ public:
         if (v1 < 0) throw invalid_argument("Incorrect number of v1");
         if (v2 < 0) throw invalid_argument("Incorrect number of v1");
         if (value < 0) throw invalid_argument("Incorrect number of value");
+
+        for (int j = 0; j < matrix[v1 - 1].size(); ++j) {
+            if (matrix[v1 - 1][j].first == v2 - 1) {
+                return;
+            }
+        }
 
         matrix[v1 - 1].push_back(pair<int, int>(v2 - 1, value));
         if (v1 == v2) {

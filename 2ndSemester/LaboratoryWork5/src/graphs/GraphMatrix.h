@@ -15,6 +15,10 @@ public:
         return matrix;
     }
 
+    bool getDirected() {
+        return isDirected;
+    }
+
     GraphMatrix(int nVertices, bool isDirected) {
         if (nVertices < 0) throw invalid_argument("Incorrect number of vertex");
         matrix = vector<vector<int>>(nVertices, vector<int>(nVertices));
@@ -27,6 +31,9 @@ public:
         if (value < 0) throw invalid_argument("Incorrect number of value");
 
         matrix[v1 - 1][v2 - 1] = value;
+        if (v1 == v2) {
+            return;
+        }
         if (!isDirected) {
             matrix[v2 - 1][v1 - 1] = value;
         }

@@ -1,11 +1,12 @@
-#include "src/graphs/GraphMatrix.h"
-#include "src/graphs/GraphList.h"
+#include "src/graphs/Converter.h"
 
 int main_Lab_2_5() {
-    GraphMatrix g1 = GraphMatrix::createRandomNotDirectedNoWeighted(10, 20);
+    GraphList g1 = GraphList::createRandomNotDirectedNoWeighted(4, 5);
+//    GraphList g1(4, true);
+    g1.addEdge(4, 3);
     cout << g1.toString();
 
-    GraphList g2 = GraphList::createRandomNotDirectedNoWeighted(10, 20);
+    GraphMatrix g2 = Converter::toGraphMatrix(g1);
     cout << g2.toString();
 
     return 0;
