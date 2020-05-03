@@ -80,6 +80,7 @@ public:
         return m;
     }
 
+private:
     bool isConnectivity(vector<int> &checkedVertices) {
         bool isLeftUnchecked = false;
         for (int i = 0; i < checkedVertices.size(); ++i) {
@@ -106,10 +107,73 @@ public:
         }
     }
 
+public:
     bool isConnectivity() {
         vector<int> checkedVertices(matrix.size());
         checkedVertices[0] = 1;
         return isConnectivity(checkedVertices);
+    }
+
+private:
+    vector<int> crawlDeepByNumber(int vertex, vector<int> &checkedVertices, vector<int> &deepList) {
+        checkedVertices[vertex - 1] = 1;
+        deepList.push_back(vertex);
+        vector<pair<int, int>> connectedVerticesWithResponsibleWeights;
+        for (int i = 0; i < matrix.size(); ++i) {
+            if (matrix[vertex - 1][i] != 0) {
+                if (checkedVertices[i] == 0) {
+                    connectedVerticesWithResponsibleWeights.push_back(pair<int, int>(i + 1, matrix[vertex - 1][i]));
+                }
+            }
+        }
+        for (int i = 0; i < connectedVerticesWithResponsibleWeights.size(); ++i) {
+            if (checkedVertices[i] == 1) {
+                continue;
+            }
+            crawlDeepByNumber(connectedVerticesWithResponsibleWeights[i].first, checkedVertices, deepList);
+        }
+        return deepList;
+    }
+
+public:
+    vector<int> crawlDeepByNumber(int vertex) {
+        vector<int> checkedVertices(matrix.size());
+        vector<int> deepList;
+        return crawlDeepByNumber(vertex, checkedVertices, deepList);
+    }
+
+private:
+    static bool compareByWeights(pair<int, int> i1, pair<int, int> i2) {
+        return (i1.second < i2.second);
+    }
+
+    vector<int> crawlDeepByWeights(int vertex, vector<int> &checkedVertices, vector<int> &deepList) {
+        checkedVertices[vertex - 1] = 1;
+        deepList.push_back(vertex);
+        vector<pair<int, int>> connectedVerticesWithResponsibleWeights;
+        for (int i = 0; i < matrix.size(); ++i) {
+            if (matrix[vertex - 1][i] != 0) {
+                if (checkedVertices[i] == 0) {
+                    connectedVerticesWithResponsibleWeights.push_back(pair<int, int>(i + 1, matrix[vertex - 1][i]));
+                }
+            }
+        }
+        sort(connectedVerticesWithResponsibleWeights.begin(), connectedVerticesWithResponsibleWeights.end(),
+             compareByWeights);
+        for (int i = 0; i < connectedVerticesWithResponsibleWeights.size(); ++i) {
+            if (checkedVertices[i] == 1) {
+                continue;
+            }
+            crawlDeepByNumber(connectedVerticesWithResponsibleWeights[i].first, checkedVertices, deepList);
+        }
+        return deepList;
+    }
+
+public:
+    vector<int> crawlDeepByWeights(int vertex) {
+        vector<int> checkedVertices(matrix.size());
+        vector<int> deepList;
+        return crawlDeepByNumber(vertex, checkedVertices, deepList);
     }
 };
 
