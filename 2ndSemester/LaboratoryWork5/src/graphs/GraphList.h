@@ -181,6 +181,41 @@ public:
         vector<int> deepList;
         return crawlDeepByNumber(vertex, checkedVertices, deepList);
     }
+
+private:
+    void distanceFromToEvery(int vertex, vector<int> &checkedVertices, vector<int> &distances) {
+        checkedVertices[vertex - 1] = 1;
+
+        vector<int> neighboring;
+        for (int i = 0; i < matrix[vertex - 1].size(); ++i) {
+            if (checkedVertices[matrix[vertex - 1][i].first] == 0) {
+                neighboring.push_back(matrix[vertex - 1][i].first);
+            }
+            if (distances[matrix[vertex - 1][i].first] == -1) {
+                distances[matrix[vertex - 1][i].first] = distances[vertex - 1] + matrix[vertex - 1][i].second;
+            } else {
+                if (distances[matrix[vertex - 1][i].first] > distances[vertex - 1] + matrix[vertex - 1][i].second) {
+                    distances[matrix[vertex - 1][i].first] = distances[vertex - 1] + matrix[vertex - 1][i].second;
+                }
+            }
+        }
+        for (int i = 0; i < neighboring.size(); ++i) {
+            distanceFromToEvery(neighboring[i] + 1, checkedVertices, distances);
+        }
+
+    }
+
+public:
+    vector<int> distanceFromToEvery(int vertex) {
+        vector<int> checkedVertices(matrix.size());
+        checkedVertices[vertex - 1] = 1;
+
+        vector<int> distances(matrix.size(), -1);
+        distances[vertex - 1] = 0;
+
+        distanceFromToEvery(vertex, checkedVertices, distances);
+        return distances;
+    }
 };
 
 #endif
