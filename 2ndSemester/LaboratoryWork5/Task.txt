@@ -1,5 +1,39 @@
+The following operating modes for each task must be implemented:
+    1. Interactive dialog mode - when the user can choose which operations to perform and set the required parameters.
+    2. Demonstration mode - set fixed values ​​and sequences of operations that demonstrate the correct operation of
+data structures and operations in different situations. The user does not have to enter anything in this mode.
+    3. Automatic benchmark mode with measurements of memory used and speed of each algorithm for each graph
+representation.
 
+Tasks:
+    1. Implement the data structure of graphs based on adjacency matrix.
+    2. Implement a graph data structure based on adjacency structure.
+    5. Implement a graph connectivity check algorithm.
+    11. Implement the algorithm of bypassing the graph in depth (implement two versions of the algorithms - the
+neighbors of a given node are in the order of the number of vertices, and the neighbors are in the order of the smallest
+to the greatest weight of the corresponding edges).
+    14. Implement the Dijkstra algorithm (from a given vertex to all others).
+    17. Implement Kahn's algorithm.
+    19. Implement an algorithm for constructing a skeletal tree based on deep search.
+    21. Implement the algorithm for building a minimal skeletal tree (Kruskal).
 
 /*
+Необхідно реалізувати наступні режими роботи для кожної задачі:
+    1. Інтерактивний діалоговий режим – коли користувач може вибирати, які операції виконувати та задавати необхідні
+параметри.
+    2. Демонстраційний режим – задаються фіксовані значення та послідовності виконання операцій, що демонструють
+правильність роботи структур даних та операцій в різних ситуаціях. В цьому режимі користувач не має нічого вводити.
+    3. Автоматичний режим “benchmark” з вимірами використаної пам’яті та швидкості роботи кожного з алгоритмів для
+кожного подання графу.
 
+Завдання:
+    1. Реалізувати структуру даних граф на основі матриці суміжності.
+    2. Реалізувати структуру даних граф на основі структури суміжності.
+    5. Реалізувати алгоритм перевірки зв’язності графу.
+    11. Реалізувати алгоритм обходу графу в глибину (реалізувати дві версії алгоритмів – сусіди заданого вузла
+обходяться в порядку номерів вершин, та сусіди обходяться в порядку від найменшої до найбільшої ваги відповідних ребер).
+    14. Реалізувати алгоритм Дейкстри (від заданої вершини до всіх інших).
+    17. Реалізувати алгоритм Кана.
+    19. Реалізувати алгоритм побудови кістякового дерева на основі пошуку в глибину.
+    21. Реалізувати алгоритм побудови мінімального кістякового дерева (Kruskal).
 */

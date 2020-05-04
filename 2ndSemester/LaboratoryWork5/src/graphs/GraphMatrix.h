@@ -57,19 +57,19 @@ public:
         return toReturn;
     }
 
-    static GraphMatrix createRandomNotDirectedNoWeighted(int nVertices, int nEdge) {
+    static GraphMatrix *createRandomNotDirectedNoWeighted(int nVertices, int nEdge) {
         if (nEdge > (nVertices * (nVertices - 1)) / 2 + nVertices) throw invalid_argument("Incorrect number of edge");
         if (nEdge < 0) throw invalid_argument("Incorrect number of edge");
         if (nVertices < 0) throw invalid_argument("Incorrect number of vertex");
 
-        GraphMatrix m(nVertices, false);
+        GraphMatrix *m = new GraphMatrix(nVertices, false);
         for (int i = 0; i < nEdge; ++i) {
             int v1 = rand() % nVertices + 1;
             int v2 = rand() % nVertices + 1;
             bool endAdding = false;
             while (!endAdding) {
-                if (m.getMatrix()[v1 - 1][v2 - 1] == 0) {
-                    m.addEdge(v1, v2);
+                if (m->getMatrix()[v1 - 1][v2 - 1] == 0) {
+                    m->addEdge(v1, v2);
                     endAdding = true;
                 } else {
                     v1 = rand() % nVertices + 1;

@@ -1,4 +1,4 @@
-#include "Modes.h"
+#include "src/Modes.h"
 
 int getPositiveNFromConsole() {
     int n;

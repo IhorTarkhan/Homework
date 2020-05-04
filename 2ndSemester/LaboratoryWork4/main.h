@@ -1,4 +1,4 @@
-#include "Interface.h"
+#include "src/Interface.h"
 
 int main_Lab_2_4() {
     Tree *root = new Tree(-1);
