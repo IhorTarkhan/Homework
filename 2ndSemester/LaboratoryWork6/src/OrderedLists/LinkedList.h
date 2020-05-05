@@ -1,6 +1,8 @@
 #ifndef HOMEWORK_LINKEDLIST_H
 #define HOMEWORK_LINKEDLIST_H
 
+#include "OrderedListsVirtual.h"
+
 class LinkedListNode {
 public:
     DataStructure data;
@@ -16,7 +18,7 @@ public:
     }
 };
 
-class LinkedList {
+class LinkedList : public OrderedListsVirtual {
 private:
     LinkedListNode *head = nullptr;
 
