@@ -70,6 +70,8 @@ public:
     }
 
     void removeAll(DataStructure dataStructure) {
+        if (head == nullptr)
+            return;
         if (head->data.equals(dataStructure)) {
             head = head->next;
             removeAll(dataStructure);

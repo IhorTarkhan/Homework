@@ -296,217 +296,190 @@ public:
         const string YellowInConsole = "\u001B[33m";
         const string StandardConsole = "\u001B[30m";
 
-        GraphMatrix *graphMatrixDemo;
-        GraphList *graphListDemo;
-        vector<int> list;
+        AVL_Tree avlTree = AVL_Tree();
+        LinkedList linkedList = LinkedList();
+        NotBalancedBinaryTree binaryTree = NotBalancedBinaryTree();
+        Tree_2_3 tree23 = Tree_2_3();
+        VectorList vectorList = VectorList();
+        vector<DataStructure> list;
         string demoResult;
-/// -------------------------------------------------------------------------------------
-        demoResult += BlueInConsole + "MATRIX graph" + StandardConsole + "\n";
 
-        demoResult += "Creating new directed graph, with number of vertices = 5\n";
-        graphMatrixDemo = new GraphMatrix(5, true);
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
+        demoResult += "---------AVL Tree---------\n";
+        demoResult += "Add Position (10, 10, 10)\n";
+        avlTree.append(DataStructure(10, 10, 10));
+        demoResult += "Added!\n";
 
-        demoResult += "Output the graph:\n";
-        demoResult += graphMatrixDemo->toString();
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
+        demoResult += "Printing:\n";
+        demoResult += avlTree.toString();
 
-        demoResult += "Adding new edges:\n"
-                      "(1 -> 2)\n"
-                      "(1 -> 3)\n"
-                      "(2 -> 3)\n"
-                      "(4 -> 5)\n";
-        graphMatrixDemo->addEdge(1, 2);
-        graphMatrixDemo->addEdge(1, 3);
-        graphMatrixDemo->addEdge(2, 3);
-        graphMatrixDemo->addEdge(4, 5);
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Output the graph:\n";
-        demoResult += graphMatrixDemo->toString();
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Is graph connectivity? - ";
-        if (graphMatrixDemo->isConnectivity()) {
-            demoResult += YellowInConsole + "YES" + StandardConsole + "\n";
-        } else {
-            demoResult += YellowInConsole + "NO" + StandardConsole + "\n";
+        demoResult += "Searching Position (10, 10, 10):\n";
+        list = avlTree.search(DataStructure(10, 10, 10));
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
         }
 
-        demoResult += "Crawl deep by number from vertex 1\n";
-        list = graphMatrixDemo->crawlDeepByNumber(1);
-        for (int i = 0; i < graphMatrixDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
+        demoResult += "Removing Position (10, 10, 10)\n";
+        avlTree.removeAll(DataStructure(10, 10, 10));
+        demoResult += "Removed!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += avlTree.toString();
+
+        demoResult += "Rewrite on random List (size = 10)\n";
+        avlTree = AVL_Tree::createRandomListWithSize(10);
+        demoResult += "Done!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += avlTree.toString();
+
+        demoResult += "Searching Position between distance to (0, 0, 0): 40 - 100 :\n";
+        list = avlTree.search(100, 40);
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
         }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Crawl deep by weight from vertex 1\n";
-        list = graphMatrixDemo->crawlDeepByWeights(1);
-        for (int i = 0; i < graphMatrixDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
-        }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Get distance from vertex 1 to every vertex\n";
-        list = graphMatrixDemo->distanceFromToEvery(1);
-        for (int i = 0; i < graphMatrixDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(i + 1) + "\t-\t" + to_string(list[i]) + "\n";
-        }
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult +=
-                "Creating new random not-directed graph, with number of vertices = 5, number of vertices = 12\n";
-        graphMatrixDemo = GraphMatrix::createRandomNotDirectedNoWeighted(5, 12);
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Output the graph:\n";
-        demoResult += graphMatrixDemo->toString();
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Is graph connectivity? - ";
-        if (graphMatrixDemo->isConnectivity()) {
-            demoResult += YellowInConsole + "YES" + StandardConsole + "\n";
-        } else {
-            demoResult += YellowInConsole + "NO" + StandardConsole + "\n";
-        }
-
-        demoResult += "Crawl deep by number from vertex 1\n";
-        list = graphMatrixDemo->crawlDeepByNumber(1);
-        for (int i = 0; i < graphMatrixDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
-        }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Crawl deep by weight from vertex 1\n";
-        list = graphMatrixDemo->crawlDeepByWeights(1);
-        for (int i = 0; i < graphMatrixDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
-        }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Get distance from vertex 1 to every vertex\n";
-        list = graphMatrixDemo->distanceFromToEvery(1);
-        for (int i = 0; i < graphMatrixDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(i + 1) + "\t-\t" + to_string(list[i]) + "\n";
-        }
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-/// -------------------------------------------------------------------------------------
-        demoResult += BlueInConsole + "LIST graph" + StandardConsole + "\n";
-
-        demoResult += "Creating new directed graph, with number of vertices = 5\n";
-        graphListDemo = new GraphList(5, true);
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Output the graph:\n";
-        demoResult += graphListDemo->toString();
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Adding new edges:\n"
-                      "(1 -> 2)\n"
-                      "(1 -> 3)\n"
-                      "(2 -> 3)\n"
-                      "(4 -> 5)\n";
-        graphListDemo->addEdge(1, 2);
-        graphListDemo->addEdge(1, 3);
-        graphListDemo->addEdge(2, 3);
-        graphListDemo->addEdge(4, 5);
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Output the graph:\n";
-        demoResult += graphListDemo->toString();
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Is graph connectivity? - ";
-        if (graphListDemo->isConnectivity()) {
-            demoResult += YellowInConsole + "YES" + StandardConsole + "\n";
-        } else {
-            demoResult += YellowInConsole + "NO" + StandardConsole + "\n";
-        }
-
-        demoResult += "Crawl deep by number from vertex 1\n";
-        list = graphListDemo->crawlDeepByNumber(1);
-        for (int i = 0; i < graphListDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
-        }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Crawl deep by weight from vertex 1\n";
-        list = graphListDemo->crawlDeepByWeights(1);
-        for (int i = 0; i < graphListDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
-        }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Get distance from vertex 1 to every vertex\n";
-        list = graphListDemo->distanceFromToEvery(1);
-        for (int i = 0; i < graphListDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(i + 1) + "\t-\t" + to_string(list[i]) + "\n";
-        }
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult +=
-                "Creating new random not-directed graph, with number of vertices = 5, number of vertices = 12\n";
-        graphListDemo = GraphList::createRandomNotDirectedNoWeighted(5, 12);
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Output the graph:\n";
-        demoResult += graphListDemo->toString();
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Is graph connectivity? - ";
-        if (graphListDemo->isConnectivity()) {
-            demoResult += YellowInConsole + "YES" + StandardConsole + "\n";
-        } else {
-            demoResult += YellowInConsole + "NO" + StandardConsole + "\n";
-        }
-
-        demoResult += "Crawl deep by number from vertex 1\n";
-        list = graphListDemo->crawlDeepByNumber(1);
-        for (int i = 0; i < graphListDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
-        }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Crawl deep by weight from vertex 1\n";
-        list = graphListDemo->crawlDeepByWeights(1);
-        for (int i = 0; i < graphListDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(list[i]) + " ";
-        }
-        demoResult += "\n" + YellowInConsole + "Done" + StandardConsole + "\n";
-
-        demoResult += "Get distance from vertex 1 to every vertex\n";
-        list = graphListDemo->distanceFromToEvery(1);
-        for (int i = 0; i < graphListDemo->getMatrix().size(); ++i) {
-            demoResult += to_string(i + 1) + "\t-\t" + to_string(list[i]) + "\n";
-        }
-        demoResult += YellowInConsole + "Done" + StandardConsole + "\n";
-
-/// -------------------------------------------------------------------------------------
-        demoResult += BlueInConsole + "CONVERTER" + StandardConsole + "\n";
-
-        demoResult += "Output the LIST graph:\n";
-        demoResult += graphListDemo->toString();
-
-        demoResult += "Convert LIST graph in MATRIX graph\n";
-        graphMatrixDemo = Converter::toGraphMatrix(graphListDemo);
-
-        demoResult += "Output the MATRIX graph:\n";
-        demoResult += graphMatrixDemo->toString();
-
-        demoResult += "Convert MATRIX graph in LIST graph\n";
-        graphListDemo = Converter::toGraphList(graphMatrixDemo);
-
-        demoResult += "Output the LIST graph:\n";
-        demoResult += graphListDemo->toString();
-
-        demoResult += "Convert LIST graph in MATRIX graph\n";
-        graphMatrixDemo = Converter::toGraphMatrix(graphListDemo);
-
-        demoResult += "Output the MATRIX graph:\n";
-        demoResult += graphMatrixDemo->toString();
-
         demoResult += "\n";
+
+        demoResult += "---------Linked List---------\n";
+        demoResult += "Add Position (10, 10, 10)\n";
+        linkedList.append(DataStructure(10, 10, 10));
+        demoResult += "Added!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += linkedList.toString();
+
+        demoResult += "Searching Position (10, 10, 10):\n";
+        list = linkedList.search(DataStructure(10, 10, 10));
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+
+        demoResult += "Removing Position (10, 10, 10)\n";
+        linkedList.removeAll(DataStructure(10, 10, 10));
+        demoResult += "Removed!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += linkedList.toString();
+
+        demoResult += "Rewrite on random List (size = 10)\n";
+        linkedList = LinkedList::createRandomListWithSize(10);
+        demoResult += "Done!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += linkedList.toString();
+
+        demoResult += "Searching Position between distance to (0, 0, 0): 40 - 100 :\n";
+        list = linkedList.search(100, 40);
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+        demoResult += "\n";
+
+        demoResult += "---------Binary Tree---------\n";
+        demoResult += "Add Position (10, 10, 10)\n";
+        binaryTree.append(DataStructure(10, 10, 10));
+        demoResult += "Added!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += binaryTree.toString();
+
+        demoResult += "Searching Position (10, 10, 10):\n";
+        list = binaryTree.search(DataStructure(10, 10, 10));
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+
+        demoResult += "Removing Position (10, 10, 10)\n";
+        binaryTree.removeAll(DataStructure(10, 10, 10));
+        demoResult += "Removed!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += binaryTree.toString();
+
+        demoResult += "Rewrite on random List (size = 10)\n";
+        binaryTree = NotBalancedBinaryTree::createRandomListWithSize(10);
+        demoResult += "Done!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += binaryTree.toString();
+
+        demoResult += "Searching Position between distance to (0, 0, 0): 40 - 100 :\n";
+        list = binaryTree.search(100, 40);
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+        demoResult += "\n";
+
+        demoResult += "-------- 2-3 Tree --------\n";
+        demoResult += "Add Position (10, 10, 10)\n";
+        tree23.append(DataStructure(10, 10, 10));
+        demoResult += "Added!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += tree23.toString();
+
+        demoResult += "Searching Position (10, 10, 10):\n";
+        list = tree23.search(DataStructure(10, 10, 10));
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+
+        demoResult += "Removing Position (10, 10, 10)\n";
+        tree23.removeAll(DataStructure(10, 10, 10));
+        demoResult += "Removed!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += tree23.toString();
+
+        demoResult += "Rewrite on random List (size = 10)\n";
+        tree23 = Tree_2_3::createRandomListWithSize(10);
+        demoResult += "Done!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += tree23.toString();
+
+        demoResult += "Searching Position between distance to (0, 0, 0): 40 - 100 :\n";
+        list = tree23.search(100, 40);
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+        demoResult += "\n";
+
+        demoResult += "---------AVL Tree---------\n";
+        demoResult += "Add Position (10, 10, 10)\n";
+        vectorList.append(DataStructure(10, 10, 10));
+        demoResult += "Added!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += vectorList.toString();
+
+        demoResult += "Searching Position (10, 10, 10):\n";
+        list = vectorList.search(DataStructure(10, 10, 10));
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+
+        demoResult += "Removing Position (10, 10, 10)\n";
+        vectorList.removeAll(DataStructure(10, 10, 10));
+        demoResult += "Removed!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += vectorList.toString();
+
+        demoResult += "Rewrite on random List (size = 10)\n";
+        vectorList = VectorList::createRandomListWithSize(10);
+        demoResult += "Done!\n";
+
+        demoResult += "Printing:\n";
+        demoResult += vectorList.toString();
+
+        demoResult += "Searching Position between distance to (0, 0, 0): 40 - 100 :\n";
+        list = vectorList.search(100, 40);
+        for (int i = 0; i < list.size(); ++i) {
+            demoResult += list[i].toString() + "\n";
+        }
+        demoResult += "\n";
+
+
         return demoResult;
     }
 
