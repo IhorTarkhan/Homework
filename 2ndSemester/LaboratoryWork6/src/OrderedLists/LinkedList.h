@@ -54,7 +54,7 @@ public:
         string toReturn;
         LinkedListNode *iterationNode = head;
         while (iterationNode != nullptr) {
-            toReturn += to_string(iterationNode->data.getValue()) + " = " + iterationNode->data.toString();
+            toReturn += iterationNode->data.toString();
             toReturn += "\n";
             iterationNode = iterationNode->next;
         }

@@ -1,6 +1,8 @@
 #ifndef HOMEWORK_VECTORLIST_H
 #define HOMEWORK_VECTORLIST_H
 
+#include "OrderedListsVirtual.h"
+
 class VectorList : public OrderedListsVirtual {
 private:
     vector<DataStructure> base;

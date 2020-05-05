@@ -1,6 +1,8 @@
 #ifndef HOMEWORK_ORDEREDLISTSVIRTUAL_H
 #define HOMEWORK_ORDEREDLISTSVIRTUAL_H
 
+#include "../DataStructure.h"
+
 class OrderedListsVirtual {
     virtual void append(DataStructure dataStructure) = 0;
 

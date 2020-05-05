@@ -20,7 +20,7 @@ public:
     }
 
     string toString() {
-        return "(" + to_string(x) + ", " + to_string(y) + ", " + to_string(z) + ")";
+        return to_string(getValue()) + " = (" + to_string(x) + ", " + to_string(y) + ", " + to_string(z) + ")";
     }
 
     static DataStructure createRandomPosition() {

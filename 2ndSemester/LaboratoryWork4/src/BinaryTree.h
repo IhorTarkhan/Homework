@@ -13,7 +13,7 @@ public:
     BinaryTree *left;
     BinaryTree *right;
 
-    explicit BinaryTree(int value) {
+    BinaryTree(int value) {
         this->value = value;
         left = nullptr;
         right = nullptr;
