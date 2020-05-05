@@ -1,0 +1,42 @@
+Implement the data structure "ordered list" based on:
+  1. Linked List
+  2. Array List
+  3. Binary search tree (without balancing)
+  4. AVL trees
+  5. 2-3 trees
+
+Implement operations: create an empty list, add an element, delete an element, search for elements by value and range of
+values, display elements in the correct order, perform certain actions on all elements in the correct order. Also
+implement filling the list with a given number of random items.
+
+It is necessary to implement the following modes of operation:
+  1. Interactive dialog mode - when the user can choose which operations to perform and set the required parameters.
+  2. Demonstration mode - set fixed values ​​and sequences of operations that demonstrate the correct operation of data
+structures and operations in different situations. The user does not have to enter anything in this mode.
+  3. Automatic “benchmark” mode with measurements of used memory and speed of each implementation.
+
+Data type:
+  7. Coordinates of points in three-dimensional space (valid), first by the distance from the origin, by ascending
+
+/*
+Реалізувати структуру даних «впорядкований список» на основі:
+  1. Зв’язного списку (Linked List)
+  2. Списку на основі масиву (Array List)
+  3. Бінарного дерева пошуку (без балансування)
+  4. АВЛ-дерева
+  5. 2-3 дерева
+
+Реалізувати операції: створення пустого списку, додавання елементу, вилучення елементу, пошук елементів за значенням та
+за діапазоном значень, вивід елементів у правильному порядку, виконання певних дій над усіма елементами в правильному
+порядку. Також реалізувати заповнення списку заданою кількістю випадкових елементів.
+
+Необхідно реалізувати наступні режими роботи:
+  1. Інтерактивний діалоговий режим – коли користувач може вибирати, які операції виконувати та задавати необхідні
+параметри.
+  2. Демонстраційний режим – задаються фіксовані значення та послідовності виконання операцій, що демонструють
+правильність роботи структур даних та операцій в різних ситуаціях. В цьому режимі користувач не має нічого вводити.
+  3. Автоматичний режим “benchmark” з вимірами використаної пам’яті та швидкості роботи кожної з реалізацій.
+
+Тип данних:
+  7. Координати точок в тривимірному просторі (дійсні), спершу за відстанню від початку координат, за зростанням
+*/
