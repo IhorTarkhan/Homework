@@ -13,6 +13,18 @@ public:
 //    virtual int getIndexWhereCondition(bool (*condition)(T)) = 0;
 //
     virtual int size() = 0;
+
+    std::string toString(std::string (*toStringType)(T)) {
+        std::string result = "[";
+        for (int i = 0; i < size(); ++i) {
+            result += toStringType(get(i)) + ", ";
+        }
+        if (size() != 0) {
+            result = result.substr(0, result.size() - 2);
+        }
+        result += "]";
+        return result;
+    };
 };
 
 #endif

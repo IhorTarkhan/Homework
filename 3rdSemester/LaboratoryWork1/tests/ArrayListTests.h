@@ -45,12 +45,23 @@ TEST(ArryList, getByIndexTest) {
         ASSERT_EQ(i, list->get(i));
     }
 }
+
 TEST(ArryList, getByNotExistingIndexTest) {
     List<int> *list = new ArrayList<int>(compareInt);
     ASSERT_THROW(list->get(100), std::exception);
+    ASSERT_THROW(list->get(0), std::exception);
+    ASSERT_THROW(list->get(-1), std::exception);
 }
 
-TEST(SuiteName, TestName2) {
-    ASSERT_NE(0, -10);
-    std::cout << 2;
+std::string toStringInt(int i) {
+    return std::to_string(i);
+}
+
+TEST(ArryList, toStringTest) {
+    List<int> *list = new ArrayList<int>(compareInt);
+    ASSERT_EQ("[]", list->toString(toStringInt));
+    list->add(1);
+    ASSERT_EQ("[1]", list->toString(toStringInt));
+    list->add(2);
+    ASSERT_EQ("[1, 2]", list->toString(toStringInt));
 }

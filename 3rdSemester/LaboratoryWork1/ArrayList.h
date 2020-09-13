@@ -4,7 +4,7 @@
 template<class T>
 class ArrayList : public List<T> {
 private:
-    int (*comparator)(T, T);
+    int (*isEquals)(T, T);
 
     int maxSize = 16;
     T *array = new T[maxSize];
@@ -18,10 +18,10 @@ private:
         }
         array = newArray;
     };
-public:
 
-    ArrayList(int (*comparator)(T, T)) {
-        this->comparator = comparator;
+public:
+    ArrayList(int (*isEquals)(T, T)) {
+        this->isEquals = isEquals;
     }
 
     void add(T t) {
@@ -44,10 +44,7 @@ public:
 //    virtual int getIndex(T t) = 0;
 //
 //    virtual int getIndexWhereCondition(bool (*condition)(T)) = 0;
-//
-//    void compareTwo(T t1, T t2) {
-//        std::cout << comparator(t1, t2);
-//    }
+
     int size() {
         return actualSize;
     }
