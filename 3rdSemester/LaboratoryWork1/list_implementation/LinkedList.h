@@ -1,8 +1,10 @@
-#ifndef HOMEWORK_ARRAYLIST_H
-#define HOMEWORK_ARRAYLIST_H
+#ifndef HOMEWORK_LOINKEDLIST_H
+#define HOMEWORK_LOINKEDLIST_H
+
+#include "../List.h"
 
 template<class T>
-class ArrayList : public List<T> {
+class LinkedList : public List<T> {
 private:
     int maxSize = 16;
     T *array = new T[maxSize];
