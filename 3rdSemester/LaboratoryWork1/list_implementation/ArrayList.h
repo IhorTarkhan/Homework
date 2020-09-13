@@ -47,7 +47,7 @@ public:
             }
         }
         throw std::exception();
-    };
+    }
 };
 
 #endif

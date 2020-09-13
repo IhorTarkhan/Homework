@@ -58,7 +58,7 @@ public:
             ++index;
         }
         throw std::exception();
-    };
+    }
 };
 
 #endif
