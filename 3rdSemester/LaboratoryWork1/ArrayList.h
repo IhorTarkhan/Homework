@@ -32,9 +32,16 @@ public:
         ++actualSize;
     }
 
-//    virtual int getIndex(T t) = 0;
+    T get(int index) {
+        if (index >= actualSize || index < 0) {
+            throw std::exception();
+        } else {
+            return array[index];
+        }
+    }
+
 //
-//    virtual T get(int index) = 0;
+//    virtual int getIndex(T t) = 0;
 //
 //    virtual int getIndexWhereCondition(bool (*condition)(T)) = 0;
 //

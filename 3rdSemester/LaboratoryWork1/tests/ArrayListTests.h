@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <limits.h>
+#include <climits>
 
 #include "../List.h"
 #include "../ArrayList.h"
@@ -32,10 +32,22 @@ TEST(ArryList, sizeTest) {
 
 TEST(ArryList, addWithResizeTest) {
     List<int> *list = new ArrayList<int>(compareInt);
-    for (int i = 1; i < 30; ++i) {
+    for (int i = 1; i < 50; ++i) {
         list->add(i);
         ASSERT_EQ(i, list->size());
     }
+}
+
+TEST(ArryList, getByIndexTest) {
+    List<int> *list = new ArrayList<int>(compareInt);
+    for (int i = 0; i < 10; ++i) {
+        list->add(i);
+        ASSERT_EQ(i, list->get(i));
+    }
+}
+TEST(ArryList, getByNotExistingIndexTest) {
+    List<int> *list = new ArrayList<int>(compareInt);
+    ASSERT_THROW(list->get(100), std::exception);
 }
 
 TEST(SuiteName, TestName2) {
