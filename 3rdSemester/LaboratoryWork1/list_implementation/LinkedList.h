@@ -6,18 +6,16 @@
 template<class T>
 class LinkedList : public List<T> {
 private:
-    int maxSize = 16;
-    T *array = new T[maxSize];
-    int actualSize = 0;
+    class Node {
+    public:
+        T value;
+        Node *next = nullptr;
 
-    void resize() {
-        maxSize *= 1.5;
-        T *newArray = new T[maxSize];
-        for (int i = 0; i < actualSize; ++i) {
-            newArray[i] = array[i];
-        }
-        array = newArray;
+        Node(T value) : value(value) {}
     };
+
+    Node *head = nullptr;
+    int actualSize = 0;
 
 public:
     int size() {
@@ -25,26 +23,39 @@ public:
     }
 
     void add(T t) {
-        if (maxSize <= actualSize) {
-            resize();
+        if (head == nullptr) {
+            head = new Node(t);
+        } else {
+            Node *nextNode = head;
+            while (nextNode->next != nullptr) {
+                nextNode = nextNode->next;
+            }
+            nextNode->next = new Node(t);
         }
-        array[actualSize] = t;
         ++actualSize;
     }
 
     T get(int index) {
         if (index >= actualSize || index < 0) {
             throw std::exception();
-        } else {
-            return array[index];
         }
+        Node *nextNode = head;
+        while (index > 0) {
+            nextNode = nextNode->next;
+            --index;
+        }
+        return nextNode->value;
     }
 
     int getIndexWhereCondition(bool (*condition)(T)) {
-        for (int i = 0; i < actualSize; ++i) {
-            if (condition(array[i])) {
-                return i;
+        int index = 0;
+        Node *nextNode = head;
+        while (nextNode != nullptr) {
+            if (condition(nextNode->value)) {
+                return index;
             }
+            nextNode = nextNode->next;
+            ++index;
         }
         throw std::exception();
     };

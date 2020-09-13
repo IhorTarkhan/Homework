@@ -25,14 +25,6 @@ TEST(LinkedList, sizeTest) {
     }
 }
 
-TEST(LinkedList, addWithResizeTest) {
-    List<int> *list = new LinkedList<int>();
-    for (int i = 1; i < 100; ++i) {
-        list->add(i);
-        ASSERT_EQ(i, list->size());
-    }
-}
-
 TEST(LinkedList, getByIndexTest) {
     List<int> *list = new LinkedList<int>();
     for (int i = 0; i < 10; ++i) {
