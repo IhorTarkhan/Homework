@@ -1,7 +1,17 @@
 #include <gtest/gtest.h>
 #include <climits>
 
+/**
+ * First of first include implementation which you wont to use,
+ * in this case it is {@code class ArrayList : List {...}}
+ */
 #include "../list_implementation/VectorList.h"
+
+/**
+ * Also include external functions for yout data type (in example it is int)
+ * to check object condition and convert it in text format
+ */
+#include "../data/Int.h"
 
 TEST(VectorList, sizeZeroTest) {
     List<int> *list = new VectorList<int>();
@@ -45,9 +55,9 @@ TEST(VectorList, getByNotExistingIndexTest) {
 TEST(VectorList, getIndexWhereConditionTest) {
     List<int> *list = new VectorList<int>();
     list->add(1);
-    ASSERT_THROW(list->getIndexWhereCondition(equalsFive), std::exception);
+    ASSERT_THROW(list->getIndexWhereCondition(isCondition), std::exception);
     list->add(5);
-    ASSERT_EQ(1, list->getIndexWhereCondition(equalsFive));
+    ASSERT_EQ(1, list->getIndexWhereCondition(isCondition));
 }
 
 TEST(VectorList, toStringTest) {
