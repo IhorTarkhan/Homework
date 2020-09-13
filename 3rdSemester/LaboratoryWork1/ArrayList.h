@@ -4,8 +4,6 @@
 template<class T>
 class ArrayList : public List<T> {
 private:
-    int (*isEquals)(T, T);
-
     int maxSize = 16;
     T *array = new T[maxSize];
     int actualSize = 0;
@@ -20,8 +18,8 @@ private:
     };
 
 public:
-    ArrayList(int (*isEquals)(T, T)) {
-        this->isEquals = isEquals;
+    int size() {
+        return actualSize;
     }
 
     void add(T t) {
@@ -40,14 +38,14 @@ public:
         }
     }
 
-//
-//    virtual int getIndex(T t) = 0;
-//
-//    virtual int getIndexWhereCondition(bool (*condition)(T)) = 0;
-
-    int size() {
-        return actualSize;
-    }
+    int getIndexWhereCondition(bool (*condition)(T)) {
+        for (int i = 0; i < actualSize; ++i) {
+            if (condition(array[i])) {
+                return i;
+            }
+        }
+        throw std::exception();
+    };
 };
 
 #endif
