@@ -1,4 +1,5 @@
 #include <iostream>
+#include "data/Figure.h"
 
 using namespace std;
 

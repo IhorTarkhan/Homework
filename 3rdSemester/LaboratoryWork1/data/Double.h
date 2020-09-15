@@ -15,7 +15,7 @@ double number = 1;
  * @return bool if element corresponds to the value
  */
 bool isCondition(double element) {
-    return element == 5.;
+    return element - 5.1 < 0.01;
 }
 
 /**

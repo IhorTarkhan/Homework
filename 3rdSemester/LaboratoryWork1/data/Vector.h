@@ -18,7 +18,8 @@ std::vector<int> list;
  * now as example checking only vector's size
  * {@code isCondition()}
  * @param element is int which checked
- * @return bool if int corresponds to the value
+ * @return bool if vector corresponds to the value
+ * in this case is vector size equal 5
  */
 bool isCondition(std::vector<int> element) {
     return element.size() == 5;
@@ -40,6 +41,6 @@ std::string toString(std::vector<int> element) {
     }
     result += "]";
     return result;
-};
+}
 
 #endif
