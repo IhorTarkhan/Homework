@@ -2,7 +2,33 @@
 #define HOMEWORK_LIST_H
 
 template<class T>
+class Iterator {
+    virtual bool hasNext() = 0;
+
+    virtual T next() = 0;
+};
+
+template<class T>
 class List {
+private:
+    class Itr : public Iterator<T> {
+    private:
+        int currentPosition = -1;
+        List<T> *thisList;
+
+        Itr(List<T> *thisList) : thisList(thisList) {}
+
+    public:
+        T next() {
+            ++currentPosition;
+            return thisList->get(currentPosition);
+        }
+
+        bool hasNext() {
+            return currentPosition + 1 > thisList->size();
+        }
+    };
+
 public:
     virtual int size() = 0;
 
@@ -23,6 +49,16 @@ public:
         result += "]";
         return result;
     };
+
+    void foreach(void (*lambda)(T)) {
+        for (int i = 0; i < size(); ++i) {
+            lambda(get(i));
+        }
+    }
+
+    Iterator<T> iterator() {
+        return Itr(this);
+    }
 };
 
 #endif
